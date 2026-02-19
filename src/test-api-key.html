@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAL API Key Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #0066ff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    button:hover {
+      background: #0052cc;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .result {
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    .success {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+    .error {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+    }
+    .loading {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      color: #856404;
+    }
+    .info {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      color: #0c5460;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 FAL API Key Configuration Check</h1>
+    <p>Click the button below to check if your FAL_API_KEY is properly configured in Supabase.</p>
+    
+    <button onclick="checkApiKey()" id="checkBtn">Check API Key Configuration</button>
+    
+    <div id="result"></div>
+    
+    <div class="info">
+      <strong>ℹ️ How to fix if not configured:</strong><br><br>
+      1. Go to: <a href="https://supabase.com/dashboard/project/idusbiekeyganoy3/settings/functions" target="_blank">Supabase Dashboard</a><br>
+      2. Click: Settings → Edge Functions<br>
+      3. Add secret: <code>FAL_API_KEY</code><br>
+      4. Redeploy: <code>supabase functions deploy make-server-1ddb0231</code>
+    </div>
+  </div>
+
+  <script>
+    async function checkApiKey() {
+      const resultDiv = document.getElementById('result');
+      const btn = document.getElementById('checkBtn');
+      
+      btn.disabled = true;
+      resultDiv.className = 'result loading';
+      resultDiv.textContent = '🔄 Checking API key configuration...';
+      
+      try {
+        const response = await fetch('https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-1ddb0231/check-api-key');
+        const data = await response.json();
+        
+        if (data.configured) {
+          resultDiv.className = 'result success';
+          resultDiv.textContent = `✅ SUCCESS!\n\n${data.message}\n\nKey Length: ${data.keyLength} characters\nKey Prefix: ${data.keyPrefix}\n\n🎉 Your FAL_API_KEY is properly configured!\nVideo generation should work now.`;
+        } else {
+          resultDiv.className = 'result error';
+          resultDiv.textContent = `❌ NOT CONFIGURED\n\n${data.error}\n\n${data.message}\n\nPlease follow the instructions below to add your FAL_API_KEY.`;
+        }
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.textContent = `❌ ERROR\n\nFailed to check API key: ${error.message}\n\nMake sure:\n1. Edge function is deployed\n2. You have internet connection\n3. Supabase project is active`;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+    
+    // Auto-check on page load
+    window.addEventListener('load', () => {
+      setTimeout(checkApiKey, 500);
+    });
+  </script>
+</body>
+</html>

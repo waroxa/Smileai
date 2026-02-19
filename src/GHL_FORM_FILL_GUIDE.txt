@@ -1,0 +1,253 @@
+═══════════════════════════════════════════════════════════════════════════════
+  GOHIGHLEVEL MARKETPLACE SUBMISSION - COPY & PASTE GUIDE
+═══════════════════════════════════════════════════════════════════════════════
+
+📋 FILL IN THE FORM WITH THIS INFORMATION:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. SUPPORT DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Support Email:
+support@smilevisionpro.ai
+
+Documentation URL:
+https://YOUR-DEPLOYED-APP.com/setup-guide.html
+
+Support Website URL:
+https://YOUR-DEPLOYED-APP.com/support.html
+
+Support Phone Number: (OPTIONAL - Leave blank or add your number)
++1 (555) 000-0000
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.5 GETTING STARTED GUIDE (If asked in the form)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Getting Started Page URL:
+https://YOUR-DEPLOYED-APP.com/getting-started.html
+
+(This page will be displayed in an iframe to help new users get set up quickly)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. BASIC INFO PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+App Name:
+SmileVisionPro AI
+
+Category:
+Healthcare / Lead Generation
+
+Short Description:
+AI-powered smile transformation tool that captures leads, generates before/after images, and creates animated smile videos. Automatically syncs all data to your GHL contacts with video URLs.
+
+Long Description:
+SmileVisionPro AI is a complete lead generation and conversion tool designed specifically for dental practices.
+
+Transform your practice with AI-powered smile visualizations that convert prospects into patients!
+
+🦷 Key Features:
+✅ Beautiful landing page with professional lead capture form
+✅ AI-powered smile transformations using advanced image processing
+✅ Animated smile video generation for stunning presentations
+✅ Automatic contact creation in GoHighLevel CRM
+✅ Before/after images saved to custom fields
+✅ Video URLs automatically saved to contacts for easy access
+✅ Auto-tagging and status tracking for workflow automation
+✅ Social proof notifications to boost conversions
+✅ Staff dashboard for managing all leads in one place
+✅ Fully customizable branding (logo, colors, clinic name)
+
+📊 Perfect For:
+• General Dentists
+• Cosmetic Dentistry Practices
+• Orthodontists
+• Dental Marketing Agencies
+• Multi-location Dental Groups
+
+🎯 How It Works:
+1. Patient visits your landing page and fills out the form
+2. Contact automatically created in GHL with all details
+3. Patient uploads their smile photo
+4. AI generates an enhanced smile transformation
+5. Optional: Generate an animated video showing the transformation
+6. All data (including video URLs) syncs to the contact record
+7. Your workflows trigger automatically for follow-up
+
+🎥 Video Integration:
+Videos are saved in two places for easy access:
+• Custom field: smile_video_url (clickable link)
+• Contact notes: Formatted message with video link
+
+This makes it incredibly easy for your sales team to share transformation videos with prospects during follow-up calls!
+
+🚀 Setup in Minutes:
+Just add your GHL API credentials and create 5 simple custom fields. Detailed documentation guides you through every step.
+
+💡 Increase Conversions:
+Show patients what their smile COULD look like - before they even book! This powerful visualization tool dramatically increases consultation bookings and treatment acceptance rates.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. PROFILE DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Developer Name:
+[YOUR NAME OR COMPANY NAME]
+
+Support Email:
+support@smilevisionpro.ai
+
+Website URL:
+https://www.smilevisionpro.ai
+
+Privacy Policy URL:
+https://YOUR-DEPLOYED-APP.com/privacy.html
+
+Terms of Service URL:
+https://YOUR-DEPLOYED-APP.com/terms.html
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. SETUP INSTRUCTIONS (FOR USERS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Setup Instructions:
+
+🚀 Quick Setup (5 Minutes)
+
+STEP 1: Get Your GHL Credentials
+• API Key: GoHighLevel → Settings → API → Create API Key
+• Location ID: GoHighLevel → Settings → Business Profile → Location ID
+
+STEP 2: Configure the App
+• Click "Staff Login" in the footer
+• Go to Settings → Integration tab
+• Enter your API Key and Location ID
+• Click "Save Settings"
+
+STEP 3: Create Custom Fields in GHL
+Navigate to: Settings → Custom Fields → Contact Fields
+
+Create these 5 fields:
+
+1. service_interest (Dropdown type)
+   Options: Veneers, Invisalign, Whitening, Implants, General Checkup
+
+2. transformation_status (Text type)
+   Stores: Pending, Processing, Complete, Video Generated
+
+3. before_image_url (Text or URL type)
+   Stores: Original smile photo URL
+
+4. after_image_url (Text or URL type)
+   Stores: AI-enhanced smile photo URL
+
+5. smile_video_url (Text or URL type)
+   Stores: Animated smile video URL ⭐ IMPORTANT!
+
+STEP 4: Test It!
+✅ Submit a test lead on your landing page
+✅ Check that the contact appears in GHL
+✅ Upload a test photo and generate transformation
+✅ Generate a test video
+✅ Verify the video URL appears in the custom field and notes
+
+🎥 Accessing Videos:
+• Option 1: Open contact → Custom Fields → smile_video_url
+• Option 2: Open contact → Notes → Look for "🎥 AI Smile Video Generated!"
+
+📚 Full Documentation:
+Complete setup guide available at: https://YOUR-DEPLOYED-APP.com/setup-guide.html
+
+💬 Need Help?
+Email: support@smilevisionpro.ai
+Response time: Within 24 hours (Mon-Fri)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. REVIEW DETAILS PAGE (SSO Configuration)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+App URL:
+https://YOUR-DEPLOYED-APP.com
+
+OAuth Scopes Required:
+contacts.write
+contacts.readonly
+locations.readonly
+
+SSO Enabled:
+✅ Yes
+
+Location ID Parameter Name:
+location_id
+
+Installation URL Template:
+https://YOUR-DEPLOYED-APP.com/?location_id={{location.id}}&api_key={{api_key}}
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. PRICING DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Pricing Model:
+Free
+
+(Optional - You can add paid tiers later:)
+• Basic: Free - Full features
+• Pro: $49/month - Custom branding + priority support
+• Enterprise: $199/month - White label + dedicated support
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 IMPORTANT NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ BEFORE SUBMITTING:
+1. Deploy your app to Vercel/Netlify first
+2. Replace "YOUR-DEPLOYED-APP.com" with your actual domain
+3. Test the SSO integration with URL parameters
+4. Upload 3-5 high-quality screenshots
+5. Verify all links work (privacy, terms, support, docs)
+
+📸 RECOMMENDED SCREENSHOTS:
+1. Landing page hero section
+2. Smile transformation in progress
+3. Video generation demo
+4. Staff dashboard view
+5. Settings/Integration page
+
+🧪 TESTING CHECKLIST:
+□ SSO auto-detection works
+□ Form submissions create GHL contacts
+□ Images upload and save
+□ Videos generate and URLs save
+□ Custom fields populate correctly
+□ Staff dashboard accessible
+□ All documentation links work
+
+📧 EMAIL ADDRESSES TO SET UP:
+- support@smilevisionpro.ai (Customer support)
+- privacy@smilevisionpro.ai (Privacy requests)
+- legal@smilevisionpro.ai (Legal inquiries)
+- priority@smilevisionpro.ai (Urgent support)
+
+💡 PRO TIPS:
+• Respond to GHL review feedback within 24 hours
+• Keep documentation updated
+• Monitor support emails daily
+• Update app regularly based on feedback
+• Track installation metrics
+
+═══════════════════════════════════════════════════════════════════════════════
+                              READY TO SUBMIT! 🚀
+═══════════════════════════════════════════════════════════════════════════════
+
+Once your app is deployed, replace YOUR-DEPLOYED-APP.com with your real URL
+and submit for review!
+
+Good luck! 🎉

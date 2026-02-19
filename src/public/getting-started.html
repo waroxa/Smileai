@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - SmileVisionPro AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .step-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #0EA5E9;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            background: #0EA5E9;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .step-content {
+            padding-left: 55px;
+        }
+        .step-content p {
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .code-box {
+            background: #1e293b;
+            color: #10b981;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #475569;
+        }
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .info-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+        .info-box strong {
+            color: #92400e;
+        }
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+        .success-box strong {
+            color: #065f46;
+        }
+        .btn {
+            display: inline-block;
+            background: #0EA5E9;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #0284c7;
+        }
+        .btn-secondary {
+            background: #64748b;
+        }
+        .btn-secondary:hover {
+            background: #475569;
+        }
+        .video-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 15px 0;
+            color: #64748b;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .feature-item {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .feature-text {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        .progress-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #0EA5E9, #06B6D4);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦷 Welcome to SmileVisionPro AI!</h1>
+            <p>Let's get you up and running in just 5 minutes</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Get Your GHL Credentials</div>
+            </div>
+            <div class="step-content">
+                <p>First, you'll need two pieces of information from GoHighLevel:</p>
+                
+                <h4 style="color: #1e293b; margin-top: 15px; margin-bottom: 8px;">📌 API Key:</h4>
+                <ul class="checklist">
+                    <li>Go to GoHighLevel → Settings (⚙️)</li>
+                    <li>Click "API" in the left sidebar</li>
+                    <li>Click "Create API Key"</li>
+                    <li>Name it: "SmileVisionPro AI"</li>
+                    <li>Copy the API key (save it somewhere safe!)</li>
+                </ul>
+
+                <h4 style="color: #1e293b; margin-top: 15px; margin-bottom: 8px;">📍 Location ID:</h4>
+                <ul class="checklist">
+                    <li>Go to Settings → Business Profile</li>
+                    <li>Find "Location ID" at the top</li>
+                    <li>Copy the Location ID</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>💡 Tip:</strong> Keep these credentials handy - you'll need them in the next step!
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Configure SmileVisionPro AI</div>
+            </div>
+            <div class="step-content">
+                <p>Now let's connect your app to GoHighLevel:</p>
+                
+                <ul class="checklist">
+                    <li>Open SmileVisionPro AI in a new tab</li>
+                    <li>Scroll to the footer and click "Staff Login"</li>
+                    <li>Click on "Settings" in the top navigation</li>
+                    <li>Go to the "Integration" tab</li>
+                    <li>Paste your API Key and Location ID</li>
+                    <li>Click "Save Settings"</li>
+                </ul>
+
+                <div class="success-box">
+                    <strong>✅ Success!</strong> You should see "Settings saved successfully!" message.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Create Custom Fields in GHL</div>
+            </div>
+            <div class="step-content">
+                <p>To store all the smile transformation data, create these 5 custom fields:</p>
+                
+                <p><strong>Navigate to:</strong> Settings → Custom Fields → Contact Fields → Add Field</p>
+
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h4 style="margin-bottom: 10px;">Create these fields:</h4>
+                    
+                    <div style="margin-bottom: 12px;">
+                        <div class="code-box" style="background: #f1f5f9; color: #1e293b;">
+                            1. service_interest (Dropdown)
+                        </div>
+                        <small style="color: #64748b;">Options: Veneers, Invisalign, Whitening, Implants, General Checkup</small>
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <div class="code-box" style="background: #f1f5f9; color: #1e293b;">
+                            2. transformation_status (Text)
+                        </div>
+                        <small style="color: #64748b;">Tracks: Pending, Processing, Complete</small>
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <div class="code-box" style="background: #f1f5f9; color: #1e293b;">
+                            3. before_image_url (Text or URL)
+                        </div>
+                        <small style="color: #64748b;">Stores the original smile photo</small>
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <div class="code-box" style="background: #f1f5f9; color: #1e293b;">
+                            4. after_image_url (Text or URL)
+                        </div>
+                        <small style="color: #64748b;">Stores the AI-enhanced smile photo</small>
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <div class="code-box" style="background: #f1f5f9; color: #1e293b;">
+                            5. smile_video_url (Text or URL) ⭐
+                        </div>
+                        <small style="color: #64748b;"><strong>IMPORTANT:</strong> Stores the animated video link</small>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>⚠️ Important:</strong> Field names must match exactly (including underscores). Copy-paste them to avoid typos!
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Test Your Setup</div>
+            </div>
+            <div class="step-content">
+                <p>Let's make sure everything is working correctly:</p>
+                
+                <ul class="checklist">
+                    <li>Go to your SmileVisionPro AI landing page</li>
+                    <li>Fill out the form with test information</li>
+                    <li>Submit the form</li>
+                    <li>Check GoHighLevel → Contacts</li>
+                    <li>Verify a new contact was created</li>
+                    <li>Upload a test photo and generate transformation</li>
+                    <li>Generate a test video (optional)</li>
+                    <li>Check that custom fields are populated</li>
+                </ul>
+
+                <div class="success-box">
+                    <strong>✅ Testing Complete!</strong> If you see the contact in GHL with all the data, you're all set!
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Set Up Workflows (Optional)</div>
+            </div>
+            <div class="step-content">
+                <p>Automate your follow-up with these recommended workflows:</p>
+                
+                <h4 style="color: #1e293b; margin-top: 15px; margin-bottom: 10px;">🔔 New Lead Welcome</h4>
+                <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+                    <strong>Trigger:</strong> Tag added "smile-transformation"<br>
+                    <strong>Actions:</strong> Send welcome email + SMS with booking link
+                </div>
+
+                <h4 style="color: #1e293b; margin-bottom: 10px;">🎥 Video Generated Follow-Up</h4>
+                <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+                    <strong>Trigger:</strong> Custom field "smile_video_url" is not empty<br>
+                    <strong>Actions:</strong> Send email with video link + Add to "Hot Leads" pipeline
+                </div>
+
+                <div class="info-box">
+                    <strong>💡 Pro Tip:</strong> Contacts with videos convert 3x better! Set up automation to follow up within 10 minutes of video generation.
+                </div>
+            </div>
+        </div>
+
+        <!-- What's Next -->
+        <div class="step-card" style="border-left-color: #10b981;">
+            <h2 style="color: #10b981; margin-bottom: 15px;">🎉 You're All Set!</h2>
+            <p style="color: #475569; margin-bottom: 20px;">Here's what you can do now:</p>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-text"><strong>Customize Branding</strong><br>Update colors, logo, clinic name</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-text"><strong>Manage Leads</strong><br>View all submissions in dashboard</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-text"><strong>Track Performance</strong><br>Monitor conversions in GHL</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-text"><strong>Share Your Page</strong><br>Start generating leads!</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 25px; text-align: center;">
+                <a href="/setup-guide.html" class="btn" target="_blank">📚 Full Documentation</a>
+                <a href="/support.html" class="btn btn-secondary" target="_blank">💬 Get Support</a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="background: white; padding: 20px; border-radius: 12px; margin-top: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h3 style="color: #1e293b; margin-bottom: 15px;">📚 Helpful Resources</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <a href="/setup-guide.html" target="_blank" style="color: #0EA5E9; text-decoration: none; padding: 8px 16px; background: #f0f9ff; border-radius: 6px; font-size: 0.9rem;">Complete Setup Guide</a>
+                <a href="/support.html" target="_blank" style="color: #0EA5E9; text-decoration: none; padding: 8px 16px; background: #f0f9ff; border-radius: 6px; font-size: 0.9rem;">Support Center</a>
+                <a href="mailto:support@smilevisionpro.ai" style="color: #0EA5E9; text-decoration: none; padding: 8px 16px; background: #f0f9ff; border-radius: 6px; font-size: 0.9rem;">Email Support</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 30px 20px; color: #64748b;">
+            <p style="font-size: 0.9rem;">Need help? We're here for you! 💙</p>
+            <p style="font-size: 0.85rem; margin-top: 10px;">© 2024 SmileVisionPro AI - All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bar on load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('progressBar').style.width = '100%';
+            }, 500);
+        });
+
+        // Track scroll and update progress
+        window.addEventListener('scroll', function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>

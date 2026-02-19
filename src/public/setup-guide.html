@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmileVisionPro AI - Setup Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #0EA5E9;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0EA5E9;
+        }
+        h3 {
+            color: #1e293b;
+            margin: 30px 0 15px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .step {
+            background: #f0f9ff;
+            border-left: 4px solid #0EA5E9;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .step-number {
+            display: inline-block;
+            background: #0EA5E9;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        code {
+            background: #1e293b;
+            color: #10b981;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f3f4f6;
+            font-weight: 600;
+        }
+        .btn {
+            display: inline-block;
+            background: #0EA5E9;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+        }
+        .btn:hover {
+            background: #0284c7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🦷 SmileVisionPro AI</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px;">Complete Setup & Documentation</p>
+    </header>
+
+    <div class="container">
+        <!-- Quick Start -->
+        <div class="card">
+            <h2>🚀 Quick Start (3 Steps)</h2>
+            
+            <div class="step">
+                <h3><span class="step-number">1</span>Get Your GHL Credentials</h3>
+                <p><strong>API Key:</strong> GoHighLevel → Settings → API → Create API Key</p>
+                <p><strong>Location ID:</strong> GoHighLevel → Settings → Business Profile → Location ID</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">2</span>Enter Credentials in App</h3>
+                <p>Go to Staff Login → Settings → Integration Tab</p>
+                <p>Paste your API Key and Location ID, then click "Save Settings"</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">3</span>Create Custom Fields in GHL</h3>
+                <p>Navigate to: Settings → Custom Fields → Contact Fields</p>
+                <p>Create these 5 fields (see table below)</p>
+            </div>
+        </div>
+
+        <!-- Custom Fields -->
+        <div class="card">
+            <h2>📋 Required Custom Fields</h2>
+            <p>Create these custom fields in GoHighLevel to store all lead data:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Field Type</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>service_interest</code></td>
+                        <td>Dropdown</td>
+                        <td>Services customer is interested in</td>
+                    </tr>
+                    <tr>
+                        <td><code>transformation_status</code></td>
+                        <td>Text</td>
+                        <td>Current transformation status</td>
+                    </tr>
+                    <tr>
+                        <td><code>before_image_url</code></td>
+                        <td>Text or URL</td>
+                        <td>Original smile photo URL</td>
+                    </tr>
+                    <tr>
+                        <td><code>after_image_url</code></td>
+                        <td>Text or URL</td>
+                        <td>AI-enhanced smile photo URL</td>
+                    </tr>
+                    <tr>
+                        <td><code>smile_video_url</code></td>
+                        <td>Text or URL</td>
+                        <td><strong>Video transformation URL</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ Important:</strong> The <code>smile_video_url</code> field is crucial for accessing patient videos!
+            </div>
+        </div>
+
+        <!-- Video Integration -->
+        <div class="card">
+            <h2>🎥 Video Integration</h2>
+            <p>SmileVisionPro AI generates animated smile transformation videos. Here's how they're saved:</p>
+
+            <h3>Where Videos Are Stored:</h3>
+            <ul class="checklist">
+                <li><strong>Custom Field:</strong> <code>smile_video_url</code> contains the direct video link</li>
+                <li><strong>Contact Notes:</strong> A note is added with a clickable video link and description</li>
+                <li><strong>Status Updated:</strong> Contact status changes to "Complete - Video Generated"</li>
+            </ul>
+
+            <h3>Accessing Videos:</h3>
+            <p><strong>Option 1:</strong> Open contact → Custom Fields → Click <code>smile_video_url</code></p>
+            <p><strong>Option 2:</strong> Open contact → Notes tab → Look for "🎥 AI Smile Video Generated!"</p>
+
+            <div class="success">
+                <strong>✅ Pro Tip:</strong> Set up a workflow that triggers when <code>smile_video_url</code> is populated to automatically send follow-up emails!
+            </div>
+        </div>
+
+        <!-- Data Flow -->
+        <div class="card">
+            <h2>📊 How It Works</h2>
+            
+            <h3>Customer Journey:</h3>
+            <ol style="padding-left: 20px;">
+                <li style="margin-bottom: 10px;"><strong>Landing Page:</strong> Customer fills out contact form</li>
+                <li style="margin-bottom: 10px;"><strong>Contact Created:</strong> Automatically added to GHL with tags</li>
+                <li style="margin-bottom: 10px;"><strong>Photo Upload:</strong> Customer uploads their smile photo</li>
+                <li style="margin-bottom: 10px;"><strong>AI Transformation:</strong> Google Gemini generates enhanced smile</li>
+                <li style="margin-bottom: 10px;"><strong>Video Generation:</strong> Animated video created (optional)</li>
+                <li style="margin-bottom: 10px;"><strong>Data Synced:</strong> All images & videos saved to GHL contact</li>
+                <li style="margin-bottom: 10px;"><strong>Automation:</strong> Your workflows trigger for follow-up</li>
+            </ol>
+
+            <h3>Data Saved to Each Contact:</h3>
+            <ul class="checklist">
+                <li>Full Name (split into first/last)</li>
+                <li>Email Address</li>
+                <li>Phone Number</li>
+                <li>Service Interest (Veneers, Invisalign, Whitening, etc.)</li>
+                <li>Notes/Concerns</li>
+                <li>Before/After Image URLs</li>
+                <li>Video URL (if generated)</li>
+                <li>Tags: "smile-transformation", "ai-lead"</li>
+            </ul>
+        </div>
+
+        <!-- Workflows -->
+        <div class="card">
+            <h2>🔄 Recommended Workflows</h2>
+
+            <h3>Workflow 1: New Lead Welcome</h3>
+            <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                <p><strong>Trigger:</strong> Tag added "smile-transformation"</p>
+                <p><strong>Actions:</strong></p>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li>Wait 2 minutes</li>
+                    <li>Send welcome email</li>
+                    <li>Send SMS with booking link</li>
+                </ul>
+            </div>
+
+            <h3>Workflow 2: Video Generated Follow-Up</h3>
+            <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                <p><strong>Trigger:</strong> Custom field <code>smile_video_url</code> is not empty</p>
+                <p><strong>Actions:</strong></p>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li>Send email: "Your Smile Video is Ready! 😁"</li>
+                    <li>Include video link from custom field</li>
+                    <li>Add to "Hot Leads" pipeline</li>
+                    <li>Assign to sales team</li>
+                </ul>
+            </div>
+
+            <h3>Workflow 3: Follow-Up Sequence</h3>
+            <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                <p><strong>Trigger:</strong> Custom field <code>transformation_status</code> = "Complete - Video Generated"</p>
+                <p><strong>Actions:</strong></p>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li>Day 1: Email - "See Your Beautiful New Smile"</li>
+                    <li>Day 3: SMS - "Ready to make it real?"</li>
+                    <li>Day 7: Call task - "Schedule consultation"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="card">
+            <h2>🔧 Troubleshooting</h2>
+
+            <h3>Issue: Contacts Not Creating</h3>
+            <p><strong>Solution:</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>Verify API Key is saved in Settings → Integration</li>
+                <li>Check Location ID is correct</li>
+                <li>Ensure API key has <code>contacts.write</code> permission</li>
+                <li>Check browser console for errors</li>
+            </ul>
+
+            <h3>Issue: Videos Not Saving</h3>
+            <p><strong>Solution:</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>Verify <code>smile_video_url</code> custom field exists in GHL</li>
+                <li>Field type should be "Text" or "URL"</li>
+                <li>Check contact notes for the video link as backup</li>
+            </ul>
+
+            <h3>Issue: App Not Detecting GHL</h3>
+            <p><strong>Solution:</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>Verify you installed via GHL Marketplace</li>
+                <li>Check URL contains <code>location_id</code> parameter</li>
+                <li>Try manual configuration in Settings</li>
+            </ul>
+        </div>
+
+        <!-- Testing -->
+        <div class="card">
+            <h2>✅ Testing Checklist</h2>
+            <ul class="checklist">
+                <li>API credentials saved in Settings</li>
+                <li>All 5 custom fields created in GHL</li>
+                <li>Submit test lead on landing page</li>
+                <li>Verify contact appears in GHL</li>
+                <li>Check tags are applied</li>
+                <li>Upload test photo</li>
+                <li>Verify before/after images save</li>
+                <li>Generate test video</li>
+                <li>Check <code>smile_video_url</code> field populated</li>
+                <li>Check contact notes for video link</li>
+                <li>Verify workflows trigger correctly</li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="card">
+            <h2>📞 Need Help?</h2>
+            <p>We're here to help you succeed!</p>
+            
+            <div style="margin: 20px 0;">
+                <a href="mailto:support@smilevisionpro.ai" class="btn">📧 Email Support</a>
+                <a href="/" class="btn">🏠 Back to App</a>
+            </div>
+
+            <p style="margin-top: 20px; color: #64748b;">
+                <strong>Response Time:</strong> We typically respond within 24 hours (Monday-Friday)
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px 20px; color: #64748b;">
+            <p>© 2024 SmileVisionPro AI - All Rights Reserved</p>
+            <p style="margin-top: 10px;">Powered by Google Gemini & FAL AI</p>
+        </div>
+    </div>
+</body>
+</html>

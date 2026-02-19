@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Marketplace Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            padding: 48px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #111827;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #6B7280;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .icon {
+            font-size: 24px;
+        }
+        
+        .info-box {
+            background: #F3F4F6;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .info-box h3 {
+            font-size: 18px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+        
+        .info-box p {
+            font-size: 14px;
+            color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .code-block {
+            background: #1F2937;
+            color: #10B981;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+        
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .warning {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+        
+        .warning p {
+            font-size: 14px;
+            color: #92400E;
+            margin: 0;
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 24px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Download Marketplace Code</h1>
+        <p class="subtitle">SmileVision Pro - GoHighLevel Marketplace Version</p>
+        
+        <div class="button-group">
+            <button class="download-btn" onclick="downloadWindows()">
+                <span class="icon">🪟</span>
+                <span>Windows - Run PowerShell Script</span>
+            </button>
+            
+            <button class="download-btn" onclick="downloadMac()">
+                <span class="icon">🍎</span>
+                <span>Mac/Linux - Run Bash Script</span>
+            </button>
+            
+            <button class="download-btn" onclick="manualZip()">
+                <span class="icon">📁</span>
+                <span>Manual Zip Instructions</span>
+            </button>
+        </div>
+        
+        <div id="instructions" style="display: none;">
+            <!-- Instructions will be inserted here -->
+        </div>
+        
+        <div class="info-box">
+            <h3>✨ What's Included</h3>
+            <p>• All marketplace-optimized components</p>
+            <p>• Updated App.tsx for embedded mode</p>
+            <p>• Complete documentation (3 guides)</p>
+            <p>• Original files as backup</p>
+            <p>• Ready-to-deploy code</p>
+        </div>
+        
+        <div class="warning">
+            <p><strong>⚠️ Note:</strong> These scripts will create a .zip file in your Downloads folder with all the marketplace code ready to review.</p>
+        </div>
+    </div>
+    
+    <script>
+        function downloadWindows() {
+            const instructions = document.getElementById('instructions');
+            instructions.style.display = 'block';
+            instructions.innerHTML = `
+                <div class="info-box">
+                    <h3>🪟 Windows Instructions</h3>
+                    <ol class="steps">
+                        <li>Open PowerShell (Right-click Start → Windows PowerShell)</li>
+                        <li>Navigate to your project folder:
+                            <div class="code-block">cd C:\\Users\\warox\\Documents\\staging2.loft1325.com</div>
+                        </li>
+                        <li>Run the script:
+                            <div class="code-block">.\\create-marketplace-zip.ps1</div>
+                        </li>
+                        <li>If you get an error about execution policy, run:
+                            <div class="code-block">Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</div>
+                            Then try step 3 again.
+                        </li>
+                        <li>Your .zip file will be in the Downloads folder! 🎉</li>
+                    </ol>
+                </div>
+            `;
+            instructions.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function downloadMac() {
+            const instructions = document.getElementById('instructions');
+            instructions.style.display = 'block';
+            instructions.innerHTML = `
+                <div class="info-box">
+                    <h3>🍎 Mac/Linux Instructions</h3>
+                    <ol class="steps">
+                        <li>Open Terminal</li>
+                        <li>Navigate to your project folder:
+                            <div class="code-block">cd ~/Documents/staging2.loft1325.com</div>
+                        </li>
+                        <li>Make the script executable:
+                            <div class="code-block">chmod +x create-marketplace-zip.sh</div>
+                        </li>
+                        <li>Run the script:
+                            <div class="code-block">bash create-marketplace-zip.sh</div>
+                        </li>
+                        <li>Your .zip file will be in the Downloads folder! 🎉</li>
+                    </ol>
+                </div>
+            `;
+            instructions.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function manualZip() {
+            const instructions = document.getElementById('instructions');
+            instructions.style.display = 'block';
+            instructions.innerHTML = `
+                <div class="info-box">
+                    <h3>📁 Manual Zip Instructions</h3>
+                    <ol class="steps">
+                        <li>Open File Explorer (Windows) or Finder (Mac)</li>
+                        <li>Navigate to:
+                            <div class="code-block">C:\\Users\\warox\\Documents\\staging2.loft1325.com</div>
+                        </li>
+                        <li>Select these folders and files:
+                            <ul style="margin-top: 12px; margin-left: 20px;">
+                                <li>components/</li>
+                                <li>styles/</li>
+                                <li>utils/</li>
+                                <li>supabase/</li>
+                                <li>App.tsx</li>
+                                <li>App.marketplace.tsx</li>
+                                <li>package.json</li>
+                                <li>MARKETPLACE_*.md (all docs)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Windows:</strong> Right-click → Send to → Compressed (zipped) folder</li>
+                        <li><strong>Mac:</strong> Right-click → Compress Items</li>
+                        <li>Done! You have your marketplace code .zip 🎉</li>
+                    </ol>
+                </div>
+            `;
+            instructions.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

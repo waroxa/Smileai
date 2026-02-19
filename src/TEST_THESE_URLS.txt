@@ -1,0 +1,127 @@
+═══════════════════════════════════════════════════════════════════════════════
+  🧪 TEST THESE URLs BEFORE SUBMITTING TO GHL
+═══════════════════════════════════════════════════════════════════════════════
+
+Click each link to verify they work on your deployed site:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 DOCUMENTATION PAGES (Required for GHL Form)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Getting Started Guide
+  https://www.smilevisionpro.ai/getting-started.html
+  ✓ Should show: Welcome page with 5 steps
+  ✓ Must work in iframe (GHL will display it in iframe)
+
+□ Setup Guide / Documentation
+  https://www.smilevisionpro.ai/setup-guide.html
+  ✓ Should show: Complete setup instructions
+
+□ Support Page
+  https://www.smilevisionpro.ai/support.html
+  ✓ Should show: Contact support info & FAQs
+
+□ Privacy Policy
+  https://www.smilevisionpro.ai/privacy.html
+  ✓ Should show: Privacy policy document
+
+□ Terms of Service
+  https://www.smilevisionpro.ai/terms.html
+  ✓ Should show: Terms of service document
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏠 MAIN APP PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Landing Page
+  https://www.smilevisionpro.ai
+  ✓ Should show: Main landing page with form
+
+□ Staff Dashboard
+  https://www.smilevisionpro.ai/staff
+  ✓ Should show: Login or dashboard if logged in
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔌 SSO INTEGRATION TEST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ SSO Installation URL (Test with fake parameters)
+  https://www.smilevisionpro.ai/?location_id=test123&api_key=testkey
+  ✓ Should show: Landing page
+  ✓ Should auto-detect and save parameters (check Staff → Settings)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ IF ANY URL RETURNS 404 ERROR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The files need to be on your production server!
+
+The files I created are in /public/ folder:
+  /public/getting-started.html
+  /public/setup-guide.html
+  /public/support.html
+  /public/privacy.html
+  /public/terms.html
+
+Make sure these files are deployed to https://www.smilevisionpro.ai
+
+You may need to:
+1. Push the files to your production server
+2. Or move them from /public/ to your root directory
+3. Or configure your server to serve files from /public/
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📧 EMAIL SETUP (IMPORTANT!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Set up: support@smilevisionpro.ai ⭐ REQUIRED!
+
+Options:
+A) Use Google Workspace ($6/month) - Professional option
+B) Use email forwarding (usually free with domain registrar)
+C) Use Zoho Mail (free for 1 user)
+
+Test it by sending an email to support@smilevisionpro.ai and verify you receive it.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📸 SCREENSHOTS TO TAKE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Take these screenshots for the GHL marketplace:
+
+□ 1. Landing page hero section (with form visible)
+□ 2. Before/after transformation result
+□ 3. Video generation demo (video player showing)
+□ 4. Staff dashboard with patient list
+□ 5. Settings page (Integration tab)
+
+Recommended size: 1920x1080 or 1280x720
+Format: PNG or JPG
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ FINAL CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ All 5 documentation URLs work
+□ Main app URL works
+□ SSO URL with parameters works
+□ support@smilevisionpro.ai email is set up and working
+□ 3-5 screenshots taken
+□ Copy /GHL_FORM_READY_TO_PASTE.txt content
+□ Ready to fill in GHL marketplace form!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Once all URLs work, open:
+/GHL_FORM_READY_TO_PASTE.txt
+
+And copy-paste each section into the GHL marketplace form!
+
+Good luck! 🚀

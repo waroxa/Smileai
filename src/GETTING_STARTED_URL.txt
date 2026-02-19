@@ -1,0 +1,134 @@
+═══════════════════════════════════════════════════════════════════════════════
+  📋 GETTING STARTED GUIDE - URL FOR GHL FORM
+═══════════════════════════════════════════════════════════════════════════════
+
+When the GHL Marketplace form asks for "Getting Started Page URL", enter:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   https://YOUR-DEPLOYED-APP.com/getting-started.html                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+This page will be displayed in an iframe inside GoHighLevel when users first
+install your app. It provides a friendly, step-by-step onboarding experience.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  📄 WHAT'S IN THE GETTING STARTED GUIDE?
+═══════════════════════════════════════════════════════════════════════════════
+
+The /getting-started.html page includes:
+
+✅ Step 1: Get Your GHL Credentials
+   - How to find API Key
+   - How to find Location ID
+
+✅ Step 2: Configure SmileVisionPro AI
+   - Where to enter credentials
+   - How to save settings
+
+✅ Step 3: Create Custom Fields in GHL
+   - All 5 required fields listed
+   - Field types specified
+   - Copy-paste field names
+
+✅ Step 4: Test Your Setup
+   - Testing checklist
+   - What to verify
+
+✅ Step 5: Set Up Workflows (Optional)
+   - Recommended automation workflows
+   - Trigger examples
+
+✅ What's Next Section
+   - Quick feature overview
+   - Links to resources
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  🎨 DESIGN FEATURES
+═══════════════════════════════════════════════════════════════════════════════
+
+• 📊 Progress bar that tracks scroll position
+• 🎯 Clear step-by-step numbered cards
+• ✅ Checklists for easy following
+• 💡 Info boxes with tips and warnings
+• 🎨 Branded colors matching SmileVisionPro AI
+• 📱 Responsive design (works in iframe and standalone)
+• 🔗 Quick links to documentation and support
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  📍 WHERE TO PASTE IN GHL FORM
+═══════════════════════════════════════════════════════════════════════════════
+
+Look for this field in the GHL Marketplace submission form:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Getting Started Guide                                                       │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ Getting Started Page URL                                                │ │
+│ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
+│ │ │ Enter URL                                                           │ │ │
+│ │ └─────────────────────────────────────────────────────────────────────┘ │ │
+│ │                                                                         │ │
+│ │ Provide a URL that can be displayed in a frame within Highlevel        │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│ Add a Getting Started guide to simplify the onboarding experience for your │
+│ users                                                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PASTE: https://your-app.vercel.app/getting-started.html
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  ✅ COMPLETE CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+Before submitting to GHL, verify these files exist:
+
+□ /public/getting-started.html  ← New! Getting started guide for users
+□ /public/setup-guide.html      ← Complete documentation
+□ /public/support.html          ← Support page with contact info
+□ /public/privacy.html          ← Privacy policy
+□ /public/terms.html            ← Terms of service
+
+All files are in the /public folder and will be accessible at:
+https://your-app.com/filename.html
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  🚀 DEPLOYMENT NOTE
+═══════════════════════════════════════════════════════════════════════════════
+
+After deploying to Vercel/Netlify, your files will be at:
+
+Landing Page:         https://your-app.vercel.app/
+Getting Started:      https://your-app.vercel.app/getting-started.html
+Setup Guide:          https://your-app.vercel.app/setup-guide.html
+Support:              https://your-app.vercel.app/support.html
+Privacy Policy:       https://your-app.vercel.app/privacy.html
+Terms of Service:     https://your-app.vercel.app/terms.html
+
+
+Test each URL to make sure they load correctly!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  🎯 QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+Support Details Page:
+├─ Support Email:         support@smilevisionpro.ai
+├─ Documentation URL:     https://your-app.com/setup-guide.html
+├─ Support Website URL:   https://your-app.com/support.html
+└─ Getting Started URL:   https://your-app.com/getting-started.html ⭐
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+You're all set! 🎉
+
+Just deploy your app and fill in the GHL form with your actual URL!
