@@ -1,182 +1,112 @@
-import { ArrowRight, Star, MapPin, Shield, Award } from 'lucide-react';
+import { ArrowRight, Shield, Sparkles, Wand2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { ClinicBranding } from '../App';
-import { useState, useEffect } from 'react';
 
 interface HeroProps {
   clinicBranding: ClinicBranding;
 }
 
-// Generate random but realistic numbers on component mount
-const generateRandomStats = () => {
-  return {
-    patients: Math.floor(Math.random() * (2500 - 850) + 850), // 850-2500
-    previews: Math.floor(Math.random() * (8900 - 3200) + 3200), // 3200-8900
-    reviews: Math.floor(Math.random() * (950 - 380) + 380), // 380-950
-  };
-};
+const summaryStats = [
+  { label: 'Guided journey', value: '4 steps' },
+  { label: 'Preview turnaround', value: 'About 30 sec' },
+  { label: 'Delivery', value: 'Photo + optional video' },
+];
 
 export function Hero({ clinicBranding }: HeroProps) {
-  const [stats, setStats] = useState(generateRandomStats());
-
-  // Regenerate stats on mount to ensure different numbers each session
-  useEffect(() => {
-    setStats(generateRandomStats());
-  }, []);
-
   const scrollToTransform = () => {
-    const section = document.getElementById('smile-transform');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    document.getElementById('smile-transform')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-teal-50 via-white to-blue-50 overflow-hidden">
-      {/* Navigation */}
-      <nav className="relative z-10 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 sm:gap-3">
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.16),_transparent_40%),linear-gradient(180deg,_#f8fdff,_#ffffff_45%,_#f8fafc)]">
+      <nav className="relative z-10 px-4 sm:px-6 lg:px-8 py-5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
             {clinicBranding.logo ? (
-              <img 
-                src={clinicBranding.logo} 
-                alt={clinicBranding.clinicName}
-                className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg"
-              />
+              <img src={clinicBranding.logo} alt={clinicBranding.clinicName} className="w-11 h-11 object-contain rounded-xl" />
             ) : (
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-teal-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white text-lg sm:text-xl">✨</span>
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-lg">
+                <Sparkles className="w-5 h-5" />
               </div>
             )}
             <div>
-              <h1 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900">{clinicBranding.clinicName}</h1>
-              <p className="text-xs text-gray-600 hidden sm:block">AI-Powered Smile Previews</p>
+              <p className="text-lg font-semibold text-slate-950">SmileVisionPro AI</p>
+              <p className="text-xs text-slate-500">White-label smile preview platform</p>
             </div>
           </div>
-          <div className="flex items-center gap-2 sm:gap-4">
-            <div className="hidden md:flex items-center gap-2 text-sm text-gray-600">
-              <MapPin className="w-4 h-4 text-teal-600" />
-              <span>Miami, FL</span>
-            </div>
-            <Button 
-              onClick={scrollToTransform}
-              className="bg-teal-600 hover:bg-teal-700 text-sm sm:text-base h-9 sm:h-10 px-3 sm:px-6"
-            >
-              Try AI Now
-            </Button>
-          </div>
+
+          <Button onClick={scrollToTransform} className="bg-slate-950 hover:bg-slate-800 text-white">
+            Start preview
+          </Button>
         </div>
       </nav>
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-white rounded-full shadow-sm mb-4 sm:mb-6">
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 fill-yellow-500" />
-              <span className="text-xs sm:text-sm font-medium text-gray-700">Trusted by {stats.patients}+ patients in Miami</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-14 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm mb-6">
+              <Shield className="w-4 h-4 text-cyan-600" />
+              Secure patient intake, AI preview, and follow-up in one flow
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              See Your Dream Smile
-              <span className="block bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent mt-2">
-                With AI in 30 Seconds
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-950 leading-tight">
+              Show patients a confident new smile before they book.
             </h1>
-            
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
-              Upload a photo and instantly see what your smile could look like with AI-powered dental treatment preview. No commitment, completely free.
+            <p className="mt-6 text-lg text-slate-600 max-w-2xl">
+              SmileVisionPro AI captures the lead, transforms the smile photo with AI, and can generate a short cinematic preview video for follow-up.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-12">
-              <Button 
-                onClick={scrollToTransform}
-                size="lg"
-                className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg shadow-lg font-semibold"
-              >
-                Try AI Smile Preview Free
-                <ArrowRight className="w-5 h-5 ml-2" />
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <Button onClick={scrollToTransform} size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white">
+                Launch your preview
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 size="lg"
-                className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg border-2 font-semibold"
-                onClick={() => {
-                  const section = document.getElementById('how-it-works');
-                  section?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-slate-300 text-slate-900"
               >
-                How AI Works
+                See the workflow
               </Button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-lg mx-auto lg:mx-0">
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-teal-600" />
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {summaryStats.map((stat) => (
+                <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-4 shadow-sm">
+                  <p className="text-2xl font-semibold text-slate-950">{stat.value}</p>
+                  <p className="text-sm text-slate-500 mt-1">{stat.label}</p>
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-gray-900">Board Certified</p>
-                <p className="text-xs text-gray-500">Dentists</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
-                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-teal-600" />
-                </div>
-                <p className="text-xs sm:text-sm font-semibold text-gray-900">15+ Years</p>
-                <p className="text-xs text-gray-500">Experience</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
-                  <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500 fill-yellow-500" />
-                </div>
-                <p className="text-xs sm:text-sm font-semibold text-gray-900">4.9/5 Rating</p>
-                <p className="text-xs text-gray-500">{stats.reviews}+ Reviews</p>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column - Hero Image */}
-          <div className="relative order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative">
+            <div className="rounded-[28px] overflow-hidden border border-slate-200 shadow-2xl bg-white">
               <img
-                src={clinicBranding.heroImage || "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80"}
-                alt="Beautiful smile transformation"
-                className="w-full h-[250px] sm:h-[350px] lg:h-[450px] xl:h-[500px] object-cover"
+                src={clinicBranding.heroImage || 'https://images.unsplash.com/photo-1598257006458-087169a1f08d?w=1200&q=80'}
+                alt="Smile preview experience"
+                className="w-full h-[320px] sm:h-[420px] object-cover"
               />
-              {/* Overlay Badge */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-teal-600 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-lg sm:text-xl">✨</span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs sm:text-sm font-semibold text-gray-900 truncate">AI-Powered Smile Preview</p>
-                    <p className="text-xs text-gray-600">See results in seconds</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Floating Stats */}
-            <div className="hidden sm:block absolute -top-3 -right-3 lg:-top-4 lg:-right-4 bg-white rounded-xl shadow-lg p-3 sm:p-4">
-              <p className="text-2xl sm:text-3xl font-bold text-teal-600">{stats.previews}+</p>
-              <p className="text-xs sm:text-sm text-gray-600">AI Previews</p>
-            </div>
-            <div className="hidden sm:block absolute -bottom-3 -left-3 lg:-bottom-4 lg:-left-4 bg-white rounded-xl shadow-lg p-3 sm:p-4">
-              <p className="text-2xl sm:text-3xl font-bold text-blue-600">100%</p>
-              <p className="text-xs sm:text-sm text-gray-600">Free Preview</p>
+            <div className="absolute -bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:w-72 rounded-2xl bg-slate-950 text-white p-5 shadow-2xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                  <Wand2 className="w-5 h-5 text-cyan-300" />
+                </div>
+                <div>
+                  <p className="font-medium">Patient journey</p>
+                  <p className="text-sm text-slate-300">Lead form → upload → AI preview → follow-up</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-300">
+                Built for practices that want a polished, white-label consultation experience.
+              </p>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 -z-0 w-1/2 h-1/2 bg-gradient-to-br from-teal-100/30 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 -z-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-100/30 to-transparent rounded-full blur-3xl"></div>
     </section>
   );
 }
