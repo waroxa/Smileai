@@ -1,10 +1,10 @@
-# Quick Reference: GHL API Fields & Custom Values
+# Quick Reference: platform API Fields & Custom Values
 
-## 📋 Custom Fields to Add in GoHighLevel
+## 📋 Custom Fields to Add in platform
 
-To properly receive all data from SmileVisionPro, add these **Custom Fields** in your GHL location:
+To properly receive all data from SmileVisionPro, add these **Custom Fields** in your platform location:
 
-### Navigate to: GoHighLevel → Settings → Custom Fields
+### Navigate to: platform → Settings → Custom Fields
 
 ### Required Custom Fields:
 
@@ -52,12 +52,12 @@ You can use these tags to:
 
 ---
 
-## 📊 Data Mapping: Form → GHL
+## 📊 Data Mapping: Form → platform
 
-| Form Field | GHL Field | Notes |
+| Form Field | platform Field | Notes |
 |------------|-----------|-------|
 | Full Name | `firstName` + `lastName` | Auto-split by space |
-| Email | `email` | Standard GHL field |
+| Email | `email` | Standard platform field |
 | Phone | `phone` | Formatted as (555) 123-4567 |
 | Interested In | `customFields.service_interest` | Custom field |
 | Optional Notes | `customFields.notes` | Custom field |
@@ -82,7 +82,7 @@ Files are currently attached as **notes** with file references. For direct file 
 
 ## 🔐 Required API Permissions
 
-When creating your GHL API Key, ensure these permissions are enabled:
+When creating your platform API Key, ensure these permissions are enabled:
 
 ```
 ✅ contacts.readonly - Read contact data
@@ -155,7 +155,7 @@ Use this for testing the integration:
 }
 ```
 
-**Expected GHL Contact**:
+**Expected platform Contact**:
 ```json
 {
   "firstName": "John",
@@ -187,20 +187,20 @@ Use this for testing the integration:
 **Fix**: Verify your API key has `tags.write` permission enabled
 
 ### Issue: Phone formatting error
-**Fix**: App auto-formats to E.164 format. GHL expects country code (+1 for US).
+**Fix**: App auto-formats to E.164 format. platform expects country code (+1 for US).
 Current format: `(555) 123-4567` → Converted to: `+15551234567`
 
 ### Issue: Images not uploading
 **Fix**: 
 - Current version adds notes with file references
-- For direct uploads: Implement multipart/form-data to GHL's file storage endpoint
+- For direct uploads: Implement multipart/form-data to platform's file storage endpoint
 - Alternative: Use Cloudinary/AWS S3 and store URLs in custom fields
 
 ---
 
 ## 📖 API Documentation Links
 
-- **GHL API Docs**: https://highlevel.stoplight.io/
+- **platform API Docs**: https://highlevel.stoplight.io/
 - **Create Contact**: `POST /contacts`
 - **Update Contact**: `PUT /contacts/{contactId}`
 - **Add Note**: `POST /contacts/{contactId}/notes`
@@ -211,7 +211,7 @@ Current format: `(555) 123-4567` → Converted to: `+15551234567`
 
 ## 💡 Pro Tips
 
-1. **Create a test location** in GHL to avoid polluting production data
+1. **Create a test location** in platform to avoid polluting production data
 2. **Use different phone formats** to test validation (international, different countries)
 3. **Set up a test pipeline** to visualize the lead flow
 4. **Create saved filters** for:
@@ -219,7 +219,7 @@ Current format: `(555) 123-4567` → Converted to: `+15551234567`
    - Pending transformations (status: `Pending`)
    - Ready for follow-up (status: `Complete` + no consultation booked)
 
-4. **Monitor API usage** in GHL settings to ensure you're within rate limits
+4. **Monitor API usage** in platform settings to ensure you're within rate limits
 
 ---
 

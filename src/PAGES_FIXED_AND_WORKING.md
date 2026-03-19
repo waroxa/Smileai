@@ -42,7 +42,7 @@ All documentation pages are now **full React components** (no iframes) and will 
 
 ---
 
-## 📋 For GHL Marketplace:
+## 📋 For marketplace portal:
 
 Use this in your submission form:
 
@@ -75,4 +75,4 @@ Everything is working. Test the URLs above and you're good to go! 🎉
 
 ---
 
-**TEST NOW AND SUBMIT TO GHL!** 🚀
+**TEST NOW AND SUBMIT TO platform!** 🚀

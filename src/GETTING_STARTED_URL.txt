@@ -1,8 +1,8 @@
 ═══════════════════════════════════════════════════════════════════════════════
-  📋 GETTING STARTED GUIDE - URL FOR GHL FORM
+  📋 GETTING STARTED GUIDE - URL FOR platform FORM
 ═══════════════════════════════════════════════════════════════════════════════
 
-When the GHL Marketplace form asks for "Getting Started Page URL", enter:
+When the marketplace portal form asks for "Getting Started Page URL", enter:
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                             │
@@ -10,7 +10,7 @@ When the GHL Marketplace form asks for "Getting Started Page URL", enter:
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-This page will be displayed in an iframe inside GoHighLevel when users first
+This page will be displayed in an iframe inside platform when users first
 install your app. It provides a friendly, step-by-step onboarding experience.
 
 
@@ -20,7 +20,7 @@ install your app. It provides a friendly, step-by-step onboarding experience.
 
 The /getting-started.html page includes:
 
-✅ Step 1: Get Your GHL Credentials
+✅ Step 1: Get Your platform Credentials
    - How to find API Key
    - How to find Location ID
 
@@ -28,7 +28,7 @@ The /getting-started.html page includes:
    - Where to enter credentials
    - How to save settings
 
-✅ Step 3: Create Custom Fields in GHL
+✅ Step 3: Create Custom Fields in platform
    - All 5 required fields listed
    - Field types specified
    - Copy-paste field names
@@ -60,10 +60,10 @@ The /getting-started.html page includes:
 
 
 ═══════════════════════════════════════════════════════════════════════════════
-  📍 WHERE TO PASTE IN GHL FORM
+  📍 WHERE TO PASTE IN platform FORM
 ═══════════════════════════════════════════════════════════════════════════════
 
-Look for this field in the GHL Marketplace submission form:
+Look for this field in the marketplace portal submission form:
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ Getting Started Guide                                                       │
@@ -87,7 +87,7 @@ PASTE: https://your-app.vercel.app/getting-started.html
   ✅ COMPLETE CHECKLIST
 ═══════════════════════════════════════════════════════════════════════════════
 
-Before submitting to GHL, verify these files exist:
+Before submitting to platform, verify these files exist:
 
 □ /public/getting-started.html  ← New! Getting started guide for users
 □ /public/setup-guide.html      ← Complete documentation
@@ -131,4 +131,4 @@ Support Details Page:
 
 You're all set! 🎉
 
-Just deploy your app and fill in the GHL form with your actual URL!
+Just deploy your app and fill in the platform form with your actual URL!

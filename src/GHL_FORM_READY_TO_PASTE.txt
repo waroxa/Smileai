@@ -1,9 +1,9 @@
 ═══════════════════════════════════════════════════════════════════════════════
-  GOHIGHLEVEL MARKETPLACE SUBMISSION - READY TO PASTE!
+  PLATFORM MARKETPLACE SUBMISSION - READY TO PASTE!
   Using your deployed URL: https://www.smilevisionpro.ai
 ═══════════════════════════════════════════════════════════════════════════════
 
-📋 COPY & PASTE DIRECTLY INTO THE GHL FORM:
+📋 COPY & PASTE DIRECTLY INTO THE platform FORM:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 1. SUPPORT DETAILS PAGE
@@ -35,7 +35,7 @@ Category:
 Healthcare / Lead Generation
 
 Short Description:
-AI-powered smile transformation tool that captures leads, generates before/after images, and creates animated smile videos. Automatically syncs all data to your GHL contacts with video URLs.
+AI-powered smile transformation tool that captures leads, generates before/after images, and creates animated smile videos. Automatically syncs all data to your CRM contacts with video URLs.
 
 Long Description:
 SmileVisionPro AI is a complete lead generation and conversion tool designed specifically for dental practices.
@@ -46,7 +46,7 @@ Transform your practice with AI-powered smile visualizations that convert prospe
 ✅ Beautiful landing page with professional lead capture form
 ✅ AI-powered smile transformations using advanced image processing
 ✅ Animated smile video generation for stunning presentations
-✅ Automatic contact creation in GoHighLevel CRM
+✅ Automatic contact creation in CRM platform
 ✅ Before/after images saved to custom fields
 ✅ Video URLs automatically saved to contacts for easy access
 ✅ Auto-tagging and status tracking for workflow automation
@@ -63,7 +63,7 @@ Transform your practice with AI-powered smile visualizations that convert prospe
 
 🎯 How It Works:
 1. Patient visits your landing page and fills out the form
-2. Contact automatically created in GHL with all details
+2. Contact automatically created in platform with all details
 3. Patient uploads their smile photo
 4. AI generates an enhanced smile transformation
 5. Optional: Generate an animated video showing the transformation
@@ -78,7 +78,7 @@ Videos are saved in two places for easy access:
 This makes it incredibly easy for your sales team to share transformation videos with prospects during follow-up calls!
 
 🚀 Setup in Minutes:
-Just add your GHL API credentials and create 5 simple custom fields. Detailed documentation guides you through every step.
+Just add your platform API credentials and create 5 simple custom fields. Detailed documentation guides you through every step.
 
 💡 Increase Conversions:
 Show patients what their smile COULD look like - before they even book! This powerful visualization tool dramatically increases consultation bookings and treatment acceptance rates.
@@ -112,9 +112,9 @@ Setup Instructions:
 
 🚀 Quick Setup (5 Minutes)
 
-STEP 1: Get Your GHL Credentials
-• API Key: GoHighLevel → Settings → API → Create API Key
-• Location ID: GoHighLevel → Settings → Business Profile → Location ID
+STEP 1: Get Your platform Credentials
+• API Key: platform → Settings → API → Create API Key
+• Location ID: platform → Settings → Business Profile → Location ID
 
 STEP 2: Configure the App
 • Click "Staff Login" in the footer
@@ -122,7 +122,7 @@ STEP 2: Configure the App
 • Enter your API Key and Location ID
 • Click "Save Settings"
 
-STEP 3: Create Custom Fields in GHL
+STEP 3: Create Custom Fields in platform
 Navigate to: Settings → Custom Fields → Contact Fields
 
 Create these 5 fields:
@@ -144,7 +144,7 @@ Create these 5 fields:
 
 STEP 4: Test It!
 ✅ Submit a test lead on your landing page
-✅ Check that the contact appears in GHL
+✅ Check that the contact appears in platform
 ✅ Upload a test photo and generate transformation
 ✅ Generate a test video
 ✅ Verify the video URL appears in the custom field and notes

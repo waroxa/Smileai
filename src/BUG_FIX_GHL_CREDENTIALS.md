@@ -1,8 +1,8 @@
-# ✅ Bug Fix: GHL Credentials Error
+# ✅ Bug Fix: platform Credentials Error
 
 ## Problem
 ```
-Error creating patient: Error: GoHighLevel credentials not configured. 
+Error creating patient: Error: platform credentials not configured. 
 Please set up API credentials in Settings.
 ```
 
@@ -42,9 +42,9 @@ const ghlLocationId = localStorage.getItem('ghl_location_id');
 
 ## How to Test
 
-### Step 1: Configure GHL Credentials
+### Step 1: Configure platform Credentials
 1. Go to **Settings** → **Integration** tab
-2. Enter your GHL credentials:
+2. Enter your platform credentials:
    - API Key
    - Location ID
 3. Click **Save Changes**
@@ -62,8 +62,8 @@ const ghlLocationId = localStorage.getItem('ghl_location_id');
 5. ✅ Should show success message
 6. ✅ Patient should appear in the list
 
-### Step 3: Verify in GHL
-1. Log into GoHighLevel
+### Step 3: Verify in platform
+1. Log into platform
 2. Go to Contacts
 3. Search for "John Doe"
 4. ✅ Contact should exist with:
@@ -73,8 +73,8 @@ const ghlLocationId = localStorage.getItem('ghl_location_id');
 
 ## Why localStorage?
 - **Persistent**: Survives page refresh
-- **Consistent**: All GHL API calls use localStorage
-- **Existing pattern**: Other GHL utilities already use localStorage
+- **Consistent**: All platform API calls use localStorage
+- **Existing pattern**: Other platform utilities already use localStorage
 
 ## Files Modified
 1. ✅ `/components/ghl/AddPatientModal.tsx` - Line 83-84
@@ -83,7 +83,7 @@ const ghlLocationId = localStorage.getItem('ghl_location_id');
 ## Status
 ✅ **FIXED** - Credentials now load correctly from localStorage
 ✅ **TESTED** - Add Patient feature now works
-✅ **CONSISTENT** - All GHL API calls use same storage
+✅ **CONSISTENT** - All platform API calls use same storage
 
 ---
 

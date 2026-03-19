@@ -61,7 +61,7 @@ foreach ($item in $includeItems) {
 
 # Create README in zip
 $readmeContent = @"
-# SmileVision Pro - GoHighLevel Marketplace Version
+# SmileVision Pro - platform Marketplace Version
 
 ## 📦 Package Contents
 
@@ -105,7 +105,7 @@ This package contains the marketplace-ready version of SmileVision Pro.
 1. Read MARKETPLACE_IMPLEMENTATION.md
 2. Test in iframe (see test-iframe.html example in docs)
 3. Deploy to production
-4. Submit to GHL Marketplace
+4. Submit to platform Marketplace
 
 Created: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 "@

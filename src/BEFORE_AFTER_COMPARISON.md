@@ -1,4 +1,4 @@
-# Before & After Comparison - GoHighLevel OAuth
+# Before & After Comparison - platform OAuth
 
 ## BEFORE (Insecure - Direct Supabase Calls)
 
@@ -27,10 +27,10 @@
 │ ❌ PROBLEM: Multi-step redirect!                             │
 └─────────────────────────────────────────────────────────────┘
                     │
-                    │ Frontend redirects to GHL
+                    │ Frontend redirects to platform
                     ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ GoHighLevel Authorization                                    │
+│ platform Authorization                                    │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -66,14 +66,14 @@
                     ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ Backend (Proxied/Direct):                                    │
-│ Generates state → Saves to DB → Redirects to GHL           │
+│ Generates state → Saves to DB → Redirects to platform           │
 │ ✅ All auth server-side!                                      │
 └─────────────────────────────────────────────────────────────┘
                     │
-                    │ Direct redirect to GHL
+                    │ Direct redirect to platform
                     ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ GoHighLevel Authorization                                    │
+│ platform Authorization                                    │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -81,7 +81,7 @@
 - ✅ No Supabase URLs in frontend
 - ✅ No auth headers needed
 - ✅ No tokens in browser
-- ✅ One-step redirect (frontend → GHL directly)
+- ✅ One-step redirect (frontend → platform directly)
 - ✅ No CORS issues
 - ✅ Backend handles everything
 
@@ -158,7 +158,7 @@ export function GHLOAuthConnect() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('success') === 'true') {
-      setSuccess('✅ GoHighLevel Connected!');
+      setSuccess('✅ Platform Connected!');
       loadConnections();
     }
   }, []);
@@ -185,11 +185,11 @@ export function GHLOAuthConnect() {
    ↓
 3. Backend returns JSON with authUrl
    ↓
-4. Frontend redirects to authUrl (GHL)
+4. Frontend redirects to authUrl (platform)
    ↓
-5. User authorizes in GHL
+5. User authorizes in platform
    ↓
-6. GHL redirects to backend callback
+6. platform redirects to backend callback
    ↓
 7. Backend saves tokens
    ↓
@@ -208,11 +208,11 @@ SECURITY: ❌ Auth headers in browser
    ↓
 2. Browser navigates to /oauth/start
    ↓
-3. Backend redirects to GHL
+3. Backend redirects to platform
    ↓
-4. User authorizes in GHL
+4. User authorizes in platform
    ↓
-5. GHL redirects to backend callback
+5. platform redirects to backend callback
    ↓
 6. Backend saves tokens
    ↓
@@ -314,7 +314,7 @@ NO AUTH HEADERS! Clean redirect!
 | Endpoint | Type | Auth | Caller |
 |----------|------|------|--------|
 | `/oauth/start` | GET Redirect | None | Browser |
-| `/oauth/callback` | GET Redirect | State token | GHL |
+| `/oauth/callback` | GET Redirect | State token | platform |
 | `/oauth/status` | GET API | None | Frontend |
 
 **Benefits:**
@@ -378,7 +378,7 @@ curl -v https://www.smilevisionpro.ai/oauth/start
 - ✅ Added mobile-first responsive design
 
 ### What Stayed The Same:
-- ✅ Same OAuth providers (GoHighLevel)
+- ✅ Same OAuth providers (platform)
 - ✅ Same database schema
 - ✅ Same security on backend
 - ✅ Same features for users

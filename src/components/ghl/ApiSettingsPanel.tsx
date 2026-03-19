@@ -68,9 +68,9 @@ export function ApiSettingsPanel() {
   return (
     <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
       <div className="mb-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">GoHighLevel API Settings</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">CRM API Settings</h3>
         <p className="text-sm text-gray-600">
-          Configure your GoHighLevel marketplace app credentials to enable automatic lead capture and contact syncing.
+          Configure your marketplace portal app credentials to enable automatic lead capture and contact syncing.
         </p>
       </div>
 
@@ -79,18 +79,18 @@ export function ApiSettingsPanel() {
         <div>
           <Label htmlFor="ghlApiKey" className="flex items-center gap-2 text-base font-medium text-gray-900 mb-2">
             <Key className="w-4 h-4 text-gray-600" />
-            GoHighLevel API Key *
+            CRM API Key *
           </Label>
           <Input
             id="ghlApiKey"
             type="password"
             value={settings.ghlApiKey}
             onChange={(e) => setSettings({ ...settings, ghlApiKey: e.target.value })}
-            placeholder="Enter your GHL API key"
+            placeholder="Enter your platform API key"
             className="h-11 text-base font-mono"
           />
           <p className="text-xs text-gray-500 mt-1.5">
-            Get your API key from: GoHighLevel → Settings → API → Create API Key
+            Get your API key from: platform → Settings → API → Create API Key
           </p>
         </div>
 
@@ -98,18 +98,18 @@ export function ApiSettingsPanel() {
         <div>
           <Label htmlFor="ghlLocationId" className="flex items-center gap-2 text-base font-medium text-gray-900 mb-2">
             <MapPin className="w-4 h-4 text-gray-600" />
-            GoHighLevel Location ID *
+            CRM Location ID *
           </Label>
           <Input
             id="ghlLocationId"
             type="text"
             value={settings.ghlLocationId}
             onChange={(e) => setSettings({ ...settings, ghlLocationId: e.target.value })}
-            placeholder="Enter your GHL Location ID"
+            placeholder="Enter your platform Location ID"
             className="h-11 text-base font-mono"
           />
           <p className="text-xs text-gray-500 mt-1.5">
-            Find your Location ID in: GoHighLevel → Settings → Business Profile → Location ID
+            Find your Location ID in: platform → Settings → Business Profile → Location ID
           </p>
         </div>
 
@@ -171,7 +171,7 @@ export function ApiSettingsPanel() {
             <p className="font-semibold mb-1">How Lead Capture Works:</p>
             <ul className="space-y-1 ml-4 list-disc">
               <li>User submits their contact info on the landing page</li>
-              <li>Contact is automatically created in GoHighLevel</li>
+              <li>Contact is automatically created in platform</li>
               <li>After smile transformation, before/after images are uploaded to the contact</li>
               <li><strong>Video URLs are saved to custom field <code>smile_video_url</code> and contact notes</strong></li>
               <li>Custom fields include: Service Interest, Notes, and transformation status</li>
@@ -192,14 +192,14 @@ export function ApiSettingsPanel() {
               <li><strong>Contact Notes:</strong> Clickable video link for easy access</li>
             </ul>
             <p className="mt-2 text-xs">
-              💡 Make sure to create the <code>smile_video_url</code> custom field in GHL (type: URL or Text)
+              💡 Make sure to create the <code>smile_video_url</code> custom field in platform (type: URL or Text)
             </p>
           </div>
         </div>
 
         {/* Fields that will be sent */}
         <div className="border-t border-gray-200 pt-4">
-          <h4 className="text-sm font-semibold text-gray-900 mb-3">Data Sent to GoHighLevel:</h4>
+          <h4 className="text-sm font-semibold text-gray-900 mb-3">Data Sent to platform:</h4>
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="flex items-center gap-2 text-gray-600">
               <Check className="w-3 h-3 text-green-600" />

@@ -157,7 +157,7 @@ Edge Function returns video URL
     ↓
 Frontend displays video in player
     ↓
-Video URL saved to GHL contact (if configured)
+Video URL saved to platform contact (if configured)
 ```
 
 ---
@@ -166,7 +166,7 @@ Video URL saved to GHL contact (if configured)
 
 - ✅ No AI model names mentioned on website (as requested)
 - ✅ Teeth look Hollywood-perfect (bright intensity option)
-- ✅ Fully GHL compatible (videos auto-uploaded to contacts)
+- ✅ Fully platform compatible (videos auto-uploaded to contacts)
 - ✅ Professional testimonial style movement
 - ✅ Fallback to animated preview if video fails
 

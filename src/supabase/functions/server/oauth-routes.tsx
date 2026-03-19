@@ -10,7 +10,7 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
 );
 
-// GHL OAuth endpoints
+// platform OAuth endpoints
 const GHL_AUTH_URL = 'https://marketplace.gohighlevel.com/oauth/chooselocation';
 const GHL_TOKEN_URL = 'https://services.leadconnectorhq.com/oauth/token';
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
@@ -22,7 +22,7 @@ const getOAuthConfig = () => {
   const redirectUri = Deno.env.get('GHL_REDIRECT_URI') || 'https://www.smilevisionpro.ai/oauth/callback';
   
   if (!clientId || !clientSecret) {
-    throw new Error('GHL OAuth credentials not configured');
+    throw new Error('platform OAuth credentials not configured');
   }
   
   return { clientId, clientSecret, redirectUri };

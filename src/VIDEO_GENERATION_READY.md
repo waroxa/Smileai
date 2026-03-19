@@ -25,10 +25,10 @@ Your SmileVision Pro app now has **full FAL AI Kling Video v2.6 Pro integration*
 - [x] Automatic fallback to animated preview
 
 ### Integration ✅
-- [x] GoHighLevel integration (videos auto-upload to contacts)
+- [x] platform integration (videos auto-upload to contacts)
 - [x] Supabase Storage integration (public image hosting)
 - [x] Status tracking throughout the process
-- [x] Video URL storage in GHL custom fields
+- [x] Video URL storage in custom fields
 
 ---
 
@@ -51,14 +51,14 @@ Your SmileVision Pro app now has **full FAL AI Kling Video v2.6 Pro integration*
 ## 🎬 How It Works
 
 ### User Experience:
-1. User fills out lead form → Contact created in GHL
+1. User fills out lead form → Contact created in platform
 2. User uploads smile photo
 3. User clicks "See My New Smile" → AI enhances smile (Gemini 2.5 Flash)
 4. User clicks "🎬 Generate Smile Video"
 5. **Image uploads to Supabase Storage** (5-10 seconds)
 6. **FAL AI generates video** (30-60 seconds)
 7. **Video displays** in beautiful player
-8. **Video URL saved to GHL contact** automatically
+8. **Video URL saved to platform contact** automatically
 
 ### Technical Flow:
 ```
@@ -80,7 +80,7 @@ Return video URL: https://v3.fal.media/files/...
   ↓
 Display video to user
   ↓
-Upload to GHL contact
+Upload to platform contact
 ```
 
 ---
@@ -181,9 +181,9 @@ person looks comfortable, confident, and genuinely happy with their smile.
 🎉 Video URL: https://v3.fal.media/files/...
 ```
 
-### 5. Verify GHL Integration
+### 5. Verify platform Integration
 
-**Check your GHL contact:**
+**Check your platform contact:**
 - Status updated to "Complete - Video Generated"
 - Custom field "Smile Video URL" contains video link
 - Before/After images uploaded
@@ -343,7 +343,7 @@ person looks comfortable, confident, and genuinely happy with their smile.
 ### Video Privacy
 - ✅ Videos hosted on FAL CDN with unique URLs
 - ✅ URLs are permanent but not guessable
-- ✅ Videos linked to GHL contacts for tracking
+- ✅ Videos linked to CRM contacts for tracking
 - ✅ No AI model names mentioned on website (as requested)
 
 ---
@@ -353,7 +353,7 @@ person looks comfortable, confident, and genuinely happy with their smile.
 ### Immediate Actions:
 1. ✅ **Add FAL_API_KEY to Supabase** (only step needed!)
 2. ✅ Test video generation with 3-5 sample photos
-3. ✅ Verify GHL integration is working
+3. ✅ Verify platform integration is working
 4. ✅ Check FAL dashboard for credit usage
 
 ### Optional Enhancements:
@@ -394,7 +394,7 @@ person looks comfortable, confident, and genuinely happy with their smile.
 - Graceful fallback to animated preview
 - 1:1 aspect ratio for portraits
 - 5-second videos for cost-effectiveness
-- Full GHL integration with automatic video upload
+- Full platform integration with automatic video upload
 - User-friendly progress indicators
 - Motivational messages during generation
 

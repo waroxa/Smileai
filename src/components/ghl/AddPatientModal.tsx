@@ -79,7 +79,7 @@ export function AddPatientModal({ isOpen, onClose, onPatientAdded, primaryColor 
     setError(null);
 
     try {
-      // Get GHL credentials from localStorage (debugging)
+      // Get platform credentials from localStorage (debugging)
       const ghlApiKey = localStorage.getItem('ghl_api_key');
       const ghlLocationId = localStorage.getItem('ghl_location_id');
 
@@ -89,7 +89,7 @@ export function AddPatientModal({ isOpen, onClose, onPatientAdded, primaryColor 
       console.log('All localStorage keys:', Object.keys(localStorage));
 
       if (!ghlApiKey || !ghlLocationId) {
-        throw new Error('GoHighLevel credentials not configured. Please set up API credentials in Settings.');
+        throw new Error('platform credentials not configured. Please set up API credentials in Settings.');
       }
 
       // Trim credentials to avoid whitespace issues
@@ -97,10 +97,10 @@ export function AddPatientModal({ isOpen, onClose, onPatientAdded, primaryColor 
       const trimmedLocationId = ghlLocationId.trim();
 
       if (!trimmedApiKey || !trimmedLocationId) {
-        throw new Error('GoHighLevel credentials are empty. Please enter valid credentials in Settings.');
+        throw new Error('platform credentials are empty. Please enter valid credentials in Settings.');
       }
 
-      // Create contact in GHL
+      // Create contact in platform
       const contactData = {
         firstName: formData.firstName,
         lastName: formData.lastName,

@@ -367,7 +367,7 @@ app.post("/make-server-c5a5d193/api/fal-video", async (c) => {
 // Add OAuth routes
 app.route("/", oauthRoutes);
 
-// Add GHL API routes
+// Add platform API routes
 app.route("/", ghlApiRoutes);
 
 Deno.serve(app.fetch);

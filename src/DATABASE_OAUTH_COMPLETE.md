@@ -1,4 +1,4 @@
-# ✅ GoHighLevel OAuth with PostgreSQL Database - Complete
+# ✅ platform OAuth with PostgreSQL Database - Complete
 
 ## What Changed
 
@@ -86,7 +86,7 @@ create table ghl_videos (
   tags text[] default array[]::text[],
   workflow_step text default 'transformation',
   
-  custom_value_id text null,      -- GHL custom value ID
+  custom_value_id text null,      -- platform custom value ID
   custom_value_key text null,
   
   metadata jsonb default '{}'
@@ -95,10 +95,10 @@ create table ghl_videos (
 
 **Features:**
 - Stores video URLs and metadata
-- Links to GHL contacts
+- Links to CRM contacts
 - Tags for organization
 - Workflow step tracking
-- GHL custom value reference
+- platform custom value reference
 
 ---
 
@@ -121,7 +121,7 @@ create table ghl_videos (
 - Audit logging to `ghl_audit_log` table
 
 ✅ **`/supabase/functions/server/ghl-api-routes-db.tsx`**
-- GHL API integration using PostgreSQL
+- platform API integration using PostgreSQL
 - Video storage in `ghl_videos` table
 - Audit logging for all actions
 
@@ -220,7 +220,7 @@ supabase db execute --file supabase/migrations/001_create_ghl_connections.sql
   title: "Smile Transformation",
   tags: ["before-after", "veneers"],
   workflow_step: "transformation",
-  custom_value_id: "cv_xxx",        // GHL custom value ID
+  custom_value_id: "cv_xxx",        // platform custom value ID
   custom_value_key: "smile_video_123",
   metadata: {},
   created_at: "2026-02-07T14:30:00Z",

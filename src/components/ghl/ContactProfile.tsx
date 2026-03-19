@@ -56,7 +56,7 @@ export function ContactProfile({ contactId, onBack, primaryColor = '#0ea5e9' }: 
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [reviewStatus, setReviewStatus] = useState<ReviewStatusType>('Under Review');
 
-  // Mock contact data - in production, this would come from GHL API
+  // Mock contact data - in production, this would come from platform API
   const contact: ContactData = {
     id: contactId || '12345',
     name: 'Sarah Johnson',

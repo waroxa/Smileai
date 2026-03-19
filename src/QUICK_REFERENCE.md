@@ -1,4 +1,4 @@
-# Quick Reference - GoHighLevel OAuth
+# Quick Reference - platform OAuth
 
 ## ✅ What Was Done
 
@@ -19,7 +19,7 @@
 
 | Route | Method | Purpose |
 |-------|--------|---------|
-| `/oauth/start` | GET | Start OAuth (redirects to GHL) |
+| `/oauth/start` | GET | Start OAuth (redirects to platform) |
 | `/oauth/callback` | GET | Handle callback (redirects to frontend) |
 | `/oauth/status` | GET | Get connections list (returns JSON) |
 | `/oauth/disconnect` | POST | Disconnect location (returns JSON) |
@@ -119,9 +119,9 @@ app.get("/make-server-c5a5d193/oauth/status", async (c) => {
 # Open in browser:
 https://www.smilevisionpro.ai/admin/ghl-connect
 
-# Click "Connect GoHighLevel"
+# Click "Connect Platform"
 # Should redirect to: /oauth/start
-# Then to: GHL authorization
+# Then to: platform authorization
 # Then back to: /admin/ghl-connect?success=true
 ```
 
@@ -158,7 +158,7 @@ GHL_CLIENT_SECRET=<your_client_secret_from_ghl>
 GHL_REDIRECT_URI=https://www.smilevisionpro.ai/oauth/callback
 ```
 
-### GHL Marketplace App
+### marketplace portal App
 **Redirect URI:**
 ```
 https://www.smilevisionpro.ai/oauth/callback
@@ -173,9 +173,9 @@ https://www.smilevisionpro.ai/oauth/callback
 - Check it returns 302 redirect (not JSON)
 - Check DevTools Network tab for errors
 
-### GHL callback fails
+### platform callback fails
 - Check `GHL_REDIRECT_URI` matches exactly
-- Check GHL Marketplace app redirect URI
+- Check marketplace portal app redirect URI
 - Check backend `/oauth/callback` endpoint exists
 
 ### Connections don't load
@@ -218,12 +218,12 @@ https://www.smilevisionpro.ai/oauth/callback
 
 ### 2. Configure Proxy (if needed)
 - [ ] Add Vercel rewrites OR Next.js API routes
-- [ ] Test `/oauth/start` redirects to GHL
+- [ ] Test `/oauth/start` redirects to platform
 
 ### 3. Test End-to-End
 - [ ] Visit `/admin/ghl-connect`
-- [ ] Click "Connect GoHighLevel"
-- [ ] Complete OAuth in GHL
+- [ ] Click "Connect Platform"
+- [ ] Complete OAuth in platform
 - [ ] Verify success banner appears
 - [ ] Check connection in list
 
@@ -242,7 +242,7 @@ https://www.smilevisionpro.ai/oauth/callback
 **Fix:** Backend route still requires auth header. Remove the check.
 
 **Issue:** "Invalid redirect_uri"  
-**Fix:** Check `GHL_REDIRECT_URI` matches GHL Marketplace app exactly.
+**Fix:** Check `GHL_REDIRECT_URI` matches marketplace portal app exactly.
 
 **Issue:** "State parameter missing or invalid"  
 **Fix:** Check `ghl_oauth_states` table exists and state is being saved.

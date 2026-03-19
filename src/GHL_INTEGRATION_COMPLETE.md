@@ -1,15 +1,15 @@
-# ✅ GoHighLevel Integration - COMPLETE
+# ✅ platform Integration - COMPLETE
 
 ## 🎉 Summary
 
-Your SmileVisionPro AI application is now **fully compatible with GoHighLevel**! Here's what's been implemented:
+Your SmileVisionPro AI application is now **fully compatible with platform**! Here's what's been implemented:
 
 ---
 
 ## 🚀 What's Working
 
 ### 1. **Automatic SSO Detection** ✅
-- App automatically detects when installed in GoHighLevel
+- App automatically detects when installed in platform
 - Extracts Location ID and API Key from URL parameters
 - Saves credentials to localStorage automatically
 - Works in iframe or standalone mode
@@ -20,7 +20,7 @@ https://your-app.com/?location_id=ABC123&api_key=YOUR_KEY
 ```
 
 ### 2. **Lead Capture Integration** ✅
-- Form submissions automatically create contacts in GHL
+- Form submissions automatically create contacts in platform
 - All customer data is saved:
   - ✅ Full Name (split into firstName/lastName)
   - ✅ Email Address
@@ -57,7 +57,7 @@ This video shows the patient's smile transformation in action.
 ```
 
 ### 5. **Graceful Fallback** ✅
-- App works perfectly **without** GHL credentials
+- App works perfectly **without** platform credentials
 - No errors shown to users
 - All features functional in standalone mode
 - Credentials optional until needed
@@ -69,25 +69,25 @@ This video shows the patient's smile transformation in action.
 
 ---
 
-## 📋 Setup Instructions for GHL Users
+## 📋 Setup Instructions for platform Users
 
 ### Quick Start (3 Steps)
 
 **Step 1: Get Credentials**
 ```
-GHL → Settings → API → Create API Key
-GHL → Settings → Business Profile → Copy Location ID
+platform → Settings → API → Create API Key
+platform → Settings → Business Profile → Copy Location ID
 ```
 
 **Step 2: Install App**
 ```
-Add app to GHL with URL:
+Add app to platform with URL:
 https://your-app.com/?location_id=YOUR_LOCATION&api_key=YOUR_KEY
 ```
 
 **Step 3: Create Custom Fields**
 ```
-GHL → Settings → Custom Fields → Add:
+platform → Settings → Custom Fields → Add:
 - service_interest (Dropdown)
 - transformation_status (Text)
 - before_image_url (URL/Text)
@@ -101,7 +101,7 @@ GHL → Settings → Custom Fields → Add:
 
 Here's exactly what happens when a video is generated:
 
-1. **User fills out form** → Contact created in GHL
+1. **User fills out form** → Contact created in platform
 2. **User uploads photo** → Before image saved
 3. **AI generates smile** → After image saved
 4. **User clicks "Generate Video"** → Video creation starts
@@ -109,7 +109,7 @@ Here's exactly what happens when a video is generated:
    - Custom field: `smile_video_url`
    - Contact note with clickable link
 6. **Status updated** → "Complete - Video Generated"
-7. **GHL workflows triggered** → Can send automated follow-ups
+7. **platform workflows triggered** → Can send automated follow-ups
 
 ---
 
@@ -131,21 +131,21 @@ Here's exactly what happens when a video is generated:
 ## 🧪 Testing Checklist
 
 - [x] SSO detection from URL parameters
-- [x] Lead form creates GHL contact
+- [x] Lead form creates platform contact
 - [x] Contact gets proper tags
 - [x] Custom fields populate correctly
 - [x] Before/After images save
 - [x] **Video URL saves to custom field**
 - [x] **Video URL appears in contact notes**
 - [x] Status updates throughout process
-- [x] App works without GHL credentials
+- [x] App works without platform credentials
 - [x] Social proof popup closeable
 
 ---
 
-## 🎯 GHL Marketplace Submission Checklist
+## 🎯 marketplace portal Submission Checklist
 
-When submitting to GHL Marketplace, you'll need:
+When submitting to marketplace portal, you'll need:
 
 - [x] **OAuth Integration** - Handles automatic credential setup
 - [x] **SSO Support** - Detects and configures from URL params
@@ -160,20 +160,20 @@ When submitting to GHL Marketplace, you'll need:
 
 ## 🔥 Key Features for Marketing
 
-**Highlight these in your GHL listing:**
+**Highlight these in your platform listing:**
 
 1. **One-Click Installation** - Auto-configures with SSO
 2. **Automatic Lead Capture** - Zero manual data entry
 3. **AI Smile Transformations** - Powered by Google Gemini
 4. **Video Generation** - Creates animated smile previews
-5. **Complete Data Sync** - All info flows to GHL
+5. **Complete Data Sync** - All info flows to platform
 6. **Video URLs Accessible** - Clickable links in contact notes
 7. **Workflow Ready** - Triggers automation on video completion
 8. **Zero Setup Friction** - Works out of the box
 
 ---
 
-## 💡 Recommended GHL Workflows
+## 💡 Recommended platform Workflows
 
 ### Workflow 1: New Lead Welcome
 ```
@@ -206,7 +206,7 @@ Day 7: Call - "Schedule your consultation"
 ## 🎊 Success Metrics
 
 Once live, you can track:
-- **Lead Capture Rate** - Forms submitted → GHL contacts
+- **Lead Capture Rate** - Forms submitted → CRM contacts
 - **Transformation Rate** - Uploads → AI transformations
 - **Video Generation Rate** - Images → Videos created
 - **Conversion Rate** - Videos → Booked consultations
@@ -229,8 +229,8 @@ Once live, you can track:
 
 ## 🚀 Ready to Launch!
 
-Your app is **100% GHL-compatible** and ready to:
-1. Install in GoHighLevel marketplace
+Your app is **100% platform-compatible** and ready to:
+1. Install in marketplace portal
 2. Auto-configure via SSO
 3. Capture leads automatically
 4. Save videos to contact records
@@ -244,9 +244,9 @@ Your app is **100% GHL-compatible** and ready to:
 
 - Video URLs are **permanent links** from FAL AI (Kling Video API)
 - Videos are **hosted externally** - no storage costs for you
-- GHL custom fields can **store full video URLs** (no truncation needed)
+- custom fields can **store full video URLs** (no truncation needed)
 - Contact notes make videos **easily accessible** for staff
-- All features work **without GHL** (graceful degradation)
+- All features work **without platform** (graceful degradation)
 
 **The notification popup now has an X button to close it!** ✅
 

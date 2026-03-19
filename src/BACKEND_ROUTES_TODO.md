@@ -30,7 +30,7 @@ app.get("/make-server-c5a5d193/oauth/start", async (c) => {
       expires_at: expiresAt.toISOString(),
     });
     
-    // Build GHL authorization URL
+    // Build platform authorization URL
     const scopes = [
       'locations.readonly',
       'locations/customFields.write',
@@ -50,7 +50,7 @@ app.get("/make-server-c5a5d193/oauth/start", async (c) => {
     authUrl.searchParams.set('scope', scopes);
     authUrl.searchParams.set('state', state);
     
-    // Redirect to GHL
+    // Redirect to platform
     return c.redirect(authUrl.toString());
   } catch (error: any) {
     console.error('OAuth start error:', error);
@@ -250,7 +250,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 ### Why No Auth Headers?
 - Browser navigates directly to `/oauth/start` (can't add headers)
-- OAuth callback comes from GHL (external redirect)
+- OAuth callback comes from platform (external redirect)
 - Frontend shouldn't handle auth tokens (security best practice)
 
 ### Protection Mechanisms:
@@ -303,7 +303,7 @@ curl -X POST https://www.smilevisionpro.ai/oauth/disconnect \
 
 4. **Test End-to-End:**
    - Visit `https://www.smilevisionpro.ai/admin/ghl-connect`
-   - Click "Connect GoHighLevel"
+   - Click "Connect Platform"
    - Verify redirects work
    - Check database for saved connection
 

@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 import { EmbeddedAppLayout } from './EmbeddedAppLayout';
 
 /**
- * SmileVisionMarketplaceApp - Premium SaaS interface for GHL Marketplace
+ * SmileVisionMarketplaceApp - Premium SaaS interface for marketplace portal
  * Mobile-first (390×844), designed for iframe embedding
  */
 export function SmileVisionMarketplaceApp() {
@@ -80,7 +80,7 @@ function NotInstalledState({ onInstall }: { onInstall: () => void }) {
         <div className="px-6 py-6 space-y-6">
           {/* Description */}
           <p className="text-sm text-gray-600 leading-relaxed">
-            Enable AI-powered dental imaging analysis, diagnostics assistance, and visual case insights directly inside your GoHighLevel workspace.
+            Enable AI-powered dental imaging analysis, diagnostics assistance, and visual case insights directly inside your connected workspace.
           </p>
 
           {/* Features */}

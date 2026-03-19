@@ -1,8 +1,8 @@
-# How to Get GoHighLevel Marketplace Credentials
+# How to Get marketplace portal Credentials
 
-## Option 1: Create a Real GHL Marketplace App (Recommended)
+## Option 1: Create a Real marketplace portal App (Recommended)
 
-### Step 1: Create GoHighLevel Account
+### Step 1: Create platform Account
 
 1. Go to https://www.gohighlevel.com/
 2. Sign up for an account
@@ -11,11 +11,11 @@
 
 ### Step 2: Access Marketplace Developer Portal
 
-1. Login to GoHighLevel
+1. Login to platform
 2. Go to: https://marketplace.gohighlevel.com/
 3. Click **"Developer"** or **"Build Apps"** in the navigation
 4. If you don't see this option, you may need to:
-   - Contact GHL support to enable developer access
+   - Contact platform support to enable developer access
    - Or use an Agency/SaaS account that has marketplace access
 
 ### Step 3: Create New App
@@ -79,35 +79,35 @@ GHL_REDIRECT_URI=https://www.smilevisionpro.ai/oauth/callback
 
 ---
 
-## Option 2: Test Without GHL (Development Mode)
+## Option 2: Test Without platform (Development Mode)
 
-If you want to test the UI without GHL credentials yet:
+If you want to test the UI without platform credentials yet:
 
 ### What Works:
 - ✅ Admin page loads
-- ✅ "Connect GoHighLevel" button appears
+- ✅ "Connect Platform" button appears
 - ✅ UI is fully functional
 
 ### What Doesn't Work:
 - ❌ OAuth flow (will show error)
-- ❌ Can't actually connect to GHL
+- ❌ Can't actually connect to platform
 - ❌ API calls won't work
 
 ### To Enable Development Mode:
 
 Just skip adding the credentials for now. The app will show:
-- Error: "GHL OAuth credentials not configured"
+- Error: "platform OAuth credentials not configured"
 - This is expected and safe for testing UI
 
 ---
 
 ## Option 3: Use Test Credentials (If Available)
 
-If you have a GHL development/test account:
+If you have a platform development/test account:
 
-### From GHL Dashboard:
+### From platform Dashboard:
 
-1. Login to your GHL account
+1. Login to your platform account
 2. Go to **Settings** → **Integrations** → **Developer Settings**
 3. Or direct link: `https://app.gohighlevel.com/settings/integrations`
 4. Look for "OAuth Apps" or "API Settings"
@@ -123,19 +123,19 @@ If you have a GHL development/test account:
 
 **Solutions:**
 - Check if you have Agency or SaaS Mode enabled
-- Contact GHL support: support@gohighlevel.com
+- Contact platform support: support@gohighlevel.com
 - Ask to enable developer/marketplace access
 - May need to upgrade plan
 
-### Don't Have GHL Account
+### Don't Have platform Account
 
-**Problem:** Don't want to pay for GHL yet
+**Problem:** Don't want to pay for platform yet
 
 **Solutions:**
-1. **Request trial:** GHL offers 14-day trials
+1. **Request trial:** platform offers 14-day trials
 2. **Use test mode:** Test UI without credentials (see Option 2)
-3. **Partner account:** Ask if GHL has partner/developer accounts
-4. **Sandbox:** Ask GHL if they have a sandbox environment
+3. **Partner account:** Ask if platform has partner/developer accounts
+4. **Sandbox:** Ask platform if they have a sandbox environment
 
 ### Can't Create Marketplace App
 
@@ -143,7 +143,7 @@ If you have a GHL development/test account:
 
 **Solutions:**
 - Verify account type (needs Agency/SaaS Mode)
-- Contact GHL support to enable marketplace access
+- Contact platform support to enable marketplace access
 - Check if company account vs personal account
 - May need company verification
 
@@ -157,7 +157,7 @@ If you have a GHL development/test account:
 - Button will show error (expected)
 
 **For Full OAuth:**
-- Need GHL Marketplace account
+- Need marketplace portal account
 - Need to create app and get Client ID/Secret
 - Then add to Supabase secrets
 
@@ -165,22 +165,22 @@ If you have a GHL development/test account:
 
 ## Quick Summary
 
-| Have GHL Account? | Have Marketplace Access? | What to Do |
+| Have platform Account? | Have Marketplace Access? | What to Do |
 |-------------------|-------------------------|------------|
 | ✅ Yes | ✅ Yes | Create app, get credentials, add to Supabase |
-| ✅ Yes | ❌ No | Contact GHL support to enable marketplace |
-| ❌ No | ❌ No | Sign up for GHL trial OR test UI without credentials |
+| ✅ Yes | ❌ No | Contact platform support to enable marketplace |
+| ❌ No | ❌ No | Sign up for platform trial OR test UI without credentials |
 
 ---
 
 ## Testing Without Credentials
 
-You can test right now without any GHL setup:
+You can test right now without any platform setup:
 
 1. Navigate to: `https://www.smilevisionpro.ai/admin/ghl-connect`
 2. You should see the admin dashboard
-3. Click "Connect GoHighLevel" 
-4. Will show error: "GHL OAuth credentials not configured"
+3. Click "Connect Platform" 
+4. Will show error: "platform OAuth credentials not configured"
 5. This proves the UI works!
 
 Later, when you get credentials:
@@ -192,7 +192,7 @@ Later, when you get credentials:
 
 ## Support Contacts
 
-**GoHighLevel:**
+**platform:**
 - Support: support@gohighlevel.com
 - Documentation: https://highlevel.stoplight.io/
 - Community: https://www.facebook.com/groups/gohighlevel
@@ -215,7 +215,7 @@ Later, when you get credentials:
 ### When You Get Credentials:
 1. Add to Supabase Edge Function Secrets
 2. Reload page
-3. Click "Connect GoHighLevel"
+3. Click "Connect Platform"
 4. Complete OAuth flow
 5. Test full integration
 
@@ -225,7 +225,7 @@ Later, when you get credentials:
 
 **Timeline:**
 - UI Testing: 5 minutes (now)
-- Get GHL Account: 15-30 minutes (trial signup)
+- Get platform Account: 15-30 minutes (trial signup)
 - Get Marketplace Access: 1-3 days (support request)
 - Create App & Get Keys: 10 minutes (once access granted)
 - Full Testing: 15 minutes (after credentials added)

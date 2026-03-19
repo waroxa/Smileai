@@ -57,7 +57,7 @@ done
 
 # Create README
 cat > "$STAGING_DIR/README-MARKETPLACE.txt" << 'EOF'
-# SmileVision Pro - GoHighLevel Marketplace Version
+# SmileVision Pro - marketplace portal Version
 
 ## 📦 Package Contents
 
@@ -101,7 +101,7 @@ This package contains the marketplace-ready version of SmileVision Pro.
 1. Read MARKETPLACE_IMPLEMENTATION.md
 2. Test in iframe (see test-iframe.html example in docs)
 3. Deploy to production
-4. Submit to GHL Marketplace
+4. Submit to marketplace portal
 
 Created: $(date +"%Y-%m-%d %H:%M:%S")
 EOF

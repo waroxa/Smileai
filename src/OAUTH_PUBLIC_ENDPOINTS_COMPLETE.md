@@ -1,4 +1,4 @@
-# ✅ GoHighLevel OAuth - Public Endpoints Implementation
+# ✅ platform OAuth - Public Endpoints Implementation
 
 ## GOAL ACHIEVED
 Frontend NEVER calls Supabase Edge Functions directly.  
@@ -30,16 +30,16 @@ All OAuth flows through public domain endpoints on `https://www.smilevisionpro.a
 ```
 1. User visits: https://www.smilevisionpro.ai/admin/ghl-connect
 
-2. User clicks: "Connect GoHighLevel" button
+2. User clicks: "Connect Platform" button
    → Frontend: window.location.href = '/oauth/start'
 
 3. Browser navigates to: https://www.smilevisionpro.ai/oauth/start
-   → Backend: Generates state, saves to DB, redirects to GHL
+   → Backend: Generates state, saves to DB, redirects to platform
 
-4. Browser at GHL: https://marketplace.gohighlevel.com/oauth/chooselocation?...
+4. Browser at platform: https://marketplace.gohighlevel.com/oauth/chooselocation?...
    → User authorizes and selects location
 
-5. GHL redirects to: https://www.smilevisionpro.ai/oauth/callback?code=xxx&state=xxx
+5. platform redirects to: https://www.smilevisionpro.ai/oauth/callback?code=xxx&state=xxx
    → Backend: Validates state, exchanges code for tokens, saves to DB
    → Backend redirects to: https://www.smilevisionpro.ai/admin/ghl-connect?success=true&locationId=xxx&locationName=xxx
 
@@ -55,8 +55,8 @@ All OAuth flows through public domain endpoints on `https://www.smilevisionpro.a
 **Backend Action:**
 - Generate random state
 - Save state to `ghl_oauth_states` table
-- Build GHL authorization URL with state
-- Redirect browser to GHL authorization URL
+- Build platform authorization URL with state
+- Redirect browser to platform authorization URL
 
 **Example:**
 ```
@@ -65,7 +65,7 @@ GET https://www.smilevisionpro.ai/oauth/start
 ```
 
 ### 2. `/oauth/callback` (GET)
-**Purpose:** Handle OAuth callback from GHL  
+**Purpose:** Handle OAuth callback from platform  
 **Query Params:** `code`, `state`  
 **Backend Action:**
 - Validate state from `ghl_oauth_states` table
@@ -170,7 +170,7 @@ useEffect(() => {
   const locationName = params.get('locationName');
 
   if (success === 'true' && locationId) {
-    setSuccess(`✅ GoHighLevel Connected! Location: ${locationName}`);
+    setSuccess(`✅ Platform Connected! Location: ${locationName}`);
     loadConnections();
   } else if (error) {
     setError(`❌ Connection Failed: ${error}`);
@@ -245,11 +245,11 @@ const handleDisconnect = async (locationId: string) => {
 - ✅ Shows UI based on connection status
 
 ### What Frontend DOES NOT:
-- ❌ Store GHL client secrets (server-side only)
+- ❌ Store platform client secrets (server-side only)
 - ❌ Store Supabase service role key (server-side only)
 - ❌ Call Supabase Edge Functions directly
 - ❌ Handle OAuth tokens directly
-- ❌ Make authenticated GHL API calls
+- ❌ Make authenticated platform API calls
 
 ### Token Security:
 - Tokens NEVER sent to frontend
@@ -301,7 +301,7 @@ CREATE TABLE ghl_audit_log (
 );
 ```
 
-### GHL Marketplace App Settings:
+### marketplace portal App Settings:
 **Redirect URI:**
 ```
 https://www.smilevisionpro.ai/oauth/callback
@@ -327,16 +327,16 @@ forms.readonly
 ### 1. Frontend Verification:
 - [ ] Navigate to `/admin/ghl-connect`
 - [ ] Page loads without errors
-- [ ] "Connect GoHighLevel" button visible
+- [ ] "Connect Platform" button visible
 - [ ] No Supabase URLs in network tab
 - [ ] No console errors
 
 ### 2. OAuth Flow:
-- [ ] Click "Connect GoHighLevel"
+- [ ] Click "Connect Platform"
 - [ ] Browser redirects to `/oauth/start`
-- [ ] Backend redirects to GHL authorization page
-- [ ] Authorize in GHL and select location
-- [ ] GHL redirects to `/oauth/callback?code=xxx&state=xxx`
+- [ ] Backend redirects to platform authorization page
+- [ ] Authorize in platform and select location
+- [ ] platform redirects to `/oauth/callback?code=xxx&state=xxx`
 - [ ] Backend processes and redirects to `/admin/ghl-connect?success=true&locationId=xxx`
 - [ ] Frontend shows green success banner
 - [ ] Connection appears in list
@@ -433,15 +433,15 @@ window.location.href = '/oauth/start'; // Simple redirect
 - [x] Success/error banners
 
 ### Backend Needed:
-- [ ] Create `/oauth/start` endpoint (redirects to GHL)
-- [ ] Create `/oauth/callback` endpoint (handles GHL callback)
+- [ ] Create `/oauth/start` endpoint (redirects to platform)
+- [ ] Create `/oauth/callback` endpoint (handles platform callback)
 - [ ] Create `/oauth/status` endpoint (returns JSON)
 - [ ] Create `/oauth/disconnect` endpoint (optional)
 - [ ] Create `/oauth/refresh` endpoint (optional)
 
 ### Configuration:
 - [ ] Set `GHL_REDIRECT_URI=https://www.smilevisionpro.ai/oauth/callback` in Supabase
-- [ ] Update GHL Marketplace app redirect URI
+- [ ] Update marketplace portal app redirect URI
 - [ ] Test OAuth flow end-to-end
 
 ---
@@ -450,7 +450,7 @@ window.location.href = '/oauth/start'; // Simple redirect
 
 - [x] Frontend never calls Supabase Edge Functions directly
 - [x] All OAuth goes through `https://www.smilevisionpro.ai/oauth/*`
-- [x] Single-click "Connect GoHighLevel" button
+- [x] Single-click "Connect Platform" button
 - [x] Callback handled with query params
 - [x] Status refresh button works
 - [x] Mobile-responsive UI

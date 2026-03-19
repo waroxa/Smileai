@@ -1,8 +1,8 @@
-# 🔐 Secure Storage Architecture for GHL Marketplace
+# 🔐 Secure Storage Architecture for marketplace portal
 
 ## Overview
 
-This app uses **GoHighLevel Custom Values API** for all persistent storage, making it marketplace-ready with proper data isolation per sub-account.
+This app uses **platform Custom Values API** for all persistent storage, making it marketplace-ready with proper data isolation per sub-account.
 
 ## ✅ What's Stored Where
 
@@ -11,8 +11,8 @@ This app uses **GoHighLevel Custom Values API** for all persistent storage, maki
 - `ghl_current_location_id` - Cached location ID for current session
 - **Why sessionStorage?** Cleared when tab/browser closes, perfect for sessions
 
-### 2. **Persistent Data** (GHL Custom Values) ✅
-All of the following are stored in GoHighLevel Custom Values API:
+### 2. **Persistent Data** (Platform Custom Values) ✅
+All of the following are stored in platform Custom Values API:
 
 #### a. **Admin Password** 🔒
 - **Key**: `smileai_admin_password_hash`
@@ -37,20 +37,20 @@ All of the following are stored in GoHighLevel Custom Values API:
 - **Key**: `smileai_api_credentials`
 - **Format**: JSON string
 - **Contains**:
-  - GHL API key
-  - GHL Location ID
-- **Note**: In production, these come from GHL SSO (not stored)
+  - platform API key
+  - platform Location ID
+- **Note**: In production, these come from platform SSO (not stored)
 
-### 3. **Lead Data** (GHL Contacts) ✅
-- All form submissions go directly to GHL Contacts API
-- Images/videos uploaded to GHL Media API
+### 3. **Lead Data** (platform Contacts) ✅
+- All form submissions go directly to contacts API
+- Images/videos uploaded to media API
 - Contact custom fields track status
 
 ### 4. **Cache** (localStorage - temporary) ⚡
 - `smileai_clinic_branding` - Local cache for faster loading
 - `ghl_api_key` - Development only (SSO in production)
 - `ghl_location_id` - Development only (SSO in production)
-- **Note**: This is a READ cache only. Source of truth is GHL Custom Values.
+- **Note**: This is a READ cache only. Source of truth is Platform Custom Values.
 
 ## 🔒 Security Features
 
@@ -85,19 +85,19 @@ localStorage.setItem('password', 'mypassword123'); // DON'T DO THIS!
 - ✅ **Fast**: No library loading time
 - ❌ bcryptjs: 50KB bundle size, requires polyfill
 
-## 📡 GHL Custom Values API Integration
+## 📡 Platform Custom Values API Integration
 
 ### How It Works
 ```typescript
-// Get custom value from GHL
+// Get custom value from platform
 const value = await getCustomValue('smileai_admin_password_hash');
 
-// Set custom value in GHL
+// Set custom value in platform
 await setCustomValue('smileai_clinic_branding', JSON.stringify(branding));
 ```
 
 ### Location Isolation
-Each GHL sub-account has its own Custom Values, ensuring:
+Each platform sub-account has its own Custom Values, ensuring:
 - ✅ Clinic A cannot see Clinic B's settings
 - ✅ Each location has independent branding
 - ✅ Passwords are unique per location
@@ -105,25 +105,25 @@ Each GHL sub-account has its own Custom Values, ensuring:
 
 ### Fallback Behavior
 ```typescript
-// If GHL credentials are not configured:
-// 1. Tries to get from GHL Custom Values API
+// If platform credentials are not configured:
+// 1. Tries to get from Platform Custom Values API
 // 2. If API fails or no credentials → falls back to localStorage
-// 3. When credentials are added → syncs localStorage to GHL
+// 3. When credentials are added → syncs localStorage to platform
 ```
 
 ## 🔄 Migration from localStorage
 
 ### Automatic Migration
-On first load with GHL credentials configured:
+On first load with platform credentials configured:
 ```typescript
-await migrateLocalStorageToGHL();
+await migrateLocalStorageToplatform();
 ```
 
 This will:
 1. Read old password from localStorage
 2. Hash it with PBKDF2 (if plain text)
-3. Store hash in GHL Custom Values
-4. Migrate branding JSON to GHL
+3. Store hash in Platform Custom Values
+4. Migrate branding JSON to platform
 5. Log completion
 
 ### Manual Migration
@@ -132,12 +132,12 @@ In Settings → Security, there's a migration button that staff can click.
 ## 🚀 Marketplace Deployment Checklist
 
 ### Before Publishing
-- ✅ All settings use GHL Custom Values API
+- ✅ All settings use Platform Custom Values API
 - ✅ Passwords are hashed with PBKDF2
 - ✅ No sensitive data in localStorage
 - ✅ sessionStorage only for temporary session data
-- ✅ Lead data goes to GHL Contacts API
-- ✅ Images/videos use GHL Media API
+- ✅ Lead data goes to contacts API
+- ✅ Images/videos use media API
 
 ### After Publishing
 - ✅ Each location gets isolated data
@@ -150,11 +150,11 @@ In Settings → Security, there's a migration button that staff can click.
 
 ### Testing Locally
 ```bash
-# Without GHL credentials:
+# Without platform credentials:
 # - Falls back to localStorage (for development)
 # - Still uses bcrypt for passwords
 
-# With GHL credentials:
+# With platform credentials:
 # - Uses Custom Values API
 # - Full marketplace behavior
 ```
@@ -177,7 +177,7 @@ PUT  /contacts/{contactId}
 
 ### DO:
 ✅ Use PBKDF2 for passwords  
-✅ Store hashes in GHL Custom Values  
+✅ Store hashes in Platform Custom Values  
 ✅ Use sessionStorage for temporary data  
 ✅ Validate all inputs  
 ✅ Use HTTPS for all API calls  
@@ -194,26 +194,26 @@ PUT  /contacts/{contactId}
 ```
 User fills form
     ↓
-Lead data → GHL Contacts API ✅
+Lead data → contacts API ✅
     ↓
 User uploads image
     ↓
 Image → Gemini API → Enhanced image
     ↓
-Images → GHL Media API (attached to contact) ✅
+Images → media API (attached to contact) ✅
     ↓
-Status updated → GHL Contact custom field ✅
+Status updated → platform Contact custom field ✅
 ```
 
 ## 🎯 Key Takeaways
 
 1. **No localStorage for persistent data** - Only sessionStorage for session state
-2. **All settings in GHL Custom Values** - Location-isolated storage
+2. **All settings in Platform Custom Values** - Location-isolated storage
 3. **Passwords are hashed** - Never store plain text
-4. **Lead data in GHL Contacts** - Proper CRM integration
+4. **Lead data in platform Contacts** - Proper CRM integration
 5. **Marketplace-ready** - Each sub-account is isolated
 
 ---
 
 **Last Updated**: January 19, 2026  
-**Storage Version**: 2.0 (GHL Custom Values + PBKDF2)
+**Storage Version**: 2.0 (Platform Custom Values + PBKDF2)

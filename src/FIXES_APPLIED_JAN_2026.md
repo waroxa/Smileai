@@ -17,11 +17,11 @@
 
 ---
 
-### 2. ✅ **GHL Integration - Automatic Location ID Capture**
+### 2. ✅ **platform Integration - Automatic Location ID Capture**
 **Status:** ✅ ALREADY WORKING CORRECTLY!
 
 **How It Works:**
-1. When app is installed in GHL, it automatically captures:
+1. When app is installed in platform, it automatically captures:
    - `location_id` from URL parameters
    - `api_key` / `access_token` from URL parameters
    
@@ -30,17 +30,17 @@
    - `ghl_api_key` - API key for that location
 
 3. When a lead submits the form:
-   - Contact is created in the GHL location using the stored location_id
+   - Contact is created in the platform location using the stored location_id
    - All form data is sent to that specific location
    - Images and videos are attached to the contact record
 
 **Files Involved:**
-- `/utils/ghl-sso.ts` - Detects and saves GHL credentials from URL
+- `/utils/ghl-sso.ts` - Detects and saves platform credentials from URL
 - `/utils/ghl-api.ts` - Creates contacts in the correct location
-- `/components/SmileTransformationSection.tsx` - Submits to GHL
+- `/components/SmileTransformationSection.tsx` - Submits to platform
 
 **Testing:**
-To test GHL integration, add these URL parameters:
+To test platform integration, add these URL parameters:
 ```
 ?location_id=YOUR_LOCATION_ID&api_key=YOUR_API_KEY
 ```
@@ -71,19 +71,19 @@ The app will automatically detect and save these credentials!
 
 ---
 
-## 🔒 **GHL Integration Security:**
+## 🔒 **platform Integration Security:**
 
 ### **Where Credentials Are Stored:**
 - ✅ `localStorage.ghl_location_id` - Location where app is installed
-- ✅ `localStorage.ghl_api_key` - API key for GHL access
+- ✅ `localStorage.ghl_api_key` - API key for platform access
 
 ### **When Credentials Are Used:**
-1. **Lead Form Submission** → Creates GHL contact in the correct location
+1. **Lead Form Submission** → Creates platform contact in the correct location
 2. **Image Generation** → Uploads before/after images to contact
 3. **Video Generation** → Uploads smile video to contact
 4. **Status Updates** → Updates transformation status on contact
 
-### **Data Sent to GHL:**
+### **Data Sent to platform:**
 ```javascript
 {
   firstName: "John",
@@ -108,13 +108,13 @@ The app will automatically detect and save these credentials!
 
 ## 📊 **How to Verify Everything Works:**
 
-### **Test 1: GHL Integration**
+### **Test 1: platform Integration**
 1. Add to URL: `?location_id=TEST123&api_key=YOUR_KEY`
 2. Open browser console
-3. Look for: `✅ GHL Location ID saved: TEST123`
+3. Look for: `✅ platform Location ID saved: TEST123`
 4. Submit the lead form
 5. Check console for: `✅ Lead captured successfully! Contact ID: ...`
-6. Check your GHL location for the new contact
+6. Check your platform location for the new contact
 
 ### **Test 2: AI Teeth Transformation**
 1. Upload a photo with braces or crooked teeth
@@ -160,7 +160,7 @@ If video generation fails, check these:
 
 ---
 
-## 🚀 **GHL Marketplace Submission Checklist:**
+## 🚀 **marketplace portal Submission Checklist:**
 
 ### ✅ **Already Complete:**
 1. ✅ App Description added
@@ -190,10 +190,10 @@ If video generation fails, check these:
 
 ## 🎯 **Key Features Working:**
 
-✅ **Lead Capture** → Automatically syncs to GHL with correct location ID
+✅ **Lead Capture** → Automatically syncs to platform with correct location ID
 ✅ **AI Transformation** → Shows perfectly corrected teeth (treatment complete)
 ✅ **Video Generation** → With detailed error handling and fallback
-✅ **GHL SSO** → Auto-detects location from URL parameters
+✅ **platform SSO** → Auto-detects location from URL parameters
 ✅ **Documentation** → All pages live and updated to 2026
 ✅ **Professional** → No AI model names mentioned anywhere
 
@@ -204,7 +204,7 @@ If video generation fails, check these:
 If you encounter any issues:
 
 1. **Check browser console** - Detailed logs will show exactly what's happening
-2. **Check GHL credentials** - Make sure location_id and api_key are in localStorage
+2. **Check platform credentials** - Make sure location_id and api_key are in localStorage
 3. **Check FAL API key** - Visit the /check-api-key endpoint
 4. **Review error messages** - They now include helpful hints for fixing
 
@@ -212,9 +212,9 @@ If you encounter any issues:
 
 ## ✨ **What's Next:**
 
-1. Upload preview images to GHL marketplace form
+1. Upload preview images to marketplace portal form
 2. Complete any remaining mandatory sections
-3. Test the app in a real GHL installation
+3. Test the app in a real connected installation
 4. Submit for approval! 🚀
 
 ---

@@ -1,14 +1,14 @@
-# GoHighLevel OAuth Integration - Setup Guide
+# platform OAuth Integration - Setup Guide
 
 ## Overview
 
-This implementation provides a complete, secure OAuth 2.0 integration for GoHighLevel Marketplace apps. It includes:
+This implementation provides a complete, secure OAuth 2.0 integration for marketplace portal apps. It includes:
 
 ✅ **OAuth 2.0 Flow** - Full authorization code grant flow  
 ✅ **Token Management** - Secure storage, refresh, and expiration handling  
 ✅ **Location Management** - Connect multiple sub-accounts  
 ✅ **Admin Dashboard** - UI for managing connections  
-✅ **GHL API Integration** - Forms, custom fields, videos, contacts  
+✅ **platform API Integration** - Forms, custom fields, videos, contacts  
 ✅ **Audit Logging** - Track all actions  
 ✅ **Security** - CSRF protection, encrypted tokens, HTTPS only  
 
@@ -16,7 +16,7 @@ This implementation provides a complete, secure OAuth 2.0 integration for GoHigh
 
 ## Quick Start
 
-### 1. Configure GHL Marketplace App
+### 1. Configure marketplace portal App
 
 Go to https://marketplace.gohighlevel.com/ and create your app:
 
@@ -61,7 +61,7 @@ Deploy your updated Edge Function:
 
 Navigate to: `https://www.smilevisionpro.ai/admin/ghl-connect`
 
-Click "Connect GoHighLevel" to start OAuth flow.
+Click "Connect Platform" to start OAuth flow.
 
 ---
 
@@ -73,7 +73,7 @@ Click "Connect GoHighLevel" to start OAuth flow.
 /supabase/functions/server/
 ├── index.tsx                 # Main server (imports OAuth routes)
 ├── oauth-routes.tsx          # OAuth endpoints
-├── ghl-api-routes.tsx        # GHL API integration
+├── ghl-api-routes.tsx        # platform API integration
 └── kv_store.tsx              # Token storage
 ```
 
@@ -100,10 +100,10 @@ Click "Connect GoHighLevel" to start OAuth flow.
 **POST /make-server-1ddb0231/oauth/initiate**
 - Starts OAuth flow
 - Returns authorization URL with state parameter
-- Frontend redirects user to GHL
+- Frontend redirects user to platform
 
 **GET /make-server-1ddb0231/oauth/callback**
-- Handles OAuth redirect from GHL
+- Handles OAuth redirect from platform
 - Exchanges code for tokens
 - Stores tokens securely
 - Redirects to admin dashboard
@@ -120,7 +120,7 @@ Click "Connect GoHighLevel" to start OAuth flow.
 - Manually refresh access token
 - Automatically called when token expires
 
-### GHL API Endpoints
+### platform API Endpoints
 
 **Forms:**
 - `GET /make-server-1ddb0231/ghl/forms?locationId=xxx` - List forms
@@ -143,7 +143,7 @@ Click "Connect GoHighLevel" to start OAuth flow.
 ## OAuth Flow Diagram
 
 ```
-User clicks "Connect GoHighLevel"
+User clicks "Connect Platform"
     ↓
 POST /oauth/initiate
     ↓
@@ -157,15 +157,15 @@ Build authorization URL with:
   - scope (minimal scopes)
   - state (CSRF token)
     ↓
-Redirect user to GHL authorization
+Redirect user to platform authorization
     ↓
 User authorizes app and selects location
     ↓
-GHL redirects to /oauth/callback?code=xxx&state=xxx
+platform redirects to /oauth/callback?code=xxx&state=xxx
     ↓
 Validate state matches stored state
     ↓
-Exchange code for tokens (POST to GHL token endpoint)
+Exchange code for tokens (POST to platform token endpoint)
     ↓
 Receive:
   - access_token
@@ -179,7 +179,7 @@ Encrypt tokens
 Store in KV store:
   - ghl_oauth:{locationId}
     ↓
-Fetch location details from GHL API
+Fetch location details from platform API
     ↓
 Log connection in audit log
     ↓
@@ -261,7 +261,7 @@ This creates all required fields automatically.
 
 Videos are stored in two places:
 
-1. **GHL Custom Values** (primary)
+1. **Platform Custom Values** (primary)
    - Stored as custom value with key `smile_video_{timestamp}`
    - Contains: URL, title, tags, workflow step, contact ID
 
@@ -329,9 +329,9 @@ All actions are logged with:
 # 1. Go to admin dashboard
 https://www.smilevisionpro.ai/admin/ghl-connect
 
-# 2. Click "Connect GoHighLevel"
+# 2. Click "Connect Platform"
 
-# 3. Should redirect to GHL with URL like:
+# 3. Should redirect to platform with URL like:
 https://marketplace.gohighlevel.com/oauth/chooselocation?
   client_id=xxx&
   redirect_uri=https://www.smilevisionpro.ai/oauth/callback&
@@ -364,7 +364,7 @@ curl -X POST https://{project}.supabase.co/functions/v1/make-server-1ddb0231/oau
   -d '{"locationId":"xxx"}'
 ```
 
-### 3. Test GHL API
+### 3. Test platform API
 
 ```bash
 # List forms
@@ -413,7 +413,7 @@ curl -X POST https://{project}.supabase.co/functions/v1/make-server-1ddb0231/ghl
 - Verify secrets are set in Supabase
 
 ### Redirect URL mismatch
-- Ensure redirect URL in GHL Marketplace matches exactly:
+- Ensure redirect URL in marketplace portal matches exactly:
   `https://www.smilevisionpro.ai/oauth/callback`
 - No trailing slash
 - Must be HTTPS
@@ -429,7 +429,7 @@ curl -X POST https://{project}.supabase.co/functions/v1/make-server-1ddb0231/ghl
 - Try refresh: `POST /oauth/refresh`
 
 ### Missing scopes error
-- Requested scope not approved in GHL Marketplace
+- Requested scope not approved in marketplace portal
 - Check scopes in app settings
 - Disconnect and reconnect
 
@@ -487,10 +487,10 @@ Implement rate limiting for OAuth endpoints.
 
 ## Support
 
-**GHL OAuth Documentation:**
+**platform OAuth Documentation:**
 https://highlevel.stoplight.io/docs/integrations/0443d7d1a4bd0-overview
 
-**GHL Marketplace:**
+**marketplace portal:**
 https://marketplace.gohighlevel.com/
 
 **Supabase Edge Functions:**
@@ -503,13 +503,13 @@ https://supabase.com/docs/guides/functions
 ✅ **Complete OAuth 2.0 implementation**  
 ✅ **Secure token management**  
 ✅ **Admin dashboard UI**  
-✅ **GHL API integration**  
+✅ **platform API integration**  
 ✅ **Audit logging**  
-✅ **Ready for GHL Marketplace submission**  
+✅ **Ready for marketplace portal submission**  
 
 **Next Steps:**
 1. Add environment variables to Supabase
-2. Create GHL Marketplace app
+2. Create marketplace portal app
 3. Test OAuth flow
 4. Submit to marketplace
 

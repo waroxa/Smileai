@@ -462,13 +462,13 @@ useEffect(() => {
 
 4. **Deploy**
    - Deploy to production
-   - Update GHL Marketplace config
+   - Update marketplace portal config
    - Monitor for issues
 
 ---
 
 ## Summary
 
-This refactor makes SmileVision Pro **production-ready for the GoHighLevel Marketplace** while maintaining 100% visual compatibility with the existing design.
+This refactor makes SmileVision Pro **production-ready for the marketplace portal** while maintaining 100% visual compatibility with the existing design.
 
 **Key Achievement:** Optimized structure without changing appearance! ✨

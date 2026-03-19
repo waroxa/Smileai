@@ -39,12 +39,12 @@ Converted ALL documentation pages to **full React components**:
 
 ### 1. Getting Started
 - Quick overview of the app
-- How to install in GHL
+- How to install in platform
 - First steps after installation
 
 ### 2. Setup Guide
 - 3-step quick start
-- Required GHL custom fields table
+- Required custom fields table
 - Video integration instructions
 - Data flow explanation
 - Recommended workflows
@@ -68,7 +68,7 @@ Converted ALL documentation pages to **full React components**:
 - Medical disclaimer
 - User responsibilities
 - Liability limitations
-- GoHighLevel integration terms
+- platform integration terms
 
 ---
 
@@ -91,7 +91,7 @@ Converted ALL documentation pages to **full React components**:
 
 ---
 
-## 📋 For GHL Marketplace Submission:
+## 📋 For marketplace portal Submission:
 
 Use these exact URLs in your submission form:
 
@@ -133,22 +133,22 @@ Contact:
 - ✅ GDPR-compliant privacy policy
 - ✅ AI disclaimer (simulations, not guarantees)
 - ✅ Medical disclaimer
-- ✅ GoHighLevel integration terms
+- ✅ platform integration terms
 - ✅ Complete legal coverage
 
 ---
 
-## 🚀 READY FOR GHL MARKETPLACE!
+## 🚀 READY FOR platform MARKETPLACE!
 
 **Everything is working perfectly:**
 - ✅ Landing page matches live version
-- ✅ GHL SSO integration complete
+- ✅ platform SSO integration complete
 - ✅ Staff dashboard functional
 - ✅ All 5 documentation pages live
 - ✅ Logout works properly
 - ✅ All URLs ready for submission
 
-**Next Step: Submit to GHL Marketplace!** 🎉
+**Next Step: Submit to marketplace portal!** 🎉
 
 ---
 

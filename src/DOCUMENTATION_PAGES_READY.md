@@ -47,7 +47,7 @@ I've added proper routing to your React app. These URLs now work:
 
 ---
 
-## 📋 For GHL Marketplace Form
+## 📋 For marketplace portal Form
 
 Use these **exact URLs** in your submission:
 
@@ -85,7 +85,7 @@ Open these URLs in your browser RIGHT NOW:
 - [ ] https://www.smilevisionpro.ai/privacy
 - [ ] https://www.smilevisionpro.ai/terms
 
-If they load, you're ready to submit to GHL!
+If they load, you're ready to submit to platform!
 
 ---
 
@@ -114,9 +114,9 @@ If they load, you're ready to submit to GHL!
 
 1. **Test all URLs** - Make sure they load on your live site
 2. **Set up email** - support@smilevisionpro.ai must work
-3. **Take screenshots** - 3-5 screenshots for GHL marketplace
+3. **Take screenshots** - 3-5 screenshots for marketplace portal
 4. **Fill in form** - Use `/GHL_FORM_READY_TO_PASTE.txt`
-5. **Submit to GHL!** - You're ready!
+5. **Submit to platform!** - You're ready!
 
 ---
 
@@ -151,9 +151,9 @@ But this should work automatically since you're using React Router-style routing
 
 All documentation pages are integrated into your app.
 Staff login works.
-Everything is ready for GHL marketplace submission!
+Everything is ready for marketplace portal submission!
 
 Copy the text from: `/GHL_FORM_READY_TO_PASTE.txt`
-And paste it into the GHL marketplace form!
+And paste it into the marketplace portal form!
 
 Good luck! 🎉
