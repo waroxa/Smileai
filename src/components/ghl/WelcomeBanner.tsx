@@ -39,7 +39,7 @@ export function WelcomeBanner({ onClose }: WelcomeBannerProps) {
           <div>
             <h2 className="text-2xl font-bold mb-2">Welcome to SmileVisionPro! 🎉</h2>
             <p className="text-blue-100 mb-4">
-              Your clinic-neutral dental transformation suite for GoHighLevel Marketplace
+              Your clinic-neutral dental transformation suite for marketplace portal
             </p>
           </div>
         </div>

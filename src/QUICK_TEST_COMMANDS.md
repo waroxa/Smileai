@@ -27,7 +27,7 @@ curl "https://${PROJECT_ID}.supabase.co/functions/v1/make-server-1ddb0231/ghl/fo
   -H "Authorization: Bearer ${ANON_KEY}"
 ```
 
-**Expected:** List of forms from GHL
+**Expected:** List of forms from platform
 
 ---
 
@@ -62,7 +62,7 @@ curl -X POST "https://${PROJECT_ID}.supabase.co/functions/v1/make-server-1ddb023
   }'
 ```
 
-**Expected:** Video saved to database and GHL
+**Expected:** Video saved to database and platform
 
 ---
 
@@ -265,8 +265,8 @@ SELECT location_id FROM ghl_connections;
 2. ✅ Set environment variables
 3. ✅ Add admin route to App.tsx
 4. ✅ Visit `/admin/ghl-connect`
-5. ✅ Click "Connect GoHighLevel"
-6. ✅ Authorize in GHL
+5. ✅ Click "Connect Platform"
+6. ✅ Authorize in platform
 7. ✅ See success message
 8. ✅ Test API endpoints (commands above)
 9. ✅ Check database (queries above)
@@ -301,7 +301,7 @@ curl -s "https://${PROJECT_ID}.supabase.co/functions/v1/make-server-1ddb0231/ghl
 ## Success Indicators
 
 ✅ **OAuth Status:** Returns array with your location  
-✅ **Forms:** Returns list from GHL  
+✅ **Forms:** Returns list from platform  
 ✅ **Videos:** Can save and retrieve  
 ✅ **Audit Log:** Shows all actions  
 ✅ **Database:** Has records in all tables  

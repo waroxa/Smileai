@@ -136,7 +136,7 @@ If video generation fails for ANY reason, the app automatically:
 1. Shows a clear error message
 2. Falls back to animated before/after preview
 3. Still allows users to see their transformation
-4. Updates GHL contact status appropriately
+4. Updates platform contact status appropriately
 
 **This means users NEVER get a broken experience!** ✨
 

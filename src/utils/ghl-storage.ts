@@ -1,7 +1,7 @@
 /**
- * GHL Storage Utility - Location-Specific Storage using Custom Values API
+ * platform Storage Utility - Location-Specific Storage using Custom Values API
  * 
- * This utility stores all app settings in GoHighLevel Custom Values
+ * This utility stores all app settings in platform Custom Values
  * to ensure each sub-account has isolated data (marketplace-ready).
  * 
  * Data stored with SEPARATE KEYS for better organization:
@@ -11,12 +11,12 @@
  * - Social media (facebook, instagram, tiktok, linkedin, youtube)
  * - Testimonials (patient reviews)
  * - Google Reviews script (widget embed code)
- * - API credentials (for GHL integration)
+ * - API credentials (for platform integration)
  */
 
 import { hashPassword, verifyPassword, isHashedPassword } from './password-utils';
 
-// Custom Values keys for GHL storage - SEPARATE KEYS FOR EACH DATA TYPE
+// Custom Values keys for platform storage - SEPARATE KEYS FOR EACH DATA TYPE
 const STORAGE_KEYS = {
   ADMIN_PASSWORD_HASH: 'smileai_admin_password_hash',
   BRANDING: 'smileai_branding',
@@ -33,10 +33,10 @@ const STORAGE_KEYS = {
 const DEFAULT_PASSWORD = 'admin123';
 
 /**
- * Get GHL Location ID from URL params or localStorage fallback
+ * Get platform Location ID from URL params or localStorage fallback
  */
 function getLocationId(): string | null {
-  // First, try to get from URL params (GHL iframe context)
+  // First, try to get from URL params (embedded iframe context)
   const urlParams = new URLSearchParams(window.location.search);
   const locationId = urlParams.get('location_id') || urlParams.get('locationId');
   
@@ -55,15 +55,15 @@ function getLocationId(): string | null {
 }
 
 /**
- * Get GHL API Key from localStorage
- * NOTE: In production marketplace, this should come from GHL's SSO token
+ * Get platform API Key from localStorage
+ * NOTE: In production marketplace, this should come from platform's SSO token
  */
 function getApiKey(): string | null {
   return localStorage.getItem('ghl_api_key');
 }
 
 /**
- * Generic function to get custom value from GHL
+ * Generic function to get custom value from platform
  */
 async function getCustomValue(key: string): Promise<string | null> {
   try {
@@ -71,7 +71,7 @@ async function getCustomValue(key: string): Promise<string | null> {
     const locationId = getLocationId();
 
     if (!apiKey || !locationId) {
-      console.warn('GHL credentials not configured, falling back to localStorage');
+      console.warn('platform credentials not configured, falling back to localStorage');
       return localStorage.getItem(key);
     }
 
@@ -104,7 +104,7 @@ async function getCustomValue(key: string): Promise<string | null> {
 }
 
 /**
- * Generic function to set custom value in GHL
+ * Generic function to set custom value in platform
  */
 async function setCustomValue(key: string, value: string): Promise<boolean> {
   try {
@@ -112,7 +112,7 @@ async function setCustomValue(key: string, value: string): Promise<boolean> {
     const locationId = getLocationId();
 
     if (!apiKey || !locationId) {
-      console.warn('GHL credentials not configured, falling back to localStorage');
+      console.warn('platform credentials not configured, falling back to localStorage');
       localStorage.setItem(key, value);
       return true;
     }
@@ -153,7 +153,7 @@ async function setCustomValue(key: string, value: string): Promise<boolean> {
 // ============================================
 
 /**
- * Get stored password hash from GHL
+ * Get stored password hash from platform
  */
 export async function getPasswordHash(): Promise<string | null> {
   const hash = await getCustomValue(STORAGE_KEYS.ADMIN_PASSWORD_HASH);
@@ -169,7 +169,7 @@ export async function getPasswordHash(): Promise<string | null> {
 }
 
 /**
- * Set password hash in GHL
+ * Set password hash in platform
  */
 export async function setPasswordHash(hash: string): Promise<boolean> {
   return setCustomValue(STORAGE_KEYS.ADMIN_PASSWORD_HASH, hash);
@@ -207,7 +207,7 @@ export interface Branding {
 }
 
 /**
- * Get clinic branding from GHL
+ * Get clinic branding from platform
  */
 export async function getBranding(): Promise<Branding | null> {
   const data = await getCustomValue(STORAGE_KEYS.BRANDING);
@@ -222,7 +222,7 @@ export async function getBranding(): Promise<Branding | null> {
 }
 
 /**
- * Set clinic branding in GHL
+ * Set clinic branding in platform
  */
 export async function setBranding(branding: Branding): Promise<boolean> {
   return setCustomValue(STORAGE_KEYS.BRANDING, JSON.stringify(branding));
@@ -239,7 +239,7 @@ export interface ContactInfo {
 }
 
 /**
- * Get contact info from GHL
+ * Get contact info from platform
  */
 export async function getContactInfo(): Promise<ContactInfo | null> {
   const data = await getCustomValue(STORAGE_KEYS.CONTACT_INFO);
@@ -254,7 +254,7 @@ export async function getContactInfo(): Promise<ContactInfo | null> {
 }
 
 /**
- * Set contact info in GHL
+ * Set contact info in platform
  */
 export async function setContactInfo(contactInfo: ContactInfo): Promise<boolean> {
   return setCustomValue(STORAGE_KEYS.CONTACT_INFO, JSON.stringify(contactInfo));
@@ -273,7 +273,7 @@ export interface SocialMedia {
 }
 
 /**
- * Get social media links from GHL
+ * Get social media links from platform
  */
 export async function getSocialMedia(): Promise<SocialMedia | null> {
   const data = await getCustomValue(STORAGE_KEYS.SOCIAL_MEDIA);
@@ -288,7 +288,7 @@ export async function getSocialMedia(): Promise<SocialMedia | null> {
 }
 
 /**
- * Set social media links in GHL
+ * Set social media links in platform
  */
 export async function setSocialMedia(socialMedia: SocialMedia): Promise<boolean> {
   return setCustomValue(STORAGE_KEYS.SOCIAL_MEDIA, JSON.stringify(socialMedia));
@@ -309,7 +309,7 @@ export interface Testimonial {
 }
 
 /**
- * Get testimonials from GHL
+ * Get testimonials from platform
  */
 export async function getTestimonials(): Promise<Testimonial[] | null> {
   const data = await getCustomValue(STORAGE_KEYS.TESTIMONIALS);
@@ -324,7 +324,7 @@ export async function getTestimonials(): Promise<Testimonial[] | null> {
 }
 
 /**
- * Set testimonials in GHL
+ * Set testimonials in platform
  */
 export async function setTestimonials(testimonials: Testimonial[]): Promise<boolean> {
   return setCustomValue(STORAGE_KEYS.TESTIMONIALS, JSON.stringify(testimonials));
@@ -339,7 +339,7 @@ export interface GoogleReviews {
 }
 
 /**
- * Get Google Reviews script from GHL
+ * Get Google Reviews script from platform
  */
 export async function getGoogleReviews(): Promise<GoogleReviews | null> {
   const data = await getCustomValue(STORAGE_KEYS.GOOGLE_REVIEWS);
@@ -354,7 +354,7 @@ export async function getGoogleReviews(): Promise<GoogleReviews | null> {
 }
 
 /**
- * Set Google Reviews script in GHL
+ * Set Google Reviews script in platform
  */
 export async function setGoogleReviews(googleReviews: GoogleReviews): Promise<boolean> {
   return setCustomValue(STORAGE_KEYS.GOOGLE_REVIEWS, JSON.stringify(googleReviews));
@@ -370,11 +370,11 @@ export interface ApiCredentials {
 }
 
 /**
- * Get API credentials from GHL
- * NOTE: In production, API key should come from GHL SSO, not stored
+ * Get API credentials from platform
+ * NOTE: In production, API key should come from platform SSO, not stored
  */
 export async function getApiCredentials(): Promise<ApiCredentials | null> {
-  // For now, use localStorage (will be replaced with GHL SSO in production)
+  // For now, use localStorage (will be replaced with platform SSO in production)
   const apiKey = localStorage.getItem('ghl_api_key');
   const locationId = localStorage.getItem('ghl_location_id');
   
@@ -385,10 +385,10 @@ export async function getApiCredentials(): Promise<ApiCredentials | null> {
 
 /**
  * Set API credentials
- * NOTE: In production, this should not be needed (GHL SSO handles it)
+ * NOTE: In production, this should not be needed (platform SSO handles it)
  */
 export async function setApiCredentials(credentials: ApiCredentials): Promise<boolean> {
-  // For now, use localStorage (will be replaced with GHL SSO in production)
+  // For now, use localStorage (will be replaced with platform SSO in production)
   localStorage.setItem('ghl_api_key', credentials.ghlApiKey);
   localStorage.setItem('ghl_location_id', credentials.ghlLocationId);
   return true;
@@ -535,10 +535,10 @@ export async function setClinicBranding(branding: ClinicBranding): Promise<boole
 }
 
 /**
- * Migrate old localStorage data to GHL Custom Values
+ * Migrate old localStorage data to Platform Custom Values
  */
-export async function migrateLocalStorageToGHL(): Promise<void> {
-  console.log('🔄 Starting migration from localStorage to GHL Custom Values...');
+export async function migrateLocalStorageToplatform(): Promise<void> {
+  console.log('🔄 Starting migration from localStorage to Platform Custom Values...');
   
   try {
     // Migrate password (hash it if not already hashed)
@@ -576,7 +576,7 @@ export async function migrateLocalStorageToGHL(): Promise<void> {
 }
 
 /**
- * Check if GHL Custom Values are configured
+ * Check if Platform Custom Values are configured
  */
 export function isGHLStorageConfigured(): boolean {
   const apiKey = getApiKey();

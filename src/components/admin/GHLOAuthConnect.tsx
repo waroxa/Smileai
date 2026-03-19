@@ -44,7 +44,7 @@ const API = {
       
       // If we got a redirect location, use it
       if (redirectUrl && redirectUrl.includes('gohighlevel.com')) {
-        console.log('✅ Redirecting to GHL...');
+        console.log('✅ Redirecting to platform...');
         window.location.href = redirectUrl;
         return;
       }
@@ -146,7 +146,7 @@ export function GHLOAuthConnect() {
     const locationName = params.get('locationName');
 
     if (successParam === 'true' && locationId) {
-      setSuccess(`✅ GoHighLevel Connected! Location: ${locationName || locationId}`);
+      setSuccess(`✅ Platform Connected! Location: ${locationName || locationId}`);
       setSelectedLocation(locationId);
       // Clean URL
       window.history.replaceState({}, '', window.location.pathname);
@@ -179,13 +179,13 @@ export function GHLOAuthConnect() {
     }
   };
 
-  // Connect to GoHighLevel - calls backend which redirects
+  // Connect to platform - calls backend which redirects
   const handleConnect = async () => {
     try {
       setIsConnecting(true);
       setError(null);
       
-      // This will redirect the browser to GHL
+      // This will redirect the browser to platform
       await API.startOAuth();
     } catch (err: any) {
       console.error('Error connecting:', err);
@@ -251,10 +251,10 @@ export function GHLOAuthConnect() {
         {/* Header */}
         <div className="mb-6 sm:mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-            GoHighLevel OAuth Connection
+            Platform OAuth Connection
           </h1>
           <p className="text-sm sm:text-base text-gray-600">
-            Securely connect your GoHighLevel sub-account to enable forms, custom fields, and video metadata management.
+            Securely connect your account to enable forms, custom fields, and video metadata management.
           </p>
         </div>
 
@@ -346,7 +346,7 @@ export function GHLOAuthConnect() {
                     ) : (
                       <>
                         <Link2 className="w-4 h-4 mr-2" />
-                        Connect GoHighLevel
+                        Connect Platform
                       </>
                     )}
                   </Button>
@@ -362,7 +362,7 @@ export function GHLOAuthConnect() {
                   <Shield className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-gray-300" />
                   <p className="text-sm sm:text-base text-gray-600 mb-2">No locations connected yet</p>
                   <p className="text-xs sm:text-sm text-gray-500 mb-6 px-4">
-                    Click "Connect GoHighLevel" to authorize access to your sub-account
+                    Click "Connect Platform" to authorize access to your sub-account
                   </p>
                   <Button
                     onClick={handleConnect}
@@ -492,7 +492,7 @@ export function GHLOAuthConnect() {
                     1
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    Click "Connect GoHighLevel" to start
+                    Click "Connect Platform" to start
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
@@ -500,7 +500,7 @@ export function GHLOAuthConnect() {
                     2
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    Authorize and select your location in GHL
+                    Authorize and select your location in platform
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
@@ -528,7 +528,7 @@ export function GHLOAuthConnect() {
                 <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-xs sm:text-sm text-yellow-800">
-                    <strong>Need help?</strong> Make sure you have admin access to your GoHighLevel sub-account before connecting.
+                    <strong>Need help?</strong> Make sure you have admin access to your account before connecting.
                   </p>
                 </div>
               </div>

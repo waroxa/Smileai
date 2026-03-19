@@ -1,4 +1,4 @@
-// GoHighLevel API Integration Utilities
+// CRM API Integration Utilities
 
 export interface ContactData {
   fullName: string;
@@ -16,7 +16,7 @@ export interface MediaData {
 }
 
 /**
- * Create or update a contact in GoHighLevel
+ * Create or update a contact in platform
  */
 export async function createGHLContact(contactData: ContactData): Promise<{ success: boolean; contactId?: string; error?: string }> {
   try {
@@ -24,8 +24,8 @@ export async function createGHLContact(contactData: ContactData): Promise<{ succ
     const locationId = localStorage.getItem('ghl_location_id');
 
     if (!apiKey || !locationId) {
-      // Silently skip GHL integration if not configured - this is optional
-      console.log('ℹ️ GHL API credentials not configured - skipping GHL contact creation (this is optional)');
+      // Silently skip platform integration if not configured - this is optional
+      console.log('ℹ️ platform API credentials not configured - skipping platform contact creation (this is optional)');
       return { success: true, contactId: undefined }; // Return success so the form flow continues
     }
 
@@ -50,7 +50,7 @@ export async function createGHLContact(contactData: ContactData): Promise<{ succ
       },
     };
 
-    // Make API request to GHL
+    // Make API request to platform
     const response = await fetch(`https://rest.gohighlevel.com/v1/contacts/`, {
       method: 'POST',
       headers: {
@@ -70,14 +70,14 @@ export async function createGHLContact(contactData: ContactData): Promise<{ succ
     }
 
     const data = await response.json();
-    console.log('✅ Contact created in GHL:', data);
+    console.log('✅ Contact created in platform:', data);
 
     return {
       success: true,
       contactId: data.contact?.id || data.id,
     };
   } catch (error: any) {
-    console.error('❌ Error creating GHL contact:', error);
+    console.error('❌ Error creating platform contact:', error);
     return {
       success: false,
       error: error.message || 'Failed to create contact',
@@ -86,7 +86,7 @@ export async function createGHLContact(contactData: ContactData): Promise<{ succ
 }
 
 /**
- * Upload media files (before/after images, video) to a GHL contact
+ * Upload media files (before/after images, video) to a platform contact
  */
 export async function uploadGHLMedia(contactId: string, mediaData: MediaData): Promise<{ success: boolean; error?: string }> {
   try {
@@ -94,14 +94,14 @@ export async function uploadGHLMedia(contactId: string, mediaData: MediaData): P
 
     if (!apiKey) {
       // Silently skip if not configured
-      console.log('ℹ️ GHL API credentials not configured - skipping media upload (this is optional)');
+      console.log('ℹ️ platform API credentials not configured - skipping media upload (this is optional)');
       return { success: true }; // Return success so the flow continues
     }
 
     // Prepare custom fields for the contact
     const customFields: Record<string, any> = {};
 
-    // Save before/after image URLs (in production, you'd upload these to GHL storage first)
+    // Save before/after image URLs (in production, you'd upload these to platform storage first)
     if (mediaData.beforeImage) {
       customFields.before_image_url = mediaData.beforeImage.substring(0, 1000); // Truncate if too long
     }
@@ -115,7 +115,7 @@ export async function uploadGHLMedia(contactId: string, mediaData: MediaData): P
       // Only save if it's a real video URL (not 'ANIMATED')
       if (mediaData.smileVideo !== 'ANIMATED' && !mediaData.smileVideo.startsWith('data:image')) {
         customFields.smile_video_url = mediaData.smileVideo;
-        console.log('💾 Saving video URL to GHL:', mediaData.smileVideo.substring(0, 100) + '...');
+        console.log('💾 Saving video URL to platform:', mediaData.smileVideo.substring(0, 100) + '...');
       }
     }
 
@@ -133,7 +133,7 @@ export async function uploadGHLMedia(contactId: string, mediaData: MediaData): P
         }),
       });
 
-      console.log('✅ Media URLs saved to GHL contact custom fields');
+      console.log('✅ Media URLs saved to platform contact custom fields');
     }
 
     // Also add a note with the video link for easy access
@@ -155,7 +155,7 @@ export async function uploadGHLMedia(contactId: string, mediaData: MediaData): P
 
     return { success: true };
   } catch (error: any) {
-    console.error('❌ Error uploading media to GHL:', error);
+    console.error('❌ Error uploading media to platform:', error);
     return {
       success: false,
       error: error.message || 'Failed to upload media',
@@ -179,7 +179,7 @@ export async function updateContactStatus(contactId: string, status: string): Pr
     const apiKey = localStorage.getItem('ghl_api_key');
 
     if (!apiKey) {
-      return { success: false, error: 'GHL API credentials not configured' };
+      return { success: false, error: 'platform API credentials not configured' };
     }
 
     await fetch(`https://rest.gohighlevel.com/v1/contacts/${contactId}`, {
@@ -196,7 +196,7 @@ export async function updateContactStatus(contactId: string, status: string): Pr
       }),
     });
 
-    console.log('✅ Contact status updated in GHL');
+    console.log('✅ Contact status updated in platform');
     return { success: true };
   } catch (error: any) {
     console.error('❌ Error updating contact status:', error);

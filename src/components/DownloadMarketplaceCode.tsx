@@ -58,7 +58,7 @@ export function DownloadMarketplaceCode() {
 
 ## 📦 What's Included
 
-This package contains all the marketplace-optimized components for GoHighLevel embedding.
+This package contains all the marketplace-optimized components for platform embedding.
 
 ### Components:
 - EmbeddedAppLayout.tsx - Main iframe container
@@ -106,7 +106,7 @@ Start with MARKETPLACE_IMPLEMENTATION.md for step-by-step deployment instruction
 1. Read MARKETPLACE_IMPLEMENTATION.md
 2. Test in iframe locally
 3. Deploy to production
-4. Submit to GHL Marketplace
+4. Submit to marketplace portal
 
 Downloaded: ${new Date().toLocaleString()}
 From: https://www.smilevisionpro.ai/
@@ -208,7 +208,7 @@ From: https://www.smilevisionpro.ai/
             <div className="text-xs text-gray-600">Lines of Code</div>
           </div>
           <div className="text-center p-4 bg-orange-50 rounded-lg">
-            <div className="text-2xl font-bold text-orange-600 mb-1">GHL</div>
+            <div className="text-2xl font-bold text-orange-600 mb-1">platform</div>
             <div className="text-xs text-gray-600">Marketplace Ready</div>
           </div>
         </div>

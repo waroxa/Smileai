@@ -265,10 +265,10 @@ export function SecuritySettingsPanel() {
         </ul>
       </div>
 
-      {/* GHL OAuth Note */}
+      {/* platform OAuth Note */}
       <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-xs text-blue-800">
-          <strong>Note:</strong> When using this app embedded in GoHighLevel, you can also use SSO (Single Sign-On) to automatically authenticate users who are logged into their GHL account.
+          <strong>Note:</strong> When using this app embedded in platform, you can also use SSO (Single Sign-On) to automatically authenticate users who are logged into their platform account.
         </p>
       </div>
     </div>

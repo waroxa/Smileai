@@ -87,7 +87,7 @@ I've updated the 5 most important files with:
 - title
 - tags
 - workflow_step
-- custom_value_id (GHL reference)
+- custom_value_id (platform reference)
 - metadata (jsonb)
 - created_at
 - updated_at
@@ -106,13 +106,13 @@ https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-c5a5d193/oauth
 
 ### How OAuth Flow Works
 
-1. User clicks "Connect GoHighLevel" at `/admin/ghl-connect`
+1. User clicks "Connect Platform" at `/admin/ghl-connect`
 2. Frontend calls `POST /make-server-c5a5d193/oauth/initiate`
 3. Server stores state in `ghl_oauth_states` table
-4. Server returns GHL authorization URL
-5. Frontend redirects to GHL
+4. Server returns platform authorization URL
+5. Frontend redirects to platform
 6. User authorizes and selects location
-7. **GHL redirects to backend:** `/make-server-c5a5d193/oauth/callback`
+7. **platform redirects to backend:** `/make-server-c5a5d193/oauth/callback`
 8. Server validates state from `ghl_oauth_states` table
 9. Server exchanges code for tokens
 10. Server encrypts and stores in `ghl_connections` table

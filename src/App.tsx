@@ -69,18 +69,18 @@ function App() {
   // Simple router - check URL path
   const path = window.location.pathname;
 
-  // Initialize GHL SSO on mount
+  // Initialize platform SSO on mount
   useEffect(() => {
-    // Try to detect and configure GHL SSO
+    // Try to detect and configure platform SSO
     const ghlDetected = initializeGHLSSO();
     
     if (ghlDetected) {
       const status = getGHLConfigStatus();
-      console.log('🎉 GHL Integration Status:', status);
+      console.log('🎉 platform Integration Status:', status);
       
-      // Show a friendly notification if GHL was just configured
+      // Show a friendly notification if platform was just configured
       if (status.configured) {
-        console.log('✅ App is now connected to GoHighLevel!');
+        console.log('✅ App is now connected to platform!');
         console.log('   Location ID:', status.locationId);
       }
     }
@@ -122,7 +122,7 @@ function App() {
     return <DownloadMarketplaceCode />;
   }
 
-  // Marketplace App (GHL embedded view)
+  // Marketplace App (platform embedded view)
   if (path === '/marketplace' || path === '/marketplace/') {
     return <SmileVisionMarketplaceApp />;
   }

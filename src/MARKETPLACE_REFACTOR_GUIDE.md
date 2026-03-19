@@ -1,8 +1,8 @@
-# 🎯 GoHighLevel Marketplace Refactor - Complete Guide
+# 🎯 marketplace portal Refactor - Complete Guide
 
 ## Overview
 
-This refactor optimizes SmileVision Pro for embedding in the GoHighLevel Marketplace while preserving the existing visual design, branding, colors, and typography.
+This refactor optimizes SmileVision Pro for embedding in the marketplace portal while preserving the existing visual design, branding, colors, and typography.
 
 ---
 
@@ -318,7 +318,7 @@ Create a test HTML file:
 </html>
 ```
 
-### **Step 4: Deploy to GHL Marketplace**
+### **Step 4: Deploy to marketplace portal**
 
 **Marketplace Configuration:**
 
@@ -420,7 +420,7 @@ Create a test HTML file:
 
 ### **OAuth Flow**
 - [ ] Connect button works
-- [ ] Redirects to GHL correctly
+- [ ] Redirects to platform correctly
 - [ ] Callback redirects back
 - [ ] Success/error states display
 - [ ] Connection cards render properly
@@ -490,7 +490,7 @@ Create a test HTML file:
   globals.css                  # Preserved original styles
 
 /utils/
-  ghl-sso.ts                   # GHL SSO utilities
+  ghl-sso.ts                   # platform SSO utilities
 ```
 
 ---
@@ -512,7 +512,7 @@ Create a test HTML file:
 
 ## 🎯 Next Steps
 
-1. **Test in real GHL iframe**
+1. **Test in real embedded iframe**
 2. **Extract more reusable components** (buttons, inputs, etc.)
 3. **Add unit tests** for embedded detection
 4. **Create Storybook** for component documentation

@@ -1,13 +1,13 @@
-# SmileVisionPro - GoHighLevel Installation & Testing Guide
+# SmileVisionPro - platform Installation & Testing Guide
 
 ## Overview
-SmileVisionPro is a complete AI smile transformation landing page and GHL marketplace app that captures leads, generates AI smile transformations, and automatically syncs data to GoHighLevel.
+SmileVisionPro is a complete AI smile transformation landing page and marketplace portal app that captures leads, generates AI smile transformations, and automatically syncs data to platform.
 
 **🔐 Security**: Password-protected admin dashboard with customizable credentials.
 
 ---
 
-## 🚀 Part 1: Installing in GoHighLevel Marketplace
+## 🚀 Part 1: Installing in marketplace portal
 
 ### Step 1: Prepare Your App Package
 1. **Package your application files**:
@@ -16,13 +16,13 @@ SmileVisionPro is a complete AI smile transformation landing page and GHL market
    - Styles in `/styles`
    - Main `App.tsx` entry point
 
-2. **Create your GHL marketplace listing**:
+2. **Create your marketplace portal listing**:
    - App Name: **SmileVisionPro**
    - Category: Lead Generation / Dental Tools
    - Pricing: Set your monthly subscription price (e.g., $97/month)
 
-### Step 2: Configure GHL App Settings
-1. **Navigate to**: GoHighLevel → Marketplace → Developer → Create New App
+### Step 2: Configure platform App Settings
+1. **Navigate to**: platform → Marketplace → Developer → Create New App
 
 2. **Basic Information**:
    - **App Name**: SmileVisionPro
@@ -62,16 +62,16 @@ SmileVisionPro is a complete AI smile transformation landing page and GHL market
    Callback URL: https://yourapp.com/auth/callback
    ```
 
-3. In GHL App Settings:
+3. In platform App Settings:
    - Set **App URL** to your deployed URL
    - Configure **Redirect URI** for OAuth
 
-#### Option B: Embed Within GHL (iFrame)
+#### Option B: Embed Within platform (iFrame)
 1. Deploy your app as described in Option A
-2. In GHL App Settings:
+2. In platform App Settings:
    - Enable "Embed in location"
    - Set iframe URL to your app's URL
-   - Users will access it from: GHL → [Location] → SmileVisionPro
+   - Users will access it from: platform → [Location] → SmileVisionPro
 
 ---
 
@@ -79,8 +79,8 @@ SmileVisionPro is a complete AI smile transformation landing page and GHL market
 
 ### For Dental Practices Installing Your App:
 
-#### Step 1: Install from GHL Marketplace
-1. Log into GoHighLevel
+#### Step 1: Install from marketplace portal
+1. Log into platform
 2. Go to **Marketplace** → **Apps**
 3. Search for **SmileVisionPro**
 4. Click **Install** and authorize permissions
@@ -123,30 +123,30 @@ After installation, users need to configure their API credentials:
 
 1. **Access the app**:
    - Go to Landing Page → Footer → Click **"Staff Login"**
-   - This switches to the GHL Dashboard view
+   - This switches to the platform Dashboard view
 
 2. **Navigate to Settings**:
    - Click **Settings** in the left sidebar
    - Click the **Integration** tab
 
-3. **Get GHL API Credentials**:
+3. **Get platform API Credentials**:
    
    **API Key**:
-   - In GoHighLevel: Settings → API → API Keys
+   - In platform: Settings → API → API Keys
    - Click **Create API Key**
    - Name it "SmileVisionPro"
    - Copy the generated API key
-   - Paste into SmileVisionPro → Settings → Integration → **GHL API Key**
+   - Paste into SmileVisionPro → Settings → Integration → **platform API Key**
 
    **Location ID**:
-   - In GoHighLevel: Settings → Business Profile
+   - In platform: Settings → Business Profile
    - Scroll to find **Location ID** (format: `abc123xyz...`)
-   - Copy and paste into SmileVisionPro → **GHL Location ID**
+   - Copy and paste into SmileVisionPro → **platform Location ID**
 
 4. **Click "Save Settings"**
 
 ✅ **Configuration Complete!** The app will now automatically:
-- Create contacts in GHL when leads submit the form
+- Create contacts in platform when leads submit the form
 - Upload before/after images to the contact
 - Update custom fields and tags
 - Track transformation status
@@ -171,9 +171,9 @@ After installation, users need to configure their API credentials:
 **Expected Result**:
 - Form submits successfully
 - You see "Step 2: Upload Your Photo"
-- Check GHL → Contacts → You should see a new contact "Test User" created
+- Check platform → Contacts → You should see a new contact "Test User" created
 
-**GHL Contact Should Have**:
+**platform Contact Should Have**:
 ```
 ✅ Name: Test User (split into firstName/lastName)
 ✅ Email: test@example.com
@@ -197,9 +197,9 @@ After installation, users need to configure their API credentials:
 **Expected Result**:
 - AI generates the enhanced smile image
 - Before/After images display side-by-side
-- Check GHL → Contacts → Open "Test User" → Notes
+- Check platform → Contacts → Open "Test User" → Notes
 
-**GHL Contact Should Show**:
+**platform Contact Should Show**:
 ```
 ✅ New note: "AI Smile Transformation - before-smile.jpg uploaded successfully"
 ✅ New note: "AI Smile Transformation - after-smile-ai.jpg uploaded successfully"
@@ -214,9 +214,9 @@ After installation, users need to configure their API credentials:
 **Expected Result**:
 - Video generates (or animated fallback if backend unavailable)
 - Video player displays the smile animation
-- Check GHL again
+- Check platform again
 
-**GHL Contact Should Show**:
+**platform Contact Should Show**:
 ```
 ✅ New note (if video generated): "AI Smile Transformation - smile-video.mp4 uploaded successfully"
 ✅ Custom field updated: transformation_status: Complete - Video Generated
@@ -225,7 +225,7 @@ After installation, users need to configure their API credentials:
 
 ### Test 4: Dashboard View
 1. Go to landing page → Footer → Click **"Staff Login"**
-2. You should see the GHL Dashboard view
+2. You should see the platform Dashboard view
 3. Click **"Patients"** in sidebar
 4. Find your test patient "Test User"
 5. Click to view details
@@ -254,12 +254,12 @@ After installation, users need to configure their API credentials:
 
 **Changes Apply To**:
 - ✅ Landing page header
-- ✅ GHL Dashboard branding
+- ✅ platform Dashboard branding
 - ✅ Button colors
 - ✅ All patient-facing materials
 
 ### Quick Theme Demo (For Testing):
-- On the GHL Dashboard, look for **"Quick Theme Demo"** panel (top-right)
+- On the platform Dashboard, look for **"Quick Theme Demo"** panel (top-right)
 - Click different theme presets to see instant branding changes:
   - Ocean Blue (Dental Spa vibe)
   - Forest Green (Natural wellness)
@@ -272,7 +272,7 @@ After installation, users need to configure their API credentials:
 ## 📊 Part 5: Monitoring & Analytics
 
 ### Check Lead Flow:
-1. **GHL Dashboard** → **Reports** → **Contacts**
+1. **platform Dashboard** → **Reports** → **Contacts**
 2. Filter by:
    - Source: "SmileVision AI Landing Page"
    - Tags: "smile-transformation"
@@ -287,7 +287,7 @@ All contacts have a custom field **"transformation_status"** with values:
 - **Complete - Animated Preview**: Fallback animation used
 
 ### Pipeline Integration:
-- Optionally create a GHL Pipeline: "Smile Transformation Pipeline"
+- Optionally create a platform Pipeline: "Smile Transformation Pipeline"
 - Stages: Lead → Preview Generated → Consultation Booked → Treatment Started
 - Auto-move contacts through stages based on transformation_status
 
@@ -295,17 +295,17 @@ All contacts have a custom field **"transformation_status"** with values:
 
 ## 🐛 Troubleshooting
 
-### Issue: "GHL API credentials not configured"
+### Issue: "platform API credentials not configured"
 **Solution**: 
 - Verify API Key and Location ID are saved in Settings → Integration
 - Check that API key has correct permissions (contacts.write, etc.)
-- Make sure you're using the correct Location ID for the GHL location
+- Make sure you're using the correct Location ID for the platform location
 
 ### Issue: Contact created but no images uploaded
 **Solution**:
-- GHL API file upload requires additional endpoint setup
+- platform API file upload requires additional endpoint setup
 - Current version adds notes instead of direct file attachments
-- For full file uploads, implement multipart form upload to GHL's file storage endpoint
+- For full file uploads, implement multipart form upload to platform's file storage endpoint
 
 ### Issue: Video generation fails
 **Solution**:
@@ -318,38 +318,38 @@ All contacts have a custom field **"transformation_status"** with values:
 - Check browser console for errors
 - Verify localStorage is enabled (API keys stored there)
 - Try clearing browser cache and re-entering API credentials
-- Test with a different GHL location/API key
+- Test with a different platform location/API key
 
 ---
 
 ## 📞 Support & Next Steps
 
 ### For End Users (Dental Practices):
-- Contact your GHL account manager
+- Contact your platform account manager
 - Check SmileVisionPro documentation in the app
-- Submit support ticket through GHL Marketplace
+- Submit support ticket through marketplace portal
 
 ### For Developers:
 - API endpoint: `https://rest.gohighlevel.com/v1/`
 - Documentation: https://highlevel.stoplight.io/
-- Test with GHL API sandbox before production
+- Test with platform API sandbox before production
 
 ---
 
 ## ✅ Installation Checklist
 
 - [ ] App deployed to hosting provider
-- [ ] GHL Marketplace listing created
+- [ ] marketplace portal listing created
 - [ ] OAuth permissions configured
 - [ ] Test dental practice installs app
 - [ ] API credentials configured in app Settings
-- [ ] Test lead submission → verify contact created in GHL
+- [ ] Test lead submission → verify contact created in platform
 - [ ] Test image upload → verify transformation works
 - [ ] Test video generation → verify fallback works
 - [ ] Customize branding for test practice
-- [ ] Verify all data syncs to GHL correctly
+- [ ] Verify all data syncs to platform correctly
 - [ ] Launch to production!
 
 ---
 
-**🎉 Congratulations!** Your SmileVisionPro app is now fully integrated with GoHighLevel and ready to capture and convert dental leads with AI-powered smile transformations!
+**🎉 Congratulations!** Your SmileVisionPro app is now fully integrated with platform and ready to capture and convert dental leads with AI-powered smile transformations!

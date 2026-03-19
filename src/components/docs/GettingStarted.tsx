@@ -31,12 +31,12 @@ export function GettingStarted() {
         </div>
 
         {/* Step 1 */}
-        <StepCard number={1} title="Get Your GHL Credentials">
-          <p>First, you'll need two pieces of information from GoHighLevel:</p>
+        <StepCard number={1} title="Get Your platform Credentials">
+          <p>First, you'll need two pieces of information from platform:</p>
           
           <h4 style={{ color: '#1e293b', marginTop: '15px', marginBottom: '8px' }}>📌 API Key:</h4>
           <ul style={{ listStyle: 'none', padding: 0, margin: '10px 0' }}>
-            <ChecklistItem>Go to GoHighLevel → Settings (⚙️)</ChecklistItem>
+            <ChecklistItem>Go to platform → Settings (⚙️)</ChecklistItem>
             <ChecklistItem>Click "API" in the left sidebar</ChecklistItem>
             <ChecklistItem>Click "Create API Key"</ChecklistItem>
             <ChecklistItem>Name it: "SmileVisionPro AI"</ChecklistItem>
@@ -57,7 +57,7 @@ export function GettingStarted() {
 
         {/* Step 2 */}
         <StepCard number={2} title="Configure SmileVisionPro AI">
-          <p>Now let's connect your app to GoHighLevel:</p>
+          <p>Now let's connect your app to platform:</p>
           
           <ul style={{ listStyle: 'none', padding: 0, margin: '10px 0' }}>
             <ChecklistItem>Open SmileVisionPro AI in a new tab</ChecklistItem>
@@ -74,7 +74,7 @@ export function GettingStarted() {
         </StepCard>
 
         {/* Step 3 */}
-        <StepCard number={3} title="Create Custom Fields in GHL">
+        <StepCard number={3} title="Create Custom Fields in platform">
           <p>To store all the smile transformation data, create these 5 custom fields:</p>
           
           <p><strong>Navigate to:</strong> Settings → Custom Fields → Contact Fields → Add Field</p>
@@ -102,7 +102,7 @@ export function GettingStarted() {
             <ChecklistItem>Go to your SmileVisionPro AI landing page</ChecklistItem>
             <ChecklistItem>Fill out the form with test information</ChecklistItem>
             <ChecklistItem>Submit the form</ChecklistItem>
-            <ChecklistItem>Check GoHighLevel → Contacts</ChecklistItem>
+            <ChecklistItem>Check platform → Contacts</ChecklistItem>
             <ChecklistItem>Verify a new contact was created</ChecklistItem>
             <ChecklistItem>Upload a test photo and generate transformation</ChecklistItem>
             <ChecklistItem>Generate a test video (optional)</ChecklistItem>
@@ -110,7 +110,7 @@ export function GettingStarted() {
           </ul>
 
           <SuccessBox>
-            <strong>✅ Testing Complete!</strong> If you see the contact in GHL with all the data, you're all set!
+            <strong>✅ Testing Complete!</strong> If you see the contact in platform with all the data, you're all set!
           </SuccessBox>
         </StepCard>
 
@@ -141,7 +141,7 @@ export function GettingStarted() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', margin: '15px 0' }}>
             <FeatureCard icon="🎨" title="Customize Branding" description="Update colors, logo, clinic name" />
             <FeatureCard icon="👥" title="Manage Leads" description="View all submissions in dashboard" />
-            <FeatureCard icon="📊" title="Track Performance" description="Monitor conversions in GHL" />
+            <FeatureCard icon="📊" title="Track Performance" description="Monitor conversions in platform" />
             <FeatureCard icon="🚀" title="Share Your Page" description="Start generating leads!" />
           </div>
 

@@ -192,7 +192,7 @@ curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/make-server-1ddb0231/
    - Users NEVER see a broken experience
    - All transformation data is preserved
 
-3. **GHL Integration Still Works:**
+3. **platform Integration Still Works:**
    - Contact is created/updated
    - Before/after images are saved
    - Status is updated to "Animated Preview"

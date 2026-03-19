@@ -1,8 +1,8 @@
-# ✅ GoHighLevel OAuth Implementation Complete
+# ✅ platform OAuth Implementation Complete
 
 ## What Was Implemented
 
-A complete, production-ready OAuth 2.0 integration for GoHighLevel Marketplace submission.
+A complete, production-ready OAuth 2.0 integration for marketplace portal submission.
 
 ---
 
@@ -29,13 +29,13 @@ A complete, production-ready OAuth 2.0 integration for GoHighLevel Marketplace s
    - `GET /ghl/audit` - Get audit log
 
 3. **`/supabase/functions/server/index.tsx`** (updated)
-   - Imported OAuth and GHL API routes
+   - Imported OAuth and platform API routes
    - Existing functionality preserved
 
 ### Frontend (React)
 
 4. **`/components/admin/GHLOAuthConnect.tsx`**
-   - "Connect GoHighLevel" button
+   - "Connect Platform" button
    - OAuth connection management UI
    - Connected locations display
    - Token refresh controls
@@ -47,7 +47,7 @@ A complete, production-ready OAuth 2.0 integration for GoHighLevel Marketplace s
 
 5. **`/GHL_OAUTH_CONFIG.md`**
    - Environment variable setup
-   - GHL Marketplace configuration
+   - marketplace portal configuration
    - Scopes definition
    - Security notes
    - Database schema
@@ -77,7 +77,7 @@ GHL_CLIENT_SECRET=your_client_secret_here
 GHL_REDIRECT_URI=https://www.smilevisionpro.ai/oauth/callback
 ```
 
-### 2. Configure GHL Marketplace App
+### 2. Configure marketplace portal App
 
 **Redirect URL:**
 ```
@@ -110,11 +110,11 @@ forms.readonly
 ### OAuth Flow
 
 ```
-Frontend: "Connect GoHighLevel" button
+Frontend: "Connect Platform" button
     ↓
 Backend: Generate state, build auth URL
     ↓
-GHL: User authorizes app
+platform: User authorizes app
     ↓
 Backend: Receive callback, validate state
     ↓
@@ -160,13 +160,13 @@ Frontend: Show "Connected ✅"
 - Expiration tracking
 - Secure disconnect
 
-### 3. GHL API Integration
+### 3. platform API Integration
 
 **Forms:**
 - List all forms in location
 - Create new forms
 - Update existing forms
-- Map SmileVision fields to GHL
+- Map SmileVision fields to platform
 
 **Custom Fields:**
 - List custom fields
@@ -180,12 +180,12 @@ Frontend: Show "Connected ✅"
 
 **Videos:**
 - Save video metadata
-- Store in GHL custom values
+- Store in platform custom values
 - Link to contacts
 - Tag and categorize
 
 **Contacts:**
-- Create contacts (via existing GHL API)
+- Create contacts (via existing platform API)
 - Update custom field values
 - Associate videos with contacts
 
@@ -221,7 +221,7 @@ Tracks all actions:
 | POST | `/oauth/disconnect` | Disconnect location |
 | POST | `/oauth/refresh` | Refresh token |
 
-### GHL API
+### platform API
 
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
@@ -272,7 +272,7 @@ Tracks all actions:
 // Key: ghl_video:{locationId}:{timestamp}
 {
   locationId: string,
-  customValueId: string,    // GHL custom value ID
+  customValueId: string,    // platform custom value ID
   url: string,
   title: string,
   tags: string[],
@@ -352,12 +352,12 @@ The OAuth implementation is **completely separate** from existing functionality:
 - Landing page
 - Smile transformation section
 - Video generation
-- GHL SSO (separate from OAuth)
+- platform SSO (separate from OAuth)
 - Existing forms/contacts
 
 ✅ **New functionality:**
 - OAuth connection management
-- GHL API access
+- platform API access
 - Admin dashboard for OAuth
 - Audit logging
 
@@ -386,7 +386,7 @@ In Supabase Dashboard:
 - `GHL_CLIENT_SECRET`
 - `GHL_REDIRECT_URI`
 
-### 3. Create GHL Marketplace App
+### 3. Create marketplace portal App
 
 1. Go to https://marketplace.gohighlevel.com/
 2. Create new app
@@ -398,11 +398,11 @@ In Supabase Dashboard:
 ### 4. Test OAuth Flow
 
 1. Navigate to `/admin/ghl-connect`
-2. Click "Connect GoHighLevel"
-3. Authorize app in GHL
+2. Click "Connect Platform"
+3. Authorize app in platform
 4. Verify connection appears in dashboard
 
-### 5. Test GHL API
+### 5. Test platform API
 
 Use the admin dashboard or API directly:
 - Create custom fields
@@ -415,7 +415,7 @@ Use the admin dashboard or API directly:
 ## Testing Checklist
 
 - [ ] Environment variables added to Supabase
-- [ ] GHL Marketplace app created
+- [ ] marketplace portal app created
 - [ ] Redirect URL configured
 - [ ] Scopes approved
 - [ ] Client keys copied to Supabase
@@ -458,7 +458,7 @@ Before going to production:
 ✅ **Security:** CSRF protection, encrypted storage  
 ✅ **HTTPS:** Enforced  
 
-**You can now submit to GHL Marketplace!**
+**You can now submit to marketplace portal!**
 
 ---
 
@@ -468,12 +468,12 @@ Before going to production:
 - `/GHL_OAUTH_CONFIG.md` - Configuration guide
 - `/GHL_OAUTH_README.md` - Complete documentation
 - `/supabase/functions/server/oauth-routes.tsx` - OAuth implementation
-- `/supabase/functions/server/ghl-api-routes.tsx` - GHL API integration
+- `/supabase/functions/server/ghl-api-routes.tsx` - platform API integration
 - `/components/admin/GHLOAuthConnect.tsx` - Admin dashboard
 
 **External resources:**
-- GHL OAuth Docs: https://highlevel.stoplight.io/docs/integrations/0443d7d1a4bd0-overview
-- GHL Marketplace: https://marketplace.gohighlevel.com/
+- platform OAuth Docs: https://highlevel.stoplight.io/docs/integrations/0443d7d1a4bd0-overview
+- marketplace portal: https://marketplace.gohighlevel.com/
 - Supabase Functions: https://supabase.com/docs/guides/functions
 
 ---
@@ -483,16 +483,16 @@ Before going to production:
 ✅ **Complete OAuth 2.0 implementation**  
 ✅ **Secure token management with auto-refresh**  
 ✅ **Admin dashboard for connection management**  
-✅ **GHL API integration (forms, fields, videos)**  
+✅ **platform API integration (forms, fields, videos)**  
 ✅ **Comprehensive audit logging**  
 ✅ **Production-ready security**  
-✅ **Ready for GHL Marketplace submission**  
+✅ **Ready for marketplace portal submission**  
 
 **Status:** Implementation complete, ready for testing
 
 **Action Required:**
 1. Add environment variables
-2. Create GHL Marketplace app
+2. Create marketplace portal app
 3. Add routing for admin dashboard
 4. Test OAuth flow
 5. Submit to marketplace

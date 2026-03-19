@@ -1,7 +1,7 @@
 # 🏥 Add Patient Feature - Complete Guide
 
 ## Overview
-Fully functional "Add Patient" feature that integrates with GoHighLevel (GHL) Contacts API. Staff can manually add new patients to the database, and all data syncs with GHL.
+Fully functional "Add Patient" feature that integrates with platform (platform) Contacts API. Staff can manually add new patients to the database, and all data syncs with platform.
 
 ---
 
@@ -16,7 +16,7 @@ Fully functional "Add Patient" feature that integrates with GoHighLevel (GHL) Co
 - ✅ Real-time error handling
 - ✅ Loading states with spinner
 - ✅ Success confirmation
-- ✅ GHL API integration
+- ✅ platform API integration
 - ✅ Auto-tags contacts with "SmileVisionPro"
 - ✅ Stores custom fields for tracking
 
@@ -47,7 +47,7 @@ Fully functional "Add Patient" feature that integrates with GoHighLevel (GHL) Co
 **Features:**
 - ✅ "Add Patient" button (top-right header)
 - ✅ "Add Your First Patient" button (empty state)
-- ✅ Fetches patients from GHL on page load
+- ✅ Fetches patients from platform on page load
 - ✅ Filters by "SmileVisionPro" tag
 - ✅ Live search functionality
 - ✅ Auto-refresh after adding patient
@@ -57,18 +57,18 @@ Fully functional "Add Patient" feature that integrates with GoHighLevel (GHL) Co
 
 **Data Flow:**
 ```
-Page Load → Fetch from GHL → Display Patients
+Page Load → Fetch from platform → Display Patients
    ↓
 Add Patient Button Clicked → Modal Opens
    ↓
-Form Filled & Submitted → POST to GHL API
+Form Filled & Submitted → POST to platform API
    ↓
 Success → Refresh Patient List → Modal Closes
 ```
 
 ---
 
-## 🔌 GHL API Integration
+## 🔌 platform API Integration
 
 ### Endpoint Used
 ```
@@ -118,7 +118,7 @@ headers: {
 
 ---
 
-## 🏷️ GHL Tags & Custom Fields
+## 🏷️ platform Tags & Custom Fields
 
 ### Automatic Tags Applied
 1. **SmileVisionPro** - Identifies all contacts from this app
@@ -131,9 +131,9 @@ headers: {
 3. **notes**: User-entered notes
 
 **Why This Matters:**
-- Allows filtering SmileVisionPro contacts in GHL
+- Allows filtering SmileVisionPro contacts in platform
 - Tracks which contacts came from manual entry vs landing page
-- Enables custom workflows in GHL automations
+- Enables custom workflows in platform automations
 
 ---
 
@@ -141,12 +141,12 @@ headers: {
 
 ### For Staff Users:
 
-#### Step 1: Configure GHL Credentials
+#### Step 1: Configure platform Credentials
 1. Go to **Settings** tab
 2. Click **Integration** section
 3. Enter your:
-   - GHL API Key
-   - GHL Location ID
+   - platform API Key
+   - platform Location ID
 4. Click **Save Changes**
 
 #### Step 2: Add a Patient
@@ -184,7 +184,7 @@ headers: {
 
 ### Data Privacy
 ✅ **No localStorage**: Patient data not stored locally
-✅ **GHL Only**: All data stored securely in GoHighLevel
+✅ **platform Only**: All data stored securely in platform
 ✅ **Session-Based**: Credentials cleared on logout
 
 ---
@@ -247,14 +247,14 @@ headers: {
 - [ ] ✅ Modal closes when backdrop clicked
 - [ ] ✅ Form validation works (required fields)
 - [ ] ✅ Email validation works
-- [ ] ✅ Form submits to GHL API
+- [ ] ✅ Form submits to platform API
 - [ ] ✅ Success message shows
 - [ ] ✅ Modal auto-closes after success
 - [ ] ✅ Patient list refreshes
 - [ ] ✅ New patient appears in list
 
 ### Error Handling
-- [ ] ✅ Shows error if GHL credentials missing
+- [ ] ✅ Shows error if platform credentials missing
 - [ ] ✅ Shows error if API call fails
 - [ ] ✅ Shows error if required fields empty
 - [ ] ✅ Shows error if email invalid
@@ -271,17 +271,17 @@ headers: {
 
 ## 🔧 Troubleshooting
 
-### Problem: "GoHighLevel credentials not configured"
+### Problem: "platform credentials not configured"
 **Solution:**
 1. Go to Settings → Integration
-2. Enter your GHL API Key and Location ID
+2. Enter your platform API Key and Location ID
 3. Save changes
 4. Try adding patient again
 
 ### Problem: "Failed to create contact: 401"
 **Solution:**
 - API Key is invalid or expired
-- Generate a new API key in GHL
+- Generate a new API key in platform
 - Update in Settings
 
 ### Problem: "Failed to create contact: 403"
@@ -292,7 +292,7 @@ headers: {
 
 ### Problem: Patients not showing in list
 **Solution:**
-1. Check if contacts have "SmileVisionPro" tag in GHL
+1. Check if contacts have "SmileVisionPro" tag in platform
 2. Refresh the page
 3. Check browser console for API errors
 
@@ -342,7 +342,7 @@ headers: {
                       │
                       ▼
          ┌────────────────────────┐
-         │  POST to GHL API        │
+         │  POST to platform API        │
          │  /v1/contacts/          │
          └────────────────────────┘
                       │
@@ -359,7 +359,7 @@ headers: {
             ▼                   │
    ┌────────────────┐          │
    │ Refresh List   │          │
-   │ (Fetch GHL)    │          │
+   │ (Fetch platform)    │          │
    └────────────────┘          │
             │                   │
             ▼                   ▼
@@ -376,11 +376,11 @@ headers: {
 1. **`/components/ghl/AddPatientModal.tsx`**
    - Main modal component
    - Form logic & validation
-   - GHL API integration
+   - platform API integration
 
 2. **`/components/ghl/PatientsView.tsx`**
    - Patients list view
-   - Fetch patients from GHL
+   - Fetch patients from platform
    - Add Patient button
    - Modal trigger
 
@@ -405,7 +405,7 @@ headers: {
 </Button>
 ```
 
-### Fetching Patients from GHL
+### Fetching Patients from platform
 ```tsx
 const fetchPatients = async () => {
   const ghlApiKey = sessionStorage.getItem('ghl_api_key');
@@ -447,7 +447,7 @@ const response = await fetch('https://rest.gohighlevel.com/v1/contacts/', {
 The Add Patient feature is fully functional and ready for use! 🎉
 
 ### What Works:
-✅ Full CRUD with GHL Contacts API
+✅ Full CRUD with contacts API
 ✅ Form validation & error handling
 ✅ Loading & success states
 ✅ Mobile responsive design
@@ -456,8 +456,8 @@ The Add Patient feature is fully functional and ready for use! 🎉
 ✅ Professional UI/UX
 
 ### Setup Required:
-1. Configure GHL API credentials in Settings
-2. Ensure GHL account has Contacts API access
+1. Configure platform API credentials in Settings
+2. Ensure platform account has Contacts API access
 3. Test with a sample patient
 
 **Ready to add patients!** 🏥✨

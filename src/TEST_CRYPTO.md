@@ -128,8 +128,8 @@ Companies using PBKDF2:
 6. ✅ Works in all modern browsers
 7. ✅ 0KB bundle size overhead
 
-**GHL Integration:**
-1. ✅ Passwords stored as hashes in GHL Custom Values
+**platform Integration:**
+1. ✅ Passwords stored as hashes in Platform Custom Values
 2. ✅ Each location has isolated password storage
 3. ✅ Migration from plain text handled automatically
 4. ✅ Fallback to localStorage during development

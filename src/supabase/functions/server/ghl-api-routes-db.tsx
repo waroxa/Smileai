@@ -15,7 +15,7 @@ const getSupabase = () => {
   );
 };
 
-// Helper: Make authenticated GHL API request
+// Helper: Make authenticated platform API request
 const makeGHLRequest = async (
   locationId: string,
   endpoint: string,
@@ -269,7 +269,7 @@ app.post("/make-server-c5a5d193/ghl/videos", async (c) => {
     
     const supabase = getSupabase();
     
-    // Save video metadata to custom values in GHL
+    // Save video metadata to custom values in platform
     const customValueKey = `smile_video_${Date.now()}`;
     
     const customValueData = {
@@ -302,7 +302,7 @@ app.post("/make-server-c5a5d193/ghl/videos", async (c) => {
         customValueId = data.id;
       }
     } catch (err) {
-      console.warn('⚠️ Failed to save to GHL custom values:', err);
+      console.warn('⚠️ Failed to save to platform custom values:', err);
     }
     
     // Save to our database

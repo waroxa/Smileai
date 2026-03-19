@@ -12,9 +12,9 @@
 
 ### 2. **Lead Capture First Flow** ✨
 - **Step 1**: User fills out contact form (name, email, phone, service interest, notes)
-- **Step 2**: Contact is **immediately created in GoHighLevel** via API
+- **Step 2**: Contact is **immediately created in platform** via API
 - **Step 3**: User then uploads photo and gets AI transformation
-- **Step 4**: Before/after images and video are **automatically uploaded to the GHL contact**
+- **Step 4**: Before/after images and video are **automatically uploaded to the platform contact**
 
 ### 3. **Social Proof Popups Fixed** 🎉
 - ✅ Real dentist names (Dr. Sarah Martinez, Dr. James Chen, etc.)
@@ -23,11 +23,11 @@
 - ✅ Prevents stacking - dismisses previous popup before showing new one
 - ✅ Removed the stuck popup that was always visible
 
-### 4. **GoHighLevel API Integration** 🔌
+### 4. **CRM API Integration** 🔌
 - **Settings Panel**: Staff Login → Settings → Integration tab
 - **Required Fields**:
-  - GHL API Key
-  - GHL Location ID
+  - platform API Key
+  - platform Location ID
 - **Auto-Sync Features**:
   - Create contact on form submission
   - Upload before/after images to contact
@@ -36,7 +36,7 @@
   - Add tags: `smile-transformation`, `ai-lead`
   - Set source: "SmileVision AI Landing Page"
 
-### 5. **Custom Fields Sent to GHL** 📊
+### 5. **Custom Fields Sent to platform** 📊
 ```
 ✅ firstName / lastName (from Full Name)
 ✅ email
@@ -50,7 +50,7 @@
 ```
 
 ### 6. **Automatic Media Upload** 📸
-After transformation completes, automatically uploads to GHL contact:
+After transformation completes, automatically uploads to platform contact:
 - `before-smile.jpg` - Original photo
 - `after-smile-ai.jpg` - AI-enhanced result
 - `smile-video.mp4` - Generated video (if available)
@@ -68,8 +68,8 @@ Contact's `transformation_status` field updates automatically:
 ## 📂 Key Files
 
 ### API Integration
-- `/utils/ghl-api.ts` - GHL API utility functions
-  - `createGHLContact()` - Creates contact in GHL
+- `/utils/ghl-api.ts` - platform API utility functions
+  - `createGHLContact()` - Creates contact in platform
   - `uploadGHLMedia()` - Uploads images/video to contact
   - `updateContactStatus()` - Updates transformation status
 
@@ -77,7 +77,7 @@ Contact's `transformation_status` field updates automatically:
 - `/components/SmileTransformationSection.tsx` - Main lead capture & transformation flow
 - `/components/StaffLoginModal.tsx` - Password-protected login modal
 - `/components/ghl/SecuritySettingsPanel.tsx` - Password management UI
-- `/components/ghl/ApiSettingsPanel.tsx` - GHL API configuration UI
+- `/components/ghl/ApiSettingsPanel.tsx` - platform API configuration UI
 - `/components/ghl/AppHeader.tsx` - Dashboard header with logout button
 - `/components/ghl/SettingsView.tsx` - Admin settings (includes Security, API, Branding tabs)
 - `/components/SocialProofNotifications.tsx` - Fixed popup notifications
@@ -97,24 +97,24 @@ Contact's `transformation_status` field updates automatically:
 3. **Lead Capture Form** - Get Your Free Smile Preview
    - Enter: Name, Email, Phone, Service Interest, Notes
    - Click "Continue to Smile Preview →"
-   - ✅ **Contact created in GHL immediately**
+   - ✅ **Contact created in platform immediately**
 4. **Upload Section** - Step 2: Upload Your Photo
    - Drag & drop or click to upload
    - Choose intensity: Subtle / Natural / Hollywood
    - Click "See My New Smile"
-   - ✅ **Images automatically uploaded to GHL contact**
+   - ✅ **Images automatically uploaded to platform contact**
 5. **Video Generation** - Optional smile video
    - Click "Generate Smile Video"
-   - ✅ **Video automatically uploaded to GHL contact**
+   - ✅ **Video automatically uploaded to platform contact**
 6. **Results** - View before/after + video
-   - ✅ **Transformation status updated in GHL**
+   - ✅ **Transformation status updated in platform**
 
 ### Staff/Admin View:
 1. Footer → "Staff Login" button (toggles modes)
 2. **Dashboard** - Overview of recent submissions
 3. **Patients** - Full list with review status pipeline
 4. **Smile Tool** - Admin can test transformations
-5. **Settings** - Configure branding + GHL API credentials
+5. **Settings** - Configure branding + platform API credentials
 
 ---
 
@@ -122,7 +122,7 @@ Contact's `transformation_status` field updates automatically:
 
 ### For Dental Practices:
 
-1. **Install SmileVisionPro** from GHL Marketplace
+1. **Install SmileVisionPro** from marketplace portal
 
 2. **First Login** 🔐:
    - Landing Page → Footer → "Staff Login"
@@ -136,9 +136,9 @@ Contact's `transformation_status` field updates automatically:
    - Click "Update Password"
 
 4. **Get API Credentials**:
-   - GHL → Settings → API → Create API Key
+   - platform → Settings → API → Create API Key
    - Copy API Key
-   - GHL → Settings → Business Profile → Copy Location ID
+   - platform → Settings → Business Profile → Copy Location ID
 
 5. **Configure in App**:
    - Settings → Integration tab
@@ -153,7 +153,7 @@ Contact's `transformation_status` field updates automatically:
    - Click "Logout" button (top-right)
    - Go to landing page
    - Fill out form with test data
-   - Verify contact appears in GHL
+   - Verify contact appears in platform
 
 ---
 
@@ -162,7 +162,7 @@ Contact's `transformation_status` field updates automatically:
 ### Test Lead Capture:
 - [ ] Fill out form on landing page
 - [ ] Submit form
-- [ ] Verify contact created in GHL
+- [ ] Verify contact created in platform
 - [ ] Check tags applied: `smile-transformation`, `ai-lead`
 - [ ] Check source: "SmileVision AI Landing Page"
 - [ ] Check custom fields populated correctly
@@ -171,14 +171,14 @@ Contact's `transformation_status` field updates automatically:
 - [ ] Upload a photo after form submission
 - [ ] Generate AI transformation
 - [ ] Verify before/after images show correctly
-- [ ] Check GHL contact for image upload notes
+- [ ] Check platform contact for image upload notes
 - [ ] Verify status updated to "Images Generated"
 
 ### Test Video Generation:
 - [ ] Click "Generate Smile Video"
 - [ ] Wait for processing
 - [ ] Verify video plays (or animated fallback shows)
-- [ ] Check GHL contact for video upload note
+- [ ] Check platform contact for video upload note
 - [ ] Verify status updated to "Complete"
 
 ### Test Admin Panel:
@@ -202,7 +202,7 @@ Contact's `transformation_status` field updates automatically:
 - ✅ Trust indicators and testimonials
 - ✅ Staff login toggle
 
-### GHL Dashboard:
+### platform Dashboard:
 - ✅ Patient management with 5-stage review pipeline
 - ✅ Search and filter patients
 - ✅ Smile transformation tool
@@ -222,7 +222,7 @@ Contact's `transformation_status` field updates automatically:
 
 ## 🔗 Integration Points
 
-### GoHighLevel:
+### platform:
 - Contact creation via REST API
 - Custom field mapping
 - Tag management
@@ -239,7 +239,7 @@ Contact's `transformation_status` field updates automatically:
 ## 🚀 Next Steps
 
 1. **Deploy the app** to your hosting provider (Vercel, Netlify, etc.)
-2. **Create GHL Marketplace listing** with app details
+2. **Create marketplace portal listing** with app details
 3. **Test with a demo dental practice** location
 4. **Gather feedback** and iterate on UX
 5. **Launch to production** and onboard practices!
@@ -260,14 +260,14 @@ You now have a **complete, production-ready** AI smile transformation landing pa
 - ✅ **Password-protected admin dashboard** (default: admin123, customizable in Settings → Security)
 - ✅ **Login/logout system** with session management
 - ✅ Lead capture FIRST (before image upload)
-- ✅ Automatic GoHighLevel integration
+- ✅ Automatic platform integration
 - ✅ Before/after image auto-upload
 - ✅ Smile video auto-upload
 - ✅ Status tracking throughout process
 - ✅ Fixed social proof popups (no stacking, 25s intervals)
 - ✅ Admin panel for API configuration
 - ✅ White-label branding options
-- ✅ Complete documentation for GHL setup
+- ✅ Complete documentation for platform setup
 
 **🔐 Security Features**:
 - Password-protected admin access

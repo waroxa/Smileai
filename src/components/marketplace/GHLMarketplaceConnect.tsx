@@ -43,7 +43,7 @@ const API = {
       console.log('🔗 Redirect URL:', redirectUrl);
       
       if (redirectUrl && redirectUrl.includes('gohighlevel.com')) {
-        console.log('✅ Redirecting to GHL...');
+        console.log('✅ Redirecting to platform...');
         window.location.href = redirectUrl;
         return;
       }
@@ -124,7 +124,7 @@ const API = {
 };
 
 /**
- * GHLMarketplaceConnect - OAuth connection component optimized for GHL Marketplace
+ * GHLMarketplaceConnect - OAuth connection component optimized for marketplace portal
  * 
  * Features:
  * - Embedded-friendly layout
@@ -217,10 +217,10 @@ export function GHLMarketplaceConnect() {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-            GoHighLevel Connection
+            Platform Connection
           </h1>
           <p className="text-sm text-gray-600">
-            Connect your GoHighLevel sub-account to sync data and automate workflows
+            Connect your account to sync data and automate workflows
           </p>
         </div>
 
@@ -419,7 +419,7 @@ export function GHLMarketplaceConnect() {
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">2.</span>
-                      Select your GHL location
+                      Select your platform location
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">3.</span>

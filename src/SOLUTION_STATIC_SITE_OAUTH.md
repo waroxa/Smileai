@@ -26,7 +26,7 @@ Since your frontend is static (client-side only), we need the **frontend to call
 app.get("/make-server-c5a5d193/oauth/start", async (c) => {
   // ... generate state, save to DB ...
   
-  // Return redirect to GHL
+  // Return redirect to platform
   return c.redirect(authUrl.toString(), 302);
 });
 ```
@@ -62,7 +62,7 @@ const API = {
 ## How It Works Now
 
 ```
-1. User clicks "Connect GoHighLevel"
+1. User clicks "Connect Platform"
    → Frontend: API.startOAuth()
 
 2. Frontend calls Supabase directly:
@@ -72,16 +72,16 @@ const API = {
 3. Supabase backend:
    - Generates state
    - Saves to database
-   - Returns 302 redirect to GHL
+   - Returns 302 redirect to platform
 
 4. Frontend:
    - Gets redirect URL from response
    - Navigates browser: window.location.href = redirectUrl
 
-5. Browser at GHL:
+5. Browser at platform:
    - User authorizes and selects location
 
-6. GHL redirects to:
+6. platform redirects to:
    https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-c5a5d193/oauth/callback
 
 7. Supabase backend:
@@ -122,8 +122,8 @@ curl -v https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-c5a5d1
 ### 3. Test in Browser
 
 1. Visit: `https://www.smilevisionpro.ai/admin/ghl-connect`
-2. Click: "Connect GoHighLevel"
-3. Should redirect to GHL authorization page
+2. Click: "Connect Platform"
+3. Should redirect to platform authorization page
 4. Authorize and select location
 5. Should redirect back with success message
 
@@ -189,7 +189,7 @@ await API.startOAuth();
 - Secrets (service role key) stay server-side
 
 ### 🔐 What's Protected:
-- GHL Client Secret (server-side)
+- platform Client Secret (server-side)
 - Supabase Service Role Key (server-side)
 - OAuth access/refresh tokens (server-side, encrypted)
 - User data (database with RLS)
@@ -213,7 +213,7 @@ window.location.href = '/oauth/start';
 await API.startOAuth();
 
 // Backend returns redirect
-// Frontend navigates to GHL
+// Frontend navigates to platform
 // Result: OAuth flow works! ✅
 ```
 
@@ -242,11 +242,11 @@ supabase functions deploy make-server-c5a5d193
 
 ### 2. Test End-to-End
 - Visit `/admin/ghl-connect`
-- Click "Connect GoHighLevel"
+- Click "Connect Platform"
 - Complete OAuth flow
 - Verify success
 
-### 3. Configure GHL Marketplace
+### 3. Configure marketplace portal
 - **Redirect URI:** `https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-c5a5d193/oauth/callback`
 - Add Client ID and Secret to Supabase secrets
 

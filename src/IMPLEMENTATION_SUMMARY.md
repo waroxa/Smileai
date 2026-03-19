@@ -1,4 +1,4 @@
-# ✅ Implementation Summary - GoHighLevel OAuth Public Endpoints
+# ✅ Implementation Summary - platform OAuth Public Endpoints
 
 ## What Was Done
 
@@ -45,7 +45,7 @@ const loadConnections = async () => {
 useEffect(() => {
   const params = new URLSearchParams(window.location.search);
   if (params.get('success') === 'true') {
-    setSuccess('✅ GoHighLevel Connected!');
+    setSuccess('✅ Platform Connected!');
   }
 }, []);
 ```
@@ -67,12 +67,12 @@ useEffect(() => {
 ┌─────────────────────────────────────────────────────────────────┐
 │ 1. User visits: /admin/ghl-connect                              │
 │    Component: GHLOAuthConnect                                    │
-│    Shows: "Connect GoHighLevel" button                           │
+│    Shows: "Connect Platform" button                           │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ 2. User clicks: "Connect GoHighLevel"                            │
+│ 2. User clicks: "Connect Platform"                            │
 │    Action: window.location.href = '/oauth/start'                │
 └─────────────────────────────────────────────────────────────────┘
                               │
@@ -80,18 +80,18 @@ useEffect(() => {
 ┌─────────────────────────────────────────────────────────────────┐
 │ 3. Browser navigates to: /oauth/start                            │
 │    Backend: Generates state, saves to DB                         │
-│    Backend: Redirects to GHL authorization URL                   │
+│    Backend: Redirects to platform authorization URL                   │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ 4. User at GHL: marketplace.gohighlevel.com/oauth/chooselocation│
+│ 4. User at platform: marketplace.gohighlevel.com/oauth/chooselocation│
 │    User: Authorizes app and selects location                     │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ 5. GHL redirects to: /oauth/callback?code=xxx&state=xxx         │
+│ 5. platform redirects to: /oauth/callback?code=xxx&state=xxx         │
 │    Backend: Validates state from DB                              │
 │    Backend: Exchanges code for tokens                            │
 │    Backend: Saves encrypted tokens to DB                         │
@@ -107,7 +107,7 @@ useEffect(() => {
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │ 7. Frontend: Parses query params                                 │
-│    Shows: Green success banner "✅ GoHighLevel Connected!"       │
+│    Shows: Green success banner "✅ Platform Connected!"       │
 │    Calls: fetch('/oauth/status') to load connections            │
 │    Displays: Connection card with location info                  │
 └─────────────────────────────────────────────────────────────────┘
@@ -121,8 +121,8 @@ useEffect(() => {
 
 | Endpoint | Method | Purpose | Returns |
 |----------|--------|---------|---------|
-| `/oauth/start` | GET | Start OAuth flow | 302 Redirect to GHL |
-| `/oauth/callback` | GET | Handle GHL callback | 302 Redirect to frontend |
+| `/oauth/start` | GET | Start OAuth flow | 302 Redirect to platform |
+| `/oauth/callback` | GET | Handle platform callback | 302 Redirect to frontend |
 | `/oauth/status` | GET | Get connections | JSON array |
 | `/oauth/disconnect` | POST | Disconnect location | JSON success |
 | `/oauth/refresh` | POST | Refresh token | JSON success |
@@ -152,7 +152,7 @@ useEffect(() => {
 
 ### Backend (To Do):
 - [ ] Create/update `/oauth/start` endpoint
-- [ ] Test redirect to GHL works
+- [ ] Test redirect to platform works
 - [ ] Verify `/oauth/callback` saves to database
 - [ ] Test redirect back to frontend
 - [ ] Verify `/oauth/status` returns JSON
@@ -176,7 +176,7 @@ GHL_CLIENT_SECRET=<your_client_secret>
 GHL_REDIRECT_URI=https://www.smilevisionpro.ai/oauth/callback
 ```
 
-### 2. GHL Marketplace App:
+### 2. marketplace portal App:
 **Redirect URI:**
 ```
 https://www.smilevisionpro.ai/oauth/callback
@@ -219,13 +219,13 @@ Create: `pages/api/oauth/[...path].ts`
 ### Before (Insecure):
 - ❌ Supabase URLs exposed in frontend
 - ❌ Auth tokens in browser code
-- ❌ Multiple redirects (frontend → backend → GHL → backend → frontend)
+- ❌ Multiple redirects (frontend → backend → platform → backend → frontend)
 - ❌ Headers managed by frontend
 
 ### After (Secure):
 - ✅ No Supabase URLs in frontend
 - ✅ No auth tokens in browser
-- ✅ Simple redirects (frontend → GHL → frontend)
+- ✅ Simple redirects (frontend → platform → frontend)
 - ✅ All auth server-side
 
 ---
@@ -268,8 +268,8 @@ Create: `pages/api/oauth/[...path].ts`
 - Test that `/oauth/start` redirects correctly
 
 ### 3. Environment Setup:
-- Add GHL credentials to Supabase
-- Update GHL Marketplace redirect URI
+- Add platform credentials to Supabase
+- Update marketplace portal redirect URI
 - Deploy Edge Functions
 
 ### 4. End-to-End Testing:
@@ -284,7 +284,7 @@ Create: `pages/api/oauth/[...path].ts`
 
 - [x] Frontend NEVER calls Supabase Edge Functions directly
 - [x] All OAuth flows through public domain endpoints
-- [x] Single-click "Connect GoHighLevel" button
+- [x] Single-click "Connect Platform" button
 - [x] Callback handled with query params
 - [x] Status refresh button works
 - [x] Mobile-responsive UI

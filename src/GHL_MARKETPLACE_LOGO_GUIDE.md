@@ -1,7 +1,7 @@
-# 🎨 GoHighLevel Marketplace App Logo Guide
+# 🎨 marketplace portal App Logo Guide
 
 ## Overview
-Your app logo is the first thing users see in the GHL Marketplace. It needs to be professional, recognizable, and meet GHL's technical requirements.
+Your app logo is the first thing users see in the marketplace portal. It needs to be professional, recognizable, and meet platform's technical requirements.
 
 ---
 
@@ -166,7 +166,7 @@ square format transparent background
 
 ---
 
-## 📝 GHL Marketplace Listing Tips
+## 📝 marketplace portal Listing Tips
 
 ### App Name Display:
 - Logo + "SmileVision AI" text appears together
@@ -174,13 +174,13 @@ square format transparent background
 - Test legibility in marketplace grid view
 
 ### Background Considerations:
-- GHL marketplace has white background
+- marketplace portal has white background
 - Dark logos may need border/shadow
 - Transparent PNG with subtle drop shadow works best
 - Test on both light and dark backgrounds
 
 ### Competitive Analysis:
-Look at top GHL marketplace apps:
+Look at top marketplace portal apps:
 - Most use **circular or rounded square**
 - **2-color schemes** dominate
 - **Simple, recognizable icons**
@@ -253,7 +253,7 @@ clean geometric shapes, no text, suitable for app marketplace --v 6 --ar 1:1
 
 ## 📦 Deliverables Needed
 
-### For GHL Marketplace Submission:
+### For marketplace portal Submission:
 1. **App Icon** - 512x512px PNG (main listing)
 2. **Screenshots** - 1280x800px (app interface)
 3. **Banner Image** - 1920x400px (optional hero)
@@ -278,7 +278,7 @@ clean geometric shapes, no text, suitable for app marketplace --v 6 --ar 1:1
 ## 🚀 Implementation
 
 ### Where Your Logo Appears:
-1. **GHL Marketplace Listing** (main icon)
+1. **marketplace portal Listing** (main icon)
 2. **App Dashboard** (top-left corner)
 3. **Browser Tab** (favicon)
 4. **Email Notifications** (header)
@@ -373,10 +373,10 @@ Icon Elements:
 
 1. **Create Logo** (use prompt above)
 2. **Export all sizes** (512, 256, 128, 64, 32px)
-3. **Test in GHL marketplace** (preview how it looks)
+3. **Test in marketplace portal** (preview how it looks)
 4. **Update app files** (replace placeholder logos)
 5. **Create brand guidelines** (for consistency)
-6. **Submit to GHL** (with marketplace listing)
+6. **Submit to platform** (with marketplace listing)
 
 ---
 

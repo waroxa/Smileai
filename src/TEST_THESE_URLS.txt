@@ -1,17 +1,17 @@
 ═══════════════════════════════════════════════════════════════════════════════
-  🧪 TEST THESE URLs BEFORE SUBMITTING TO GHL
+  🧪 TEST THESE URLs BEFORE SUBMITTING TO platform
 ═══════════════════════════════════════════════════════════════════════════════
 
 Click each link to verify they work on your deployed site:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 DOCUMENTATION PAGES (Required for GHL Form)
+📋 DOCUMENTATION PAGES (Required for platform Form)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 □ Getting Started Guide
   https://www.smilevisionpro.ai/getting-started.html
   ✓ Should show: Welcome page with 5 steps
-  ✓ Must work in iframe (GHL will display it in iframe)
+  ✓ Must work in iframe (platform will display it in iframe)
 
 □ Setup Guide / Documentation
   https://www.smilevisionpro.ai/setup-guide.html
@@ -92,7 +92,7 @@ Test it by sending an email to support@smilevisionpro.ai and verify you receive 
 📸 SCREENSHOTS TO TAKE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Take these screenshots for the GHL marketplace:
+Take these screenshots for the marketplace portal:
 
 □ 1. Landing page hero section (with form visible)
 □ 2. Before/after transformation result
@@ -114,7 +114,7 @@ Format: PNG or JPG
 □ support@smilevisionpro.ai email is set up and working
 □ 3-5 screenshots taken
 □ Copy /GHL_FORM_READY_TO_PASTE.txt content
-□ Ready to fill in GHL marketplace form!
+□ Ready to fill in marketplace portal form!
 
 
 ═══════════════════════════════════════════════════════════════════════════════
@@ -122,6 +122,6 @@ Format: PNG or JPG
 Once all URLs work, open:
 /GHL_FORM_READY_TO_PASTE.txt
 
-And copy-paste each section into the GHL marketplace form!
+And copy-paste each section into the marketplace portal form!
 
 Good luck! 🚀

@@ -1,10 +1,10 @@
 # ✅ Settings Database Integration - Complete Guide
 
 ## Problem Solved
-Contact information and all other settings were NOT being saved to the database (GHL Custom Values API). They were only updating local state, so refreshing the page would lose changes, and the homepage footer wouldn't reflect updates.
+Contact information and all other settings were NOT being saved to the database (Platform Custom Values API). They were only updating local state, so refreshing the page would lose changes, and the homepage footer wouldn't reflect updates.
 
 ## Solution Implemented
-All settings now properly save to **GoHighLevel Custom Values API** and persist across sessions.
+All settings now properly save to **platform Custom Values API** and persist across sessions.
 
 ---
 
@@ -24,7 +24,7 @@ All settings now properly save to **GoHighLevel Custom Values API** and persist 
 ```
 1. User fills out ANY settings tab (Branding, Contact, Testimonials, etc.)
 2. Clicks "Save Changes" (top-right button)
-3. Data saved to GHL Custom Values API
+3. Data saved to Platform Custom Values API
 4. Also updates parent App.tsx state
 5. Refresh page → data persists
 6. Homepage footer → shows real data
@@ -49,7 +49,7 @@ All settings now properly save to **GoHighLevel Custom Values API** and persist 
 const handleSave = async () => {
   setIsSaving(true);
   try {
-    // Save to GHL Custom Values API
+    // Save to Platform Custom Values API
     const success = await setClinicBranding(localBranding);
     
     if (success) {
@@ -90,7 +90,7 @@ const handleSave = async () => {
 ## 🗄️ Database Storage Architecture
 
 ### Storage Location
-All settings are saved in **GoHighLevel Custom Values API**:
+All settings are saved in **platform Custom Values API**:
 - **Endpoint**: `https://services.leadconnectorhq.com/locations/{locationId}/customValues`
 - **Key**: `smileai_clinic_branding`
 - **Value**: JSON string containing all branding data
@@ -131,9 +131,9 @@ All settings are saved in **GoHighLevel Custom Values API**:
 
 ### Fallback Strategy
 ```typescript
-// If GHL credentials not configured, falls back to localStorage
+// If platform credentials not configured, falls back to localStorage
 if (!apiKey || !locationId) {
-  console.warn('GHL credentials not configured, falling back to localStorage');
+  console.warn('platform credentials not configured, falling back to localStorage');
   localStorage.setItem(key, value);
   return true;
 }
@@ -147,7 +147,7 @@ if (!apiKey || !locationId) {
 ```
 App.tsx → useEffect() → getClinicBranding() 
   ↓
-  Fetch from GHL Custom Values API
+  Fetch from Platform Custom Values API
   ↓
   Parse JSON → Set clinicBranding state
   ↓
@@ -177,7 +177,7 @@ User clicks "Save Changes" (top-right)
   ↓
   SettingsView.handleSave() called
   ↓
-  setClinicBranding(localBranding) → GHL API POST
+  setClinicBranding(localBranding) → platform API POST
   ↓
   Success? → onBrandingChange() updates App.tsx state
   ↓
@@ -213,7 +213,7 @@ Homepage/Footer loads
    - **Contact**: Address, phone, email
    - **Testimonials**: Patient reviews, Google Reviews widget
    - **Notifications**: Email preferences (coming soon)
-   - **Integration**: GHL API credentials
+   - **Integration**: platform API credentials
    - **Security**: Change password
    - **Billing**: Subscription management (coming soon)
 
@@ -282,11 +282,11 @@ Homepage/Footer loads
 ## 🐛 Troubleshooting
 
 ### Issue: "Save Failed" Error
-**Cause**: GHL API credentials not configured or invalid
+**Cause**: platform API credentials not configured or invalid
 
 **Solution**:
 1. Go to Settings → Integration tab
-2. Enter GHL API Key and Location ID
+2. Enter platform API Key and Location ID
 3. Click "Save Settings"
 4. Go back to Contact/other tab
 5. Try saving again
@@ -305,7 +305,7 @@ Homepage/Footer loads
 
 **Solution**:
 1. Check browser console for errors
-2. Verify GHL credentials in Settings → Integration
+2. Verify platform credentials in Settings → Integration
 3. Make sure you're seeing success toast after save
 4. Try saving again
 
@@ -324,7 +324,7 @@ Homepage/Footer loads
 ## 💡 Key Concepts
 
 ### Single Source of Truth
-- **Database**: GHL Custom Values API
+- **Database**: Platform Custom Values API
 - **Runtime State**: App.tsx `clinicBranding` state
 - **Homepage Footer**: Reads from App.tsx state
 - **Settings Panels**: Edit local copy, save updates database
@@ -345,7 +345,7 @@ Homepage/Footer loads
 
 ```
 ┌─────────────────────────────────────────────┐
-│         GHL Custom Values API               │
+│         Platform Custom Values API               │
 │  Key: smileai_clinic_branding               │
 │  Value: { contactInfo, testimonials, ... }  │
 └─────────────────────────────────────────────┘
@@ -389,16 +389,16 @@ Homepage/Footer loads
 ## ✅ Summary
 
 ### What Was Fixed:
-1. ✅ Contact information now saves to GHL database
-2. ✅ Testimonials now save to GHL database
-3. ✅ All branding settings save to GHL database
+1. ✅ Contact information now saves to platform database
+2. ✅ Testimonials now save to platform database
+3. ✅ All branding settings save to platform database
 4. ✅ Homepage footer reads from database
 5. ✅ Data persists across page refreshes
 6. ✅ Data persists across browser sessions
 7. ✅ Single "Save Changes" button for all tabs
 8. ✅ Clear success/error messages
 9. ✅ Proper loading states
-10. ✅ Fallback to localStorage if GHL not configured
+10. ✅ Fallback to localStorage if platform not configured
 
 ### Files Involved:
 - `/components/ghl/SettingsView.tsx` - Main save logic
@@ -409,8 +409,8 @@ Homepage/Footer loads
 - `/App.tsx` - Global state management
 
 ### Requirements:
-- ✅ GHL API Key configured in Settings → Integration
-- ✅ GHL Location ID configured
+- ✅ platform API Key configured in Settings → Integration
+- ✅ platform Location ID configured
 - ✅ Click "Save Changes" button after editing
 
 ---

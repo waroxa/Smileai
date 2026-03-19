@@ -1,6 +1,6 @@
 /**
- * GoHighLevel SSO Integration
- * Automatically detects when app is installed in GHL and sets up credentials
+ * platform SSO Integration
+ * Automatically detects when app is installed in platform and sets up credentials
  */
 
 export interface GHLSSOData {
@@ -11,13 +11,13 @@ export interface GHLSSOData {
 }
 
 /**
- * Check if the app is running inside GoHighLevel iframe
+ * Check if the app is running inside platform iframe
  */
-export function isInsideGHL(): boolean {
+export function isInsideplatform(): boolean {
   try {
     // Check if we're in an iframe
     if (window.self !== window.top) {
-      // Check for GHL-specific URL parameters or parent window indicators
+      // Check for platform-specific URL parameters or parent window indicators
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.has('location_id') || urlParams.has('ghl_location');
     }
@@ -31,7 +31,7 @@ export function isInsideGHL(): boolean {
 }
 
 /**
- * Extract GHL SSO data from URL parameters
+ * Extract platform SSO data from URL parameters
  */
 export function getGHLSSOData(): GHLSSOData | null {
   try {
@@ -64,24 +64,24 @@ export function getGHLSSOData(): GHLSSOData | null {
     
     return null;
   } catch (e) {
-    console.error('Error extracting GHL SSO data:', e);
+    console.error('Error extracting platform SSO data:', e);
     return null;
   }
 }
 
 /**
- * Save GHL credentials to localStorage
+ * Save platform credentials to localStorage
  */
 export function saveGHLCredentials(data: GHLSSOData): void {
   try {
     if (data.locationId) {
       localStorage.setItem('ghl_location_id', data.locationId);
-      console.log('✅ GHL Location ID saved:', data.locationId);
+      console.log('✅ platform Location ID saved:', data.locationId);
     }
     
     if (data.apiKey) {
       localStorage.setItem('ghl_api_key', data.apiKey);
-      console.log('✅ GHL API Key saved');
+      console.log('✅ platform API Key saved');
     }
     
     if (data.userId) {
@@ -96,21 +96,21 @@ export function saveGHLCredentials(data: GHLSSOData): void {
     localStorage.setItem('ghl_sso_configured', 'true');
     
   } catch (e) {
-    console.error('Error saving GHL credentials:', e);
+    console.error('Error saving platform credentials:', e);
   }
 }
 
 /**
- * Initialize GHL SSO if detected
+ * Initialize platform SSO if detected
  * Call this on app startup
  */
 export function initializeGHLSSO(): boolean {
-  console.log('🔍 Checking for GHL SSO...');
+  console.log('🔍 Checking for platform SSO...');
   
   const ssoData = getGHLSSOData();
   
   if (ssoData && ssoData.locationId) {
-    console.log('✅ GHL SSO detected! Location ID:', ssoData.locationId);
+    console.log('✅ platform SSO detected! Location ID:', ssoData.locationId);
     saveGHLCredentials(ssoData);
     return true;
   }
@@ -119,16 +119,16 @@ export function initializeGHLSSO(): boolean {
   const alreadyConfigured = localStorage.getItem('ghl_sso_configured') === 'true';
   if (alreadyConfigured) {
     const locationId = localStorage.getItem('ghl_location_id');
-    console.log('ℹ️ GHL already configured with Location ID:', locationId);
+    console.log('ℹ️ platform already configured with Location ID:', locationId);
   } else {
-    console.log('ℹ️ No GHL SSO detected - running in standalone mode');
+    console.log('ℹ️ No platform SSO detected - running in standalone mode');
   }
   
   return alreadyConfigured;
 }
 
 /**
- * Check if GHL is properly configured
+ * Check if platform is properly configured
  */
 export function isGHLConfigured(): boolean {
   const locationId = localStorage.getItem('ghl_location_id');
@@ -137,7 +137,7 @@ export function isGHLConfigured(): boolean {
 }
 
 /**
- * Get current GHL configuration status
+ * Get current platform configuration status
  */
 export function getGHLConfigStatus(): {
   configured: boolean;

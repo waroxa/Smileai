@@ -7,7 +7,7 @@ const app = new Hono();
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const API_VERSION = '2021-07-28';
 
-// Helper: Make authenticated GHL API request
+// Helper: Make authenticated platform API request
 const makeGHLRequest = async (
   locationId: string,
   endpoint: string,
@@ -286,7 +286,7 @@ app.post("/make-server-1ddb0231/ghl/videos", async (c) => {
       const errorText = await response.text();
       console.error('❌ Failed to save video metadata:', errorText);
       
-      // Fallback: save to our KV store if GHL API fails
+      // Fallback: save to our KV store if platform API fails
       const kvKey = `ghl_video:${locationId}:${Date.now()}`;
       await kv.set(kvKey, {
         locationId,

@@ -31,9 +31,9 @@ export function SetupGuide() {
         <Card>
           <h2>🚀 Quick Start (3 Steps)</h2>
           
-          <Step number={1} title="Get Your GHL Credentials">
-            <p><strong>API Key:</strong> GoHighLevel → Settings → API → Create API Key</p>
-            <p><strong>Location ID:</strong> GoHighLevel → Settings → Business Profile → Location ID</p>
+          <Step number={1} title="Get Your platform Credentials">
+            <p><strong>API Key:</strong> platform → Settings → API → Create API Key</p>
+            <p><strong>Location ID:</strong> platform → Settings → Business Profile → Location ID</p>
           </Step>
 
           <Step number={2} title="Enter Credentials in App">
@@ -41,7 +41,7 @@ export function SetupGuide() {
             <p>Paste your API Key and Location ID, then click "Save Settings"</p>
           </Step>
 
-          <Step number={3} title="Create Custom Fields in GHL">
+          <Step number={3} title="Create Custom Fields in platform">
             <p>Navigate to: Settings → Custom Fields → Contact Fields</p>
             <p>Create these 5 fields (see table below)</p>
           </Step>
@@ -50,7 +50,7 @@ export function SetupGuide() {
         {/* Custom Fields */}
         <Card>
           <h2>📋 Required Custom Fields</h2>
-          <p>Create these custom fields in GoHighLevel to store all lead data:</p>
+          <p>Create these custom fields in platform to store all lead data:</p>
           
           <table style={{
             width: '100%',
@@ -126,11 +126,11 @@ export function SetupGuide() {
           <h3>Customer Journey:</h3>
           <ol style={{ paddingLeft: '20px' }}>
             <li style={{ marginBottom: '10px' }}><strong>Landing Page:</strong> Customer fills out contact form</li>
-            <li style={{ marginBottom: '10px' }}><strong>Contact Created:</strong> Automatically added to GHL with tags</li>
+            <li style={{ marginBottom: '10px' }}><strong>Contact Created:</strong> Automatically added to platform with tags</li>
             <li style={{ marginBottom: '10px' }}><strong>Photo Upload:</strong> Customer uploads their smile photo</li>
             <li style={{ marginBottom: '10px' }}><strong>AI Transformation:</strong> System generates enhanced smile</li>
             <li style={{ marginBottom: '10px' }}><strong>Video Generation:</strong> Animated video created (optional)</li>
-            <li style={{ marginBottom: '10px' }}><strong>Data Synced:</strong> All images & videos saved to GHL contact</li>
+            <li style={{ marginBottom: '10px' }}><strong>Data Synced:</strong> All images & videos saved to platform contact</li>
             <li style={{ marginBottom: '10px' }}><strong>Automation:</strong> Your workflows trigger for follow-up</li>
           </ol>
 
@@ -190,7 +190,7 @@ export function SetupGuide() {
         <Card>
           <h2>🔧 Troubleshooting</h2>
           
-          <h3>Contacts not being created in GHL?</h3>
+          <h3>Contacts not being created in platform?</h3>
           <ul style={{ paddingLeft: '20px' }}>
             <li>Verify API Key and Location ID are correct in Settings</li>
             <li>Check API key has "contacts.write" permission</li>
@@ -199,7 +199,7 @@ export function SetupGuide() {
 
           <h3>Videos not appearing in custom fields?</h3>
           <ul style={{ paddingLeft: '20px' }}>
-            <li>Confirm <Code>smile_video_url</Code> field exists in GHL</li>
+            <li>Confirm <Code>smile_video_url</Code> field exists in platform</li>
             <li>Field name must be exact (no spaces, lowercase)</li>
             <li>Check field type is "Text" or "URL"</li>
           </ul>

@@ -111,7 +111,7 @@ export function SmileTransformationSection() {
     setIsSubmittingLead(true);
 
     try {
-      // Create contact in GoHighLevel (optional - gracefully skips if not configured)
+      // Create contact in platform (optional - gracefully skips if not configured)
       const result = await createGHLContact({
         fullName: leadFormData.fullName,
         email: leadFormData.email,
@@ -126,15 +126,15 @@ export function SmileTransformationSection() {
           setGhlContactId(result.contactId);
           console.log('✅ Lead captured successfully! Contact ID:', result.contactId);
         } else {
-          console.log('✅ Lead captured successfully! (GHL integration not configured)');
+          console.log('✅ Lead captured successfully! (platform integration not configured)');
         }
         setLeadCaptured(true);
       } else {
         // Only log as warning if there's an actual error (not just missing credentials)
         if (result.error && !result.error.includes('not configured')) {
-          console.warn('⚠️ Lead form submitted but GHL integration failed:', result.error);
+          console.warn('⚠️ Lead form submitted but platform integration failed:', result.error);
         }
-        // Still allow them to continue even if GHL fails
+        // Still allow them to continue even if platform fails
         setLeadCaptured(true);
       }
     } catch (error) {
@@ -194,7 +194,7 @@ export function SmileTransformationSection() {
     setProcessingError(null);
     
     try {
-      // Update contact status if we have a GHL contact
+      // Update contact status if we have a platform contact
       if (ghlContactId) {
         await updateContactStatus(ghlContactId, 'Processing');
       }
@@ -249,7 +249,7 @@ export function SmileTransformationSection() {
       setAiImage(generatedImageUrl);
       console.log('✅ Smile transformation complete!');
 
-      // Upload images to GHL contact
+      // Upload images to platform contact
       if (ghlContactId) {
         await uploadGHLMedia(ghlContactId, {
           beforeImage: uploadedImage,
@@ -365,7 +365,7 @@ export function SmileTransformationSection() {
         setVideoStatus('✨ Your smile video is ready! Watch your transformation.');
         console.log('🎉 Video ready:', data.videoUrl);
 
-        // Upload video to GHL contact
+        // Upload video to platform contact
         if (ghlContactId) {
           await uploadGHLMedia(ghlContactId, {
             smileVideo: data.videoUrl,

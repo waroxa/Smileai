@@ -160,7 +160,7 @@ export function StaffLoginModal({ isOpen, onClose, onSuccess }: StaffLoginModalP
                 </div>
               </form>
 
-              {/* GHL Integration Note */}
+              {/* platform Integration Note */}
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <p className="text-xs text-center text-gray-500">
                   🔐 This dashboard is for authorized staff only.

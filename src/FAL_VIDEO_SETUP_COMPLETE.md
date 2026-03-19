@@ -240,15 +240,15 @@ Authorization: Key YOUR_FAL_API_KEY
 
 ---
 
-## Integration with GoHighLevel
+## Integration with platform
 
 ### Automatic Contact Updates
 
 When a video is successfully generated:
 
 1. **Status Update:** Contact status changes to "Complete - Video Generated"
-2. **Media Upload:** Video URL is uploaded to GHL contact attachments
-3. **Tracking:** All transformations are tracked in GHL
+2. **Media Upload:** Video URL is uploaded to platform contact attachments
+3. **Tracking:** All transformations are tracked in platform
 
 **Fields Updated:**
 - Before Image (custom field)
@@ -282,7 +282,7 @@ When a video is successfully generated:
 2. **✅ Test the video generation flow end-to-end**
 3. **✅ Monitor FAL dashboard for credit usage**
 4. **✅ Test with various types of smile photos**
-5. **✅ Check GHL integration to ensure videos are uploaded correctly**
+5. **✅ Check platform integration to ensure videos are uploaded correctly**
 
 ---
 

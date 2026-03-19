@@ -1,15 +1,15 @@
-# 🚀 GoHighLevel Setup Guide
+# 🚀 platform Setup Guide
 
-## SmileVisionPro AI - Complete GHL Integration
+## SmileVisionPro AI - Complete platform Integration
 
-This guide will help you install and configure SmileVisionPro AI in your GoHighLevel account.
+This guide will help you install and configure SmileVisionPro AI in your platform account.
 
 ---
 
 ## 📋 Overview
 
 When properly configured, SmileVisionPro AI will:
-- ✅ Automatically create new contacts in GHL when leads submit the form
+- ✅ Automatically create new contacts in platform when leads submit the form
 - ✅ Save customer information (name, email, phone, service interest, notes)
 - ✅ Upload before/after smile transformation images
 - ✅ **Save video URLs** directly to contact custom fields and notes
@@ -22,11 +22,11 @@ When properly configured, SmileVisionPro AI will:
 
 ### Method 1: Automatic SSO Integration (Recommended)
 
-When you install this app in GoHighLevel as a Custom App, it will:
+When you install this app in platform as a Custom App, it will:
 
-1. **Automatically detect** it's running inside GHL
+1. **Automatically detect** it's running inside platform
 2. **Extract the Location ID** from URL parameters
-3. **Connect to your GHL account** seamlessly
+3. **Connect to your platform account** seamlessly
 
 **Installation URL Format:**
 ```
@@ -36,7 +36,7 @@ https://your-app-url.com/?location_id=YOUR_LOCATION_ID&api_key=YOUR_API_KEY
 The app will automatically:
 - Save the Location ID to localStorage
 - Configure API credentials
-- Start sending leads to your GHL account
+- Start sending leads to your platform account
 
 ---
 
@@ -46,17 +46,17 @@ If you're not using SSO, you can manually configure credentials:
 
 1. **Login as Staff** (click "Staff Login" in footer)
 2. Go to **Settings** → **Integration** tab
-3. Enter your GHL credentials:
-   - **API Key**: Get from GHL → Settings → API → Create API Key
-   - **Location ID**: Get from GHL → Settings → Business Profile → Location ID
+3. Enter your platform credentials:
+   - **API Key**: Get from platform → Settings → API → Create API Key
+   - **Location ID**: Get from platform → Settings → Business Profile → Location ID
 
 ---
 
-## 🔑 Getting Your GHL Credentials
+## 🔑 Getting Your platform Credentials
 
 ### Step 1: Get Your API Key
 
-1. Login to your **GoHighLevel** account
+1. Login to your **platform** account
 2. Navigate to **Settings** (gear icon)
 3. Click **API** in the left sidebar
 4. Click **Create API Key**
@@ -65,16 +65,16 @@ If you're not using SSO, you can manually configure credentials:
 
 ### Step 2: Get Your Location ID
 
-1. In GHL, go to **Settings**
+1. In platform, go to **Settings**
 2. Click **Business Profile**
 3. Find **Location ID** (usually at the top)
 4. **Copy the Location ID**
 
 ---
 
-## 📊 Required Custom Fields in GHL
+## 📊 Required Custom Fields in platform
 
-For the app to work properly, create these custom fields in GHL:
+For the app to work properly, create these custom fields in platform:
 
 ### Navigate to: Settings → Custom Fields → Contact Fields
 
@@ -97,12 +97,12 @@ When a customer generates a smile video:
 
 1. **Video is generated** using FAL AI (Kling Video API)
 2. **Video URL is returned** from the API
-3. **Contact is updated** in GHL with:
+3. **Contact is updated** in platform with:
    - `smile_video_url` custom field = video URL
    - A note is added with clickable video link
    - Status updated to "Complete - Video Generated"
 
-### Accessing the Video in GHL
+### Accessing the Video in platform
 
 **Option 1: Custom Field**
 - Open contact → Custom Fields → `smile_video_url`
@@ -125,7 +125,7 @@ Every lead gets tagged with:
 
 ### Recommended Workflows
 
-Create GHL workflows triggered by these tags:
+Create platform workflows triggered by these tags:
 
 **Workflow 1: New Lead Welcome**
 - Trigger: Tag added `smile-transformation`
@@ -144,7 +144,7 @@ Create GHL workflows triggered by these tags:
 ### Test Checklist
 
 1. ✅ Submit a test lead through the form
-2. ✅ Check GHL Contacts - new contact should appear
+2. ✅ Check platform Contacts - new contact should appear
 3. ✅ Verify contact has correct:
    - Name, email, phone
    - Tags: `smile-transformation`, `ai-lead`
@@ -160,7 +160,7 @@ Create GHL workflows triggered by these tags:
 
 ## 🐛 Troubleshooting
 
-### Issue: "GHL API credentials not configured"
+### Issue: "platform API credentials not configured"
 
 **Solution:**
 - Verify API Key is saved in Settings → Integration
@@ -173,16 +173,16 @@ Create GHL workflows triggered by these tags:
 ### Issue: Contacts created but no video URL
 
 **Solution:**
-- Check that custom field `smile_video_url` exists in GHL
+- Check that custom field `smile_video_url` exists in platform
 - Verify field type is set to "URL" or "Text"
 - Check browser console for API errors
 - Ensure FAL_API_KEY is configured in environment
 
-### Issue: App not detecting GHL SSO
+### Issue: App not detecting platform SSO
 
 **Solution:**
 - Check URL parameters include `location_id`
-- Verify you're accessing the app through GHL iframe
+- Verify you're accessing the app through embedded iframe
 - Try manual configuration as fallback
 
 ---
@@ -192,7 +192,7 @@ Create GHL workflows triggered by these tags:
 ```
 User Submits Form
         ↓
-  Contact Created in GHL
+  Contact Created in platform
         ↓
    Tags Applied
         ↓
@@ -210,7 +210,7 @@ Video URL Saved to:
         ↓
 Status Updated: "Complete - Video Generated"
         ↓
-GHL Workflow Triggered
+platform Workflow Triggered
         ↓
 Follow-up Email Sent
 ```
@@ -221,7 +221,7 @@ Follow-up Email Sent
 
 1. **Never share your API Key** publicly
 2. Use **environment variables** for API keys in production
-3. Enable **CORS restrictions** on your API key in GHL
+3. Enable **CORS restrictions** on your API key in platform
 4. Set **IP restrictions** if possible
 5. Regularly **rotate API keys** (every 90 days)
 
@@ -234,7 +234,7 @@ If you need help with the integration:
 1. Check the browser console for error messages
 2. Review the `/utils/ghl-api.ts` file for API call details
 3. Test API calls directly using Postman/Insomnia
-4. Contact GHL support if API permissions are incorrect
+4. Contact platform support if API permissions are incorrect
 
 ---
 
@@ -242,7 +242,7 @@ If you need help with the integration:
 
 Once configured, your SmileVisionPro AI app will:
 - Capture leads automatically
-- Save all transformation data to GHL
+- Save all transformation data to platform
 - **Include video URLs** for easy access
 - Trigger your marketing automation
 - Help you convert more leads into patients!

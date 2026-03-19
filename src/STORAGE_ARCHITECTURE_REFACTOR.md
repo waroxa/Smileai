@@ -98,7 +98,7 @@ Value: {
 
 ### 7. **API Credentials** (`smileai_api_credentials`)
 ```
-Stored in localStorage (will use GHL SSO in production)
+Stored in localStorage (will use platform SSO in production)
 ```
 
 ---
@@ -455,7 +455,7 @@ Clean, organized, professional architecture
 - ✅ Testimonials are stored separately (`smileai_testimonials`)
 - ✅ Branding is stored separately (`smileai_branding`)
 - ✅ All existing code still works
-- ✅ Ready for GHL Marketplace
+- ✅ Ready for marketplace portal
 
 ---
 

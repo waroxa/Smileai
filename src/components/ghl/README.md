@@ -1,8 +1,8 @@
-# SmileVisionPro - GoHighLevel Marketplace App
+# SmileVisionPro - marketplace portal App
 
 ## Overview
 
-**SmileVisionPro** is a dental transformation suite designed for the GoHighLevel Marketplace. It provides a clinic-neutral, modular UI that can be customized by any dental practice.
+**SmileVisionPro** is a dental transformation suite designed for the marketplace portal. It provides a clinic-neutral, modular UI that can be customized by any dental practice.
 
 ## Design Principles
 
@@ -30,7 +30,7 @@ All shared components are in `/components/ghl/shared/`:
 - Color theming throughout
 - Logo upload capability
 - Clinic name customization
-- **Per Sub-Account Branding** - Each GHL sub-account can have unique branding
+- **Per Sub-Account Branding** - Each platform sub-account can have unique branding
 
 ## File Structure
 
@@ -68,7 +68,7 @@ https://yourapp.com/ghl-app
 ### Method 3: Mode Switcher
 Click the floating button in the bottom-right corner to toggle between:
 - 🌐 Landing Page Mode
-- 🏥 GHL App Mode
+- 🏥 platform App Mode
 
 ## Customization
 
@@ -141,7 +141,7 @@ All components will automatically update with the new branding.
 ### 4. Settings
 - Branding customization
 - Notification preferences
-- GoHighLevel integration settings
+- platform integration settings
 - Billing management
 
 ## Color System
@@ -213,7 +213,7 @@ Info: #3b82f6 (Blue)
 />
 ```
 
-## Integration with GoHighLevel
+## Integration with platform
 
 ### Auto-Sync Features
 - Contacts sync automatically
@@ -246,7 +246,7 @@ Set up in **Settings > Integration** tab:
 
 ## Support
 
-For questions or issues with the GHL app:
+For questions or issues with the embedded app:
 1. Check this README
 2. Review component documentation
 3. Test with different branding configurations

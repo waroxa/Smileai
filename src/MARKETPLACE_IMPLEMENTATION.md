@@ -51,7 +51,7 @@ npm run dev
   </style>
 </head>
 <body>
-  <h1>GoHighLevel Iframe Test</h1>
+  <h1>platform Iframe Test</h1>
   <p>Testing SmileVision Pro in embedded mode:</p>
   
   <!-- Small mobile size -->
@@ -112,8 +112,8 @@ Open `test-iframe.html` in your browser to test embedded mode.
 ### ✅ Functionality Testing
 
 #### OAuth Flow
-- [ ] "Connect GoHighLevel" button works
-- [ ] Redirects to GHL authorization
+- [ ] "Connect Platform" button works
+- [ ] Redirects to platform authorization
 - [ ] Callback returns to app
 - [ ] Success message displays
 - [ ] Connection card appears
@@ -227,7 +227,7 @@ curl https://www.smilevisionpro.ai/marketplace/connect
 
 ---
 
-## GHL Marketplace Configuration
+## marketplace portal Configuration
 
 ### App Configuration JSON
 
@@ -379,7 +379,7 @@ Content-Security-Policy: frame-ancestors *
 ### Issue: OAuth redirect not working
 
 **Check:**
-1. GHL_REDIRECT_URI matches GHL app config?
+1. GHL_REDIRECT_URI matches embedded app config?
 2. Backend route deployed?
 3. OAuth credentials correct?
 
@@ -390,7 +390,7 @@ echo $GHL_CLIENT_ID
 echo $GHL_CLIENT_SECRET
 echo $GHL_REDIRECT_URI
 
-# Should match GHL Marketplace app config
+# Should match marketplace portal app config
 ```
 
 ---
@@ -464,7 +464,7 @@ npm run deploy
 **Quarterly:**
 - [ ] Design audit (ensure consistency)
 - [ ] Refactor opportunities
-- [ ] New GHL API features
+- [ ] New platform API features
 - [ ] User experience improvements
 
 ---
@@ -482,7 +482,7 @@ npm run deploy
 - `test-iframe.html` - Testing template
 
 ### External Resources
-- [GHL Marketplace Docs](https://developer.gohighlevel.com/)
+- [marketplace portal Docs](https://developer.gohighlevel.com/)
 - [Tailwind 8px Grid](https://tailwindcss.com/docs/customizing-spacing)
 - [React Iframe Communication](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 
@@ -495,7 +495,7 @@ npm run deploy
 - ✅ Testing Guide Provided
 - ⏳ Local Testing Needed
 - ⏳ Production Deployment Needed
-- ⏳ GHL Marketplace Submission Needed
+- ⏳ marketplace portal Submission Needed
 
 **Next Step:** Test locally with `test-iframe.html` then deploy!
 

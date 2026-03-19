@@ -62,11 +62,11 @@ curl -v \
    https://www.smilevisionpro.ai/admin/ghl-connect
    ```
 
-2. **Click "Connect GoHighLevel"**
-   - Should redirect to GHL authorization page
+2. **Click "Connect Platform"**
+   - Should redirect to platform authorization page
    - If it doesn't, check browser console for errors
 
-3. **Authorize in GHL**
+3. **Authorize in platform**
    - Select a location
    - Click "Allow"
 
@@ -120,12 +120,12 @@ fetch('https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-c5a5d19
   ```
   https://pvophjpndtqxkoygposy.supabase.co/functions/v1/make-server-c5a5d193/oauth/callback
   ```
-- GHL Marketplace app has same redirect URI
+- marketplace portal app has same redirect URI
 - Check Supabase Edge Function logs
 
 ---
 
-### Issue: Error after GHL authorization
+### Issue: Error after platform authorization
 
 **Check Supabase logs:**
 1. Go to: Supabase Dashboard → Edge Functions
@@ -157,9 +157,9 @@ await fetch(url, {
 
 You'll know it's working when:
 
-1. **Click "Connect"** → Browser redirects to GHL
-2. **Authorize in GHL** → Redirects back to your app
-3. **Success banner** → Shows "✅ GoHighLevel Connected!"
+1. **Click "Connect"** → Browser redirects to platform
+2. **Authorize in platform** → Redirects back to your app
+3. **Success banner** → Shows "✅ Platform Connected!"
 4. **Connection card** → Appears with location name and ID
 5. **Database** → Has entry in `ghl_connections` table
 
@@ -221,7 +221,7 @@ await API.refresh(locationId);
 
 ### Backend Endpoints
 ```
-GET  /oauth/start      - Start OAuth (redirects to GHL)
+GET  /oauth/start      - Start OAuth (redirects to platform)
 GET  /oauth/callback   - Handle callback (redirects to frontend)
 GET  /oauth/status     - Get connections list
 POST /oauth/disconnect - Disconnect location
@@ -235,8 +235,8 @@ POST /oauth/refresh    - Refresh token
 1. Deploy backend: ✅
 2. Test endpoint with curl: ✅
 3. Open /admin/ghl-connect: ✅
-4. Click "Connect GoHighLevel": ✅
-5. Authorize in GHL: ✅
+4. Click "Connect Platform": ✅
+5. Authorize in platform: ✅
 6. Redirected back with success: ✅
 7. Connection appears in list: ✅
 8. Database has entry: ✅

@@ -65,7 +65,7 @@ export function Privacy() {
           <p>We use your information for the following purposes:</p>
           <ul>
             <li><strong>AI Processing:</strong> To generate smile transformations and videos using advanced AI technology</li>
-            <li><strong>Lead Management:</strong> To create and manage your contact record in GoHighLevel CRM</li>
+            <li><strong>Lead Management:</strong> To create and manage your contact record in CRM platform</li>
             <li><strong>Communication:</strong> To send you your transformation results and follow-up information</li>
             <li><strong>Service Improvement:</strong> To improve our AI models and service quality</li>
             <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
@@ -77,7 +77,7 @@ export function Privacy() {
           
           <h3>4.1 Service Providers</h3>
           <ul>
-            <li><strong>GoHighLevel:</strong> For CRM and contact management</li>
+            <li><strong>platform:</strong> For CRM and contact management</li>
             <li><strong>AI Service Providers:</strong> For image processing and enhancement</li>
             <li><strong>Video Services:</strong> For video generation and hosting</li>
           </ul>

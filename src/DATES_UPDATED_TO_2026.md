@@ -81,4 +81,4 @@ All active documentation pages now display:
 
 ## 🚀 READY FOR PRODUCTION!
 
-All dates are current and professional. Your app is ready for the GHL marketplace! 🎉
+All dates are current and professional. Your app is ready for the marketplace portal! 🎉

@@ -1,4 +1,4 @@
-# GoHighLevel OAuth Configuration
+# platform OAuth Configuration
 
 ## Required Environment Variables
 
@@ -10,9 +10,9 @@ GHL_CLIENT_SECRET=your_client_secret_here
 GHL_REDIRECT_URI=https://www.smilevisionpro.ai/oauth/callback
 ```
 
-## GoHighLevel Marketplace Settings
+## marketplace portal Settings
 
-When submitting to GHL Marketplace, use these values:
+When submitting to marketplace portal, use these values:
 
 ### 1. Redirect URL
 ```
@@ -48,12 +48,12 @@ forms.readonly
 - ❌ workflows.* (not needed)
 
 ### 3. Client Keys
-After creating your app in GHL Marketplace:
+After creating your app in marketplace portal:
 1. Copy the `Client ID`
 2. Copy the `Client Secret`
 3. Add both to Supabase secrets (see above)
 
-## GHL OAuth Endpoints
+## platform OAuth Endpoints
 
 **Authorization URL:**
 ```
@@ -72,7 +72,7 @@ https://services.leadconnectorhq.com/oauth/token
 
 ## Setup Steps
 
-1. **Create GHL Marketplace App**
+1. **Create marketplace portal App**
    - Go to https://marketplace.gohighlevel.com/
    - Create new app
    - Set app name: "SmileVision Pro"
@@ -93,7 +93,7 @@ https://services.leadconnectorhq.com/oauth/token
    - Deploy frontend with Connect button
 
 4. **Test OAuth Flow**
-   - Click "Connect GoHighLevel"
+   - Click "Connect Platform"
    - Authorize app
    - Select location
    - Verify connection in admin dashboard
@@ -171,13 +171,13 @@ We'll use the existing KV store to save:
 ## Testing Checklist
 
 - [ ] Environment variables set in Supabase
-- [ ] GHL Marketplace app created with correct settings
+- [ ] marketplace portal app created with correct settings
 - [ ] Redirect URL matches exactly
 - [ ] Scopes match our minimal list
 - [ ] OAuth flow completes successfully
 - [ ] Tokens stored securely (check KV store)
 - [ ] Location name displays correctly
-- [ ] Can create forms in GHL
+- [ ] Can create forms in platform
 - [ ] Can save video metadata
 - [ ] Disconnect works and deletes tokens
 - [ ] Token refresh works before expiration
@@ -189,5 +189,5 @@ If OAuth fails:
 1. Check Supabase Edge Function logs
 2. Verify environment variables are set
 3. Confirm redirect URL matches exactly
-4. Check scopes are approved in GHL
+4. Check scopes are approved in platform
 5. Verify client_id and client_secret are correct

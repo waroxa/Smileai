@@ -1,4 +1,4 @@
--- Create table for GHL OAuth connections
+-- Create table for platform OAuth connections
 create table if not exists ghl_connections (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz default now(),
@@ -67,7 +67,7 @@ create table if not exists ghl_videos (
   tags text[] default array[]::text[],
   workflow_step text default 'transformation',
   
-  -- GHL custom value reference
+  -- platform custom value reference
   custom_value_id text null,
   custom_value_key text null,
   
@@ -108,7 +108,7 @@ create trigger update_ghl_videos_updated_at
   execute function update_updated_at_column();
 
 -- Comments for documentation
-comment on table ghl_connections is 'Stores GoHighLevel OAuth connections and tokens';
+comment on table ghl_connections is 'Stores platform OAuth connections and tokens';
 comment on table ghl_oauth_states is 'Temporary storage for OAuth state parameters (CSRF protection)';
-comment on table ghl_audit_log is 'Audit log for all GHL-related actions';
-comment on table ghl_videos is 'Video metadata storage linked to GHL locations';
+comment on table ghl_audit_log is 'Audit log for all platform-related actions';
+comment on table ghl_videos is 'Video metadata storage linked to platform locations';
