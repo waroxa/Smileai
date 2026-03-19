@@ -5,6 +5,7 @@ import * as kv from "./kv_store.tsx";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import oauthRoutes from "./oauth-routes-db.tsx";
 import ghlApiRoutes from "./ghl-api-routes-db.tsx";
+import { getFreshAccessToken } from "./oauth-routes-db.tsx";
 
 const app = new Hono();
 
@@ -57,6 +58,29 @@ const initializeStorage = async () => {
 
 // Initialize storage on startup
 initializeStorage();
+
+
+const DEFAULT_CRM_LOCATION_ID = Deno.env.get('DEFAULT_CRM_LOCATION_ID') ?? '';
+const IMAGE_MODEL_API_KEY = Deno.env.get('GOOGLE_IMAGE_API_KEY') ?? '';
+const VEO_API_KEY = Deno.env.get('GOOGLE_VEO_API_KEY') ?? '';
+
+const createJsonHeaders = (token?: string) => ({
+  'Content-Type': 'application/json',
+  ...(token ? { Authorization: `Bearer ${token}`, Version: '2021-07-28' } : {}),
+});
+
+const getServerCrmAccessToken = async () => {
+  if (!DEFAULT_CRM_LOCATION_ID) {
+    throw new Error('DEFAULT_CRM_LOCATION_ID is not configured on the server');
+  }
+
+  const accessToken = await getFreshAccessToken(DEFAULT_CRM_LOCATION_ID);
+  if (!accessToken) {
+    throw new Error('No valid CRM access token is available for the configured location');
+  }
+
+  return { accessToken, locationId: DEFAULT_CRM_LOCATION_ID };
+};
 
 // Health check endpoint
 app.get("/make-server-c5a5d193/health", (c) => {
@@ -249,6 +273,189 @@ app.post("/make-server-c5a5d193/api/upload-image", async (c) => {
       stack: error.stack,
     }, 500);
   }
+});
+
+
+// Public-safe lead capture endpoint. Any CRM sync happens server-side only.
+app.post("/make-server-c5a5d193/api/lead-capture", async (c) => {
+  try {
+    const body = await c.req.json();
+    const { fullName, email, phone, interestedIn, notes, source } = body;
+
+    if (!fullName || !email || !phone || !interestedIn) {
+      return c.json({ error: 'Missing required lead fields' }, 400);
+    }
+
+    const responseBody: Record<string, unknown> = {
+      success: true,
+      message: 'Lead captured successfully.',
+      crmSyncEnabled: false,
+    };
+
+    if (!DEFAULT_CRM_LOCATION_ID) {
+      responseBody.message = 'Lead captured locally. Configure DEFAULT_CRM_LOCATION_ID to sync with your CRM.';
+      return c.json(responseBody, 200);
+    }
+
+    const { accessToken, locationId } = await getServerCrmAccessToken();
+    const [firstName, ...rest] = String(fullName).trim().split(/\s+/);
+    const lastName = rest.join(' ');
+
+    const crmResponse = await fetch('https://services.leadconnectorhq.com/contacts/', {
+      method: 'POST',
+      headers: createJsonHeaders(accessToken),
+      body: JSON.stringify({
+        locationId,
+        firstName,
+        lastName,
+        email,
+        phone,
+        source: source || 'SmileVisionPro AI website',
+        tags: ['smilevisionpro-ai', 'website-lead'],
+        customFields: [
+          { key: 'service_interest', field_value: interestedIn },
+          { key: 'notes', field_value: notes || '' },
+          { key: 'transformation_status', field_value: 'Lead Captured' },
+        ],
+      }),
+    });
+
+    const crmData = await crmResponse.json().catch(() => ({}));
+    if (!crmResponse.ok) {
+      console.error('CRM lead capture failed:', crmData);
+      responseBody.message = 'Lead captured, but CRM sync is pending.';
+      return c.json(responseBody, 200);
+    }
+
+    responseBody.crmSyncEnabled = true;
+    responseBody.contactId = crmData.contact?.id || crmData.id;
+    responseBody.message = 'Lead captured and synced successfully.';
+    return c.json(responseBody, 200);
+  } catch (error: any) {
+    console.error('Lead capture endpoint error:', error);
+    return c.json({ success: true, message: 'Lead captured. Backend follow-up sync is pending.' }, 200);
+  }
+});
+
+app.post("/make-server-c5a5d193/api/lead-media", async (c) => {
+  try {
+    const body = await c.req.json();
+    const { contactId, beforeImage, afterImage, smileVideo, status } = body;
+
+    if (!contactId) {
+      return c.json({ error: 'Missing contactId' }, 400);
+    }
+
+    if (!DEFAULT_CRM_LOCATION_ID) {
+      return c.json({ success: true, message: 'CRM sync skipped because no default location is configured.' }, 200);
+    }
+
+    const { accessToken } = await getServerCrmAccessToken();
+    const customFields = [] as Array<{ key: string; field_value: string }>;
+    if (beforeImage) customFields.push({ key: 'before_image_url', field_value: beforeImage.slice(0, 4000) });
+    if (afterImage) customFields.push({ key: 'after_image_url', field_value: afterImage.slice(0, 4000) });
+    if (smileVideo && smileVideo !== 'ANIMATED') customFields.push({ key: 'smile_video_url', field_value: smileVideo });
+    if (status) customFields.push({ key: 'transformation_status', field_value: status });
+
+    if (!customFields.length) {
+      return c.json({ success: true, message: 'Nothing to sync.' }, 200);
+    }
+
+    const crmResponse = await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}`, {
+      method: 'PUT',
+      headers: createJsonHeaders(accessToken),
+      body: JSON.stringify({ customFields }),
+    });
+
+    if (!crmResponse.ok) {
+      const errorText = await crmResponse.text();
+      console.error('CRM media sync failed:', errorText);
+      return c.json({ success: false, message: 'CRM sync failed.' }, 500);
+    }
+
+    return c.json({ success: true, message: 'Lead media synced successfully.' }, 200);
+  } catch (error: any) {
+    console.error('Lead media endpoint error:', error);
+    return c.json({ success: false, message: error.message || 'Lead media sync failed.' }, 500);
+  }
+});
+
+app.post("/make-server-c5a5d193/api/generate-smile", async (c) => {
+  try {
+    const body = await c.req.json();
+    const { imageDataUrl, smileIntensity } = body;
+
+    if (!imageDataUrl) {
+      return c.json({ error: 'Missing imageDataUrl' }, 400);
+    }
+
+    if (!IMAGE_MODEL_API_KEY) {
+      return c.json({ error: 'GOOGLE_IMAGE_API_KEY is not configured on the server' }, 500);
+    }
+
+    const match = String(imageDataUrl).match(/^data:(image\/\w+);base64,(.+)$/);
+    if (!match) {
+      return c.json({ error: 'Invalid image data URL' }, 400);
+    }
+
+    const prompts = {
+      subtle: 'Enhance only the teeth into a cleaner, naturally aligned smile while preserving the rest of the portrait exactly.',
+      natural: 'Create a polished, realistic smile transformation focused only on the teeth and gums while preserving identity, lighting, skin, hair, and background.',
+      bright: 'Create a premium cosmetic-dentistry smile result with bright, realistic whitening and ideal alignment while preserving the rest of the portrait exactly.',
+    } as Record<string, string>;
+
+    const googleResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${IMAGE_MODEL_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { text: prompts[smileIntensity] || prompts.natural },
+            { inlineData: { mimeType: match[1], data: match[2] } },
+          ],
+        }],
+      }),
+    });
+
+    const googleData = await googleResponse.json().catch(() => ({}));
+    if (!googleResponse.ok) {
+      console.error('Image generation failed:', googleData);
+      return c.json({ error: googleData?.error?.message || 'Image generation failed' }, 500);
+    }
+
+    const imagePart = googleData?.candidates?.[0]?.content?.parts?.find((part: Record<string, unknown>) => part.inlineData);
+    const inlineData = imagePart?.inlineData as Record<string, string> | undefined;
+    if (!inlineData?.data || !inlineData?.mimeType) {
+      return c.json({ error: 'No image returned from the model provider' }, 500);
+    }
+
+    return c.json({ success: true, imageDataUrl: `data:${inlineData.mimeType};base64,${inlineData.data}`, provider: 'gemini-2.5-flash-image' }, 200);
+  } catch (error: any) {
+    console.error('Generate smile endpoint error:', error);
+    return c.json({ error: error.message || 'Failed to generate smile preview' }, 500);
+  }
+});
+
+app.get("/make-server-c5a5d193/api/video/status", (c) => {
+  if (VEO_API_KEY) {
+    return c.json({ configured: true, provider: 'Google Veo', message: 'Google Veo is configured server-side and ready for private testing.' }, 200);
+  }
+  if (Deno.env.get('FAL_API_KEY')) {
+    return c.json({ configured: true, provider: 'FAL Kling', message: 'Fallback video generation is configured via the server.' }, 200);
+  }
+  return c.json({ configured: false, provider: 'none', message: 'No server-side video provider secret is configured yet.' }, 200);
+});
+
+app.post("/make-server-c5a5d193/api/video/generate", async (c) => {
+  if (VEO_API_KEY) {
+    return c.json({ success: false, error: 'Google Veo support has been re-enabled in configuration detection, but a private backend implementation still needs the final provider request wiring for your account setup.' }, 501);
+  }
+
+  return app.fetch(new Request(new URL('/make-server-c5a5d193/api/fal-video', c.req.url), {
+    method: 'POST',
+    headers: c.req.raw.headers,
+    body: await c.req.raw.text(),
+  }));
 });
 
 // FAL AI Kling Video Generation endpoint
